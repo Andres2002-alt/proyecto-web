@@ -1,3 +1,276 @@
-body{
-	background-color: whitesmoke;
+@font-face {
+    font-family: "Stronger Thinker";
+    src: url("StrongerThinker-Bold.otf");
+}
+@font-face {
+    font-family: "LEMONMILK";
+    src: url("../Fuentes/LEMONMILK-Medium.otf");
+}
+
+@font-face {
+    font-family: "Caviar";
+    src: url("../Fuentes/CaviarDreams.otf");
+}
+@font-face {
+    font-family: "Caviar Italic";
+    src: url("../Fuentes/CaviarDreams_BoldItalic.otf");
+}
+
+.hero{
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../imagenes/gym4.png");
+    height:400px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+.hero p{
+    font-family: "Caviar Italic";
+
+}
+.hero h2{
+    font-family: "Stronger Thinker";
+    color:#F8F8EC;
+
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8F8EC; 
+    color: #333333;
+    margin: 0;
+    line-height: 1.6;
+}
+
+header {
+    font-family: "LEMONMILK";
+    background-color: #02416D; 
+    padding: 15px 40px;
+    border-bottom: 4px solid #AEDD2B; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #F8F8EC; 
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #F8F8EC; 
+    font-weight: 500;
+    transition: color 0.3s;
+    font-family: Caviar;
+}
+
+nav ul li a:hover {
+    color: #AEDD2B; 
+}
+
+h1, h2, h3 {
+    color: #02416D; 
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #AEDD2B; 
+    color: #02416D; 
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    /*cursor: pointer;*/
+    border-radius: 6px;
+    /*transition: transform 0.2s, background-color 0.2s;*/
+}
+
+/*button:hover {
+    background-color: #c4f542; 
+    transform: scale(1.05); 
+}*/
+
+footer {
+    background-color: #02416D; 
+    color: #F8F8EC;
+    text-align: center;
+    padding: 40px;
+    margin-top: 50px;
+    display: flex;
+}
+.contacto{
+    width: 50%;
+
+}
+.redes{
+    flex: 1;
+
+}
+.informacion{
+    background-color: white;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.informacion, .beneficios{
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 20px;
+}
+.informacion h2{
+    font-family: "LEMONMILK";
+    font-size: 2rem;
+}
+
+.informacion p{
+    font-family: "Caviar";
+    font-size: 1.1rem;
+}
+.beneficios h2{
+    font-family: "LEMONMILK";
+}
+
+.beneficios-container{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:30px;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:transform 0.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:#02416D;
+    font-family: "Stronger Thinker";
+}
+.card p{
+    font-family: Caviar;
+
+}
+
+.sobre{
+    background-color:#02416D;
+    color:white;
+    padding:80px 40px;
+}
+
+.sobre-contenedor{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.sobre-titulo h2{
+    font-family:"Stronger Thinker";
+    font-size:3rem;
+    line-height:1.2;
+    color:#F8F8EC;
+}
+
+.sobre-texto{
+    font-family:"Caviar";
+    font-size:1.1rem;
+}
+
+/* NAVBAR MODERNO */
+
+.navbar{
+    background-color:#3F4600; /*02416D*/
+    padding:15px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+/* LOGO */
+
+.logo h1{
+    font-family:"LEMONMILK";
+    color:#C6D84E;
+    font-size:2rem;
+    margin:0;
+}
+
+/* MENU */
+
+.menu ul{
+    list-style:none;
+    display:flex;
+    gap:35px;
+    margin:0;
+    padding:0;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#E6E6A8;
+    font-family:"Caviar";
+    font-size:1rem;
+}
+
+.menu a:hover{
+    color:#AEDD2B;
+}
+
+
+.nav-derecha{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.carrito{
+    color:#E6E6A8;
+    font-size:1.1rem;
+    font-family:"Caviar";
+}
+
+.btn-gym{
+    border:2px solid #AEDD2B;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
+    color:#E6E6A8;
+    font-family:"Caviar";
+    transition:0.3s;
+}
+
+.btn-gym:hover{
+    background:#AEDD2B;
+    color:#3F4600;
 }
