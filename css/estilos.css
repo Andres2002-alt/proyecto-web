@@ -1,7 +1,8 @@
 @font-face {
     font-family: "Stronger Thinker";
-    src: url("StrongerThinker-Bold.otf");
+    src: url("../Fuentes/StrongerThinker-Bold.otf");
 }
+
 @font-face {
     font-family: "LEMONMILK";
     src: url("../Fuentes/LEMONMILK-Medium.otf");
@@ -11,266 +12,673 @@
     font-family: "Caviar";
     src: url("../Fuentes/CaviarDreams.otf");
 }
+
 @font-face {
     font-family: "Caviar Italic";
     src: url("../Fuentes/CaviarDreams_BoldItalic.otf");
 }
 
-.hero{
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../imagenes/gym4.png");
-    height:400px;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-.hero p{
-    font-family: "Caviar Italic";
-
-}
-.hero h2{
-    font-family: "Stronger Thinker";
-    color:#F8F8EC;
-
-}
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #F8F8EC; 
-    color: #333333;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Caviar", sans-serif;
+    background-color: #F8F8EC;
+    color: #333333;
     line-height: 1.6;
 }
 
-header {
-    font-family: "LEMONMILK";
-    background-color: #02416D; 
-    padding: 15px 40px;
-    border-bottom: 4px solid #AEDD2B; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-header h1 {
-    color: #F8F8EC; 
-    margin: 0;
-    font-size: 1.5rem;
+main {
+    min-height: 70vh;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #F8F8EC; 
-    font-weight: 500;
-    transition: color 0.3s;
-    font-family: Caviar;
-}
-
-nav ul li a:hover {
-    color: #AEDD2B; 
+section {
+    padding: 60px 20px;
 }
 
 h1, h2, h3 {
-    color: #02416D; 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
 }
 
 button {
-    background-color: #AEDD2B; 
-    color: #02416D; 
+    background-color: #AEDD2B;
+    color: #02416D;
     border: none;
     padding: 12px 25px;
     font-weight: bold;
     text-transform: uppercase;
-    /*cursor: pointer;*/
     border-radius: 6px;
-    /*transition: transform 0.2s, background-color 0.2s;*/
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    font-family: "Caviar";
 }
 
-/*button:hover {
-    background-color: #c4f542; 
-    transform: scale(1.05); 
-}*/
+button:hover {
+    background-color: #c4f542;
+    transform: scale(1.05);
+}
 
-footer {
-    background-color: #02416D; 
-    color: #F8F8EC;
-    text-align: center;
-    padding: 40px;
-    margin-top: 50px;
+/* NAVBAR */
+
+.navbar {
+    background-color: #3F4600;
+    padding: 15px 40px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
-.contacto{
-    width: 50%;
 
+.logo h1 {
+    font-family: "LEMONMILK";
+    color: #C6D84E;
+    font-size: 2rem;
+    margin: 0;
 }
-.redes{
-    flex: 1;
 
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
 }
-.informacion{
-    background-color: white;
+
+.menu a {
+    text-decoration: none;
+    color: #E6E6A8;
+    font-family: "Caviar";
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #AEDD2B;
+}
+
+.nav-derecha {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.icono-carrito {
+    display: flex;
+    align-items: center;
+}
+
+.icono-carrito img {
+    width: 50px;
+    height: auto;
+}
+
+.btn-gym {
+    border: 2px solid #AEDD2B;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #E6E6A8;
+    font-family: "Caviar";
+    transition: 0.3s;
+}
+
+.btn-gym:hover {
+    background: #AEDD2B;
+    color: #3F4600;
+}
+
+/* HERO */
+
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../imagenes/gym4.png");
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero h2 {
+    font-family: "Stronger Thinker";
+    color: #F8F8EC;
+    font-size: 3rem;
+}
+
+.hero p {
+    font-family: "Caviar Italic";
+    font-size: 1.2rem;
+    color: #F8F8EC;
+}
+
+/* SECCION SOBRE */
+
+.sobre {
+    background-color: #02416D;
+    color: white;
+    padding: 80px 40px;
+}
+
+.sobre-contenedor {
     max-width: 1100px;
-    margin: 60px auto;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+    align-items: center;
 }
 
-.informacion, .beneficios{
+.sobre-titulo h2 {
+    font-family: "Stronger Thinker";
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #F8F8EC;
+}
+
+.sobre-texto {
+    font-family: "Caviar";
+    font-size: 1.1rem;
+}
+
+/* BENEFICIOS */
+
+.beneficios {
     max-width: 1100px;
     margin: 60px auto;
     padding: 20px;
 }
-.informacion h2{
+
+.beneficios h2 {
     font-family: "LEMONMILK";
+    color: #02416D;
+    text-align: center;
+}
+
+.beneficios-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #02416D;
+    font-family: "Stronger Thinker";
+    font-size: 1.5rem;
+}
+
+.card p {
+    font-family: "Caviar";
+    font-size: 1rem;
+}
+
+/* CLASES */
+
+.descripcion-clases,
+.reservar,
+.ubicacion,
+.datos-contacto,
+.confirmacion,
+.carrito,
+.registro,
+.planes,
+.instructores,
+.tienda {
+    max-width: 1100px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.descripcion-clases h2,
+.reservar h2,
+.ubicacion h2,
+.datos-contacto h2,
+.confirmacion h2,
+.carrito h2,
+.registro h2,
+.planes h2,
+.instructores h2,
+.tienda h2 {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    text-align: center;
+}
+
+.descripcion-clases p,
+.reservar p,
+.ubicacion p,
+.datos-contacto p,
+.confirmacion p,
+.tienda p,
+.planes p,
+.carrito p {
+    font-family: "Caviar";
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.lista-clases {
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.clase {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.clase h3 {
+    font-family: "Stronger Thinker";
+    color: #02416D;
+    font-size: 1.6rem;
+}
+
+.clase p {
+    font-family: "Caviar";
+}
+
+.clase img {
+    margin-top: 15px;
+    border-radius: 10px;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.reservar {
+    text-align: center;
+}
+
+/* CARRITO */
+
+.carrito table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    font-family: "Caviar";
+}
+
+.carrito th,
+.carrito td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.carrito th {
+    background-color: #02416D;
+    color: #F8F8EC;
+    font-family: "LEMONMILK";
+    font-size: 0.9rem;
+}
+
+.total-compra {
+    margin-top: 30px;
+    text-align: right;
+}
+
+.total-compra h3 {
+    color: #02416D;
+    font-family: "LEMONMILK";
+    margin-bottom: 15px;
+}
+
+/* FORMULARIO */
+
+.registro form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.registro h3 {
+    margin-top: 20px;
+    color: #02416D;
+    font-family: "LEMONMILK";
+    font-size: 1.1rem;
+}
+
+.registro label {
+    font-family: "Caviar";
+    font-weight: bold;
+    color: #02416D;
+}
+
+.registro input,
+.registro select {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-family: "Caviar";
+    font-size: 1rem;
+    background-color: #fdfdf7;
+}
+
+.registro input:focus,
+.registro select:focus {
+    outline: none;
+    border-color: #AEDD2B;
+    box-shadow: 0 0 0 3px rgba(174, 221, 43, 0.2);
+}
+
+/* PLANES */
+
+.planes {
+    text-align: center;
+}
+
+.contenedor-planes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.plan {
+    background-color: #F8F8EC;
+    border: 2px solid #dfe7b4;
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.plan:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.plan h3 {
+    font-family: "Stronger Thinker";
+    color: #02416D;
+    font-size: 1.8rem;
+}
+
+.plan p {
+    font-family: "Caviar";
+    margin-bottom: 12px;
+}
+
+/* INSTRUCTORES */
+.contenedor-instructores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.instructor {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.instructor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.instructor h3 {
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: "Stronger Thinker";
+    font-size: 2.2rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.instructor p {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: "Caviar";
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* TIENDA */
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.producto {
+    background-color: #F8F8EC;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.producto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    font-family: "Stronger Thinker";
+    color: #02416D;
+    font-size: 1.4rem;
+}
+
+.producto p {
+    font-family: "Caviar";
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* UBICACIONES */
+
+.mapa {
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.mapa h2 {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    margin-bottom: 20px;
+}
+
+.mapa iframe {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* MENSAJE DE CONFIRMACION */
+
+.confirmacion {
+    text-align: center;
+}
+
+.confirmacion h2 {
     font-size: 2rem;
 }
 
-.informacion p{
-    font-family: "Caviar";
-    font-size: 1.1rem;
+.confirmacion p {
+    max-width: 700px;
+    margin: 0 auto 25px auto;
 }
-.beneficios h2{
+
+/* FOOTER */
+
+footer {
+    background-color: #02416D;
+    color: #F8F8EC;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contacto,
+.redes {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h3 {
+    color: #AEDD2B;
     font-family: "LEMONMILK";
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.beneficios-container{
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:30px;
-    margin-top:30px;
+footer p {
+    font-family: "Caviar";
+    margin-bottom: 6px;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition:transform 0.2s;
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+    .beneficios-container,
+    .lista-clases,
+    .contenedor-instructores,
+    .contenedor-planes,
+    .catalogo,
+    .sobre-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .menu ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav-derecha {
+        flex-direction: column;
+    }
 }
 
-.card:hover{
-    transform:translateY(-5px);
-}
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
 
-.card h3{
-    color:#02416D;
-    font-family: "Stronger Thinker";
-}
-.card p{
-    font-family: Caviar;
+    .sobre-titulo h2 {
+        font-size: 2.2rem;
+    }
 
-}
+    .descripcion-clases,
+    .reservar,
+    .ubicacion,
+    .datos-contacto,
+    .confirmacion,
+    .carrito,
+    .registro,
+    .planes,
+    .instructores,
+    .tienda {
+        padding: 25px;
+    }
 
-.sobre{
-    background-color:#02416D;
-    color:white;
-    padding:80px 40px;
-}
+    .carrito table,
+    .carrito thead,
+    .carrito tbody,
+    .carrito th,
+    .carrito td,
+    .carrito tr {
+        display: block;
+        width: 100%;
+    }
 
-.sobre-contenedor{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:50px;
-    align-items:center;
-}
+    .carrito thead {
+        display: none;
+    }
 
-.sobre-titulo h2{
-    font-family:"Stronger Thinker";
-    font-size:3rem;
-    line-height:1.2;
-    color:#F8F8EC;
-}
+    .carrito tr {
+        background-color: #f9f9f9;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 10px;
+    }
 
-.sobre-texto{
-    font-family:"Caviar";
-    font-size:1.1rem;
-}
+    .carrito td {
+        border: none;
+        text-align: left;
+        padding: 8px 0;
+    }
 
-/* NAVBAR MODERNO */
-
-.navbar{
-    background-color:#3F4600; /*02416D*/
-    padding:15px 40px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-/* LOGO */
-
-.logo h1{
-    font-family:"LEMONMILK";
-    color:#C6D84E;
-    font-size:2rem;
-    margin:0;
-}
-
-/* MENU */
-
-.menu ul{
-    list-style:none;
-    display:flex;
-    gap:35px;
-    margin:0;
-    padding:0;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#E6E6A8;
-    font-family:"Caviar";
-    font-size:1rem;
-}
-
-.menu a:hover{
-    color:#AEDD2B;
-}
-
-
-.nav-derecha{
-    display:flex;
-    align-items:center;
-    gap:25px;
-}
-
-.carrito{
-    color:#E6E6A8;
-    font-size:1.1rem;
-    font-family:"Caviar";
-}
-
-.btn-gym{
-    border:2px solid #AEDD2B;
-    padding:10px 20px;
-    border-radius:25px;
-    text-decoration:none;
-    color:#E6E6A8;
-    font-family:"Caviar";
-    transition:0.3s;
-}
-
-.btn-gym:hover{
-    background:#AEDD2B;
-    color:#3F4600;
+    .total-compra {
+        text-align: center;
+    }
 }
