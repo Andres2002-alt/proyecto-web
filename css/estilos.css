@@ -224,7 +224,7 @@ button:hover {
     margin-top: 30px;
 }
 
-.card {
+.tarjeta {
     background: white;
     padding: 25px;
     border-radius: 10px;
@@ -232,17 +232,17 @@ button:hover {
     transition: transform 0.2s;
 }
 
-.card:hover {
+.tarjeta:hover {
     transform: translateY(-5px);
 }
 
-.card h3 {
+.tarjeta h3 {
     color: #02416D;
     font-family: "Stronger Thinker";
     font-size: 1.5rem;
 }
 
-.card p {
+.tarjeta p {
     font-family: "Caviar";
     font-size: 1rem;
 }
@@ -328,6 +328,12 @@ button:hover {
     height: 220px;
     object-fit: cover;
 }
+
+.clase:hover {
+    transform: translateY(-5px);
+}
+
+
 
 .reservar {
     text-align: center;
@@ -444,6 +450,9 @@ button:hover {
 }
 
 /* INSTRUCTORES */
+.instructor:hover {
+    transform: translateY(-5px);
+}
 .contenedor-instructores {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -458,6 +467,7 @@ button:hover {
     min-height: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
+
 
 .instructor img {
     width: 100%;
