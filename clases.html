@@ -13,7 +13,7 @@
 
     <div class="logo">
 	    <a href="index.html">
-	        <h1>PowerFit</h1>
+	        <h1 onclick="irInicio()" style="cursor: pointer;">PowerFit</h1>
 	    </a>
 	</div>
 
@@ -60,38 +60,57 @@ condición física, fuerza y bienestar.
 <div class="clase">
 <h3>Boxeo</h3>
 <p>Entrenamiento intenso para mejorar fuerza y resistencia.</p>
-<img src="imagenes/boxeo1.jpg" alt="foto_boxeo">
+<img src="imagenes/boxeo1.jpg" alt="foto_boxeo"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
 
 </div>
 
 <div class="clase">
 <h3>Spinning</h3>
 <p>Sesiones de ciclismo para mejorar el rendimiento cardiovascular.</p>
-<img src="imagenes/spinning3.jpg" alt="foto_spinning">
+<img src="imagenes/spinning3.jpg" alt="foto_spinning"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
 </div>
 
 <div class="clase">
 <h3>Bailoterapia</h3>
 <p>Ejercicio divertido al ritmo de la música.</p>
-<img src="imagenes/bailo1.jpg" alt="foto_bailo">
+<img src="imagenes/bailo1.jpg" alt="foto_bailo"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
 </div>
 
 <div class="clase">
 <h3>Yoga</h3>
 <p>Mejora tu flexibilidad y equilibrio mental.</p>
-<img src="imagenes/YOGA1.jpg" alt="foto_yoga">
+<img src="imagenes/YOGA1.jpg" alt="foto_yoga"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
 </div>
 
 <div class="clase">
 <h3>Jiu-Jitsu</h3>
 <p>Arte marcial para defensa personal y disciplina.</p>
-<img src="imagenes/JIU JITSU.jpg" alt="foto_jiujitsu">
+<img src="imagenes/JIU JITSU.jpg" alt="foto_jiujitsu"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
+
 </div>
 
 <div class="clase">
 <h3>Pilates</h3>
 <p>Enfocado en fortalecer el cuerpo de manera equilibrada</p>
-<img src="imagenes/pilates1.jpg" alt="foto_pilates">
+<img src="imagenes/pilates1.jpg" alt="foto_pilates"
+onmouseover="aumentarImagen(this)"
+onmouseout="volverImagen(this)"
+onclick="clicImagen(this)">
 </div>
 
 </section>
@@ -104,7 +123,8 @@ condición física, fuerza y bienestar.
 <p>Elige tu clase favorita y reserva tu lugar.</p>
 
 <a href="formulario.html">
-    <button>Reservar Clase</button>
+    <button onclick="reservarClase()">Reservar Clase</button>
+
 </a>
 
 </section>

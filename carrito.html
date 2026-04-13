@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
-<body>
+<body onload="mostrarCarrito()">
 
 <header class="navbar">
 
@@ -59,21 +59,7 @@
 </tr>
 </thead>
 
-<tbody>
-
-<tr>
-<td>Proteína Whey</td>
-<td>1</td>
-<td>$35.00</td>
-<td>$35.00</td>
-</tr>
-
-<tr>
-<td>Creatina</td>
-<td>2</td>
-<td>$25.00</td>
-<td>$50.00</td>
-</tr>
+<tbody id="tablaCarrito">
 
 </tbody>
 
@@ -81,11 +67,10 @@
 
 <div class="total-compra">
 
-<h3>Total: $85.00</h3>
+<h3 id="totalCompra">Total: $0.00</h3>
 
-<a href="formulario.html">
-    <button>Continuar al pago</button>
-</a>
+<button onclick="irAlPago()">Continuar al pago</button>
+
 </div>
 
 </section>
