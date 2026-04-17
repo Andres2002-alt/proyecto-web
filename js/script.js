@@ -122,3 +122,60 @@ function vaciarCarrito() {
     localStorage.removeItem("carrito");
     mostrarCarrito();
 }
+
+
+// VALIDACION DE FORMULARIO
+function validarRegistro(formulario) {
+    // 1. Obtención de valores
+    const nombre = formulario["nombre"].value.trim();
+    const celular = formulario["celular"].value.trim();
+    const fechaNacimiento = formulario["fecha_nacimiento"].value;
+
+    // 2. Validar nombre (Solo letras)
+    const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    if (!regexLetras.test(nombre)) {
+        alert("Por favor, ingresa un nombre válido.");
+        return false; 
+    }
+
+    // 3. Validar celular (Ecuador: empieza con 09 y tiene 10 dígitos)
+    const regexCelular = /^09\d{8}$/;
+    if (!regexCelular.test(celular)) {
+        alert("Número de celular no válido. Debe tener 10 dígitos y empezar con 09.");
+        return false;
+    }
+
+    // 4. Validar edad mínima (Opcional)
+    if (fechaNacimiento) {
+        const hoy = new Date();
+        const cumple = new Date(fechaNacimiento);
+        let edad = hoy.getFullYear() - cumple.getFullYear();
+        if (edad < 16) {
+            alert("Debes ser mayor de 16 años para inscribirte.");
+            return false;
+        }
+    }
+
+    // Si llega aquí, es que todo pasó las pruebas
+    return true;
+}
+
+// --- ESCUCHA DEL EVENTO ---
+document.addEventListener("DOMContentLoaded", function() {
+    const miFormulario = document.getElementById("formRegistro");
+
+    miFormulario.addEventListener("submit", function(evento) {
+        // Ejecutamos la función y guardamos el resultado
+        const esValido = validarRegistro(miFormulario);
+
+        if (esValido) {
+            // Si la función nos dio el "OK"
+            alert("Validación correcta. Procesando inscripción...");
+            // Aquí se enviaría a la base de datos en el futuro
+            console.log("Datos listos para enviar.");
+        } else {
+            // Si la función retornó false, detenemos el envío del formulario
+            evento.preventDefault(); 
+        }
+    });
+});
