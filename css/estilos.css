@@ -75,9 +75,8 @@ button:hover {
 }
 
 /* NAVBAR */
-.logo a{
+.logo a {
     text-decoration: none;
-
 }
 
 .navbar {
@@ -150,7 +149,6 @@ button:hover {
 }
 
 /* HERO */
-
 .hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../imagenes/gym4.png");
     height: 400px;
@@ -179,7 +177,6 @@ button:hover {
 }
 
 /* SECCION SOBRE */
-
 .sobre {
     background-color: #02416D;
     color: white;
@@ -208,7 +205,6 @@ button:hover {
 }
 
 /* BENEFICIOS */
-
 .beneficios {
     max-width: 1100px;
     margin: 60px auto;
@@ -251,8 +247,7 @@ button:hover {
     font-size: 1rem;
 }
 
-/* CLASES */
-
+/* BLOQUES GENERALES */
 .descripcion-clases,
 .reservar,
 .ubicacion,
@@ -299,6 +294,7 @@ button:hover {
     text-align: center;
 }
 
+/* CLASES */
 .lista-clases {
     max-width: 1100px;
     margin: 0 auto 50px auto;
@@ -339,14 +335,11 @@ button:hover {
     transform: translateY(-5px);
 }
 
-
-
 .reservar {
     text-align: center;
 }
 
 /* CARRITO */
-
 .carrito table {
     width: 100%;
     border-collapse: collapse;
@@ -380,7 +373,6 @@ button:hover {
 }
 
 /* FORMULARIO */
-
 .registro form {
     display: flex;
     flex-direction: column;
@@ -419,7 +411,6 @@ button:hover {
 }
 
 /* PLANES */
-
 .planes {
     text-align: center;
 }
@@ -456,9 +447,18 @@ button:hover {
 }
 
 /* INSTRUCTORES */
-.instructor:hover {
-    transform: translateY(-5px);
+.instructores {
+    background-color: transparent;
+    box-shadow: none;
 }
+
+.instructores h2 {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 .contenedor-instructores {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -468,50 +468,97 @@ button:hover {
 
 .instructor {
     position: relative;
-    border-radius: 12px;
+    min-height: 620px;
+    border-radius: 16px;
     overflow: hidden;
-    min-height: 500px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    background-color: transparent;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease;
 }
 
+.instructor:hover {
+    transform: translateY(-6px);
+}
 
 .instructor img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center top;
+    display: block;
 }
 
-.instructor h3 {
+.instructor-info {
     position: absolute;
-    bottom: 55px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 24px 22px;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.88) 0%,
+        rgba(0, 0, 0, 0.68) 45%,
+        rgba(0, 0, 0, 0.28) 80%,
+        rgba(0, 0, 0, 0.05) 100%
+    );
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.instructor .instructor-info h3 {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: auto;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+    color: #4da3ff;
     font-family: "Stronger Thinker";
-    font-size: 2.2rem;
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    padding: 0 15px;
+    font-size: 1.8rem;
 }
 
-.instructor p {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
+.instructor-info .especialidad {
+    color: #ffffff;
     font-family: "Caviar";
-    font-size: 1.1rem;
-    margin: 0;
-    text-align: center;
-    width: 100%;
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin: 0 0 12px 0;
+    text-align: left;
 }
 
+.instructor .instructor-info p {
+    position: static;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: auto;
+    margin: 0 0 10px 0;
+    text-align: left;
+    color: #ffffff;
+    font-family: "Caviar";
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.instructor-info ul {
+    margin-top: 12px;
+    padding-left: 18px;
+}
+
+.instructor-info li {
+    color: #ffffff;
+    font-family: "Caviar";
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.instructor-info strong {
+    color: #ffffff;
+}
 
 /* TIENDA */
-
 .catalogo {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -548,7 +595,6 @@ button:hover {
 }
 
 /* UBICACIONES */
-
 .mapa {
     max-width: 1100px;
     margin: 0 auto 50px auto;
@@ -570,7 +616,6 @@ button:hover {
 }
 
 /* MENSAJE DE CONFIRMACION */
-
 .confirmacion {
     text-align: center;
 }
@@ -585,7 +630,6 @@ button:hover {
 }
 
 /* FOOTER */
-
 footer {
     background-color: #02416D;
     color: #F8F8EC;
@@ -617,7 +661,6 @@ footer p {
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 992px) {
     .beneficios-container,
     .lista-clases,
@@ -642,6 +685,10 @@ footer p {
 
     .nav-derecha {
         flex-direction: column;
+    }
+
+    .instructor {
+        min-height: 580px;
     }
 }
 
@@ -696,5 +743,23 @@ footer p {
 
     .total-compra {
         text-align: center;
+    }
+
+    .instructor {
+        min-height: 540px;
+    }
+
+    .instructor-info {
+        padding: 20px 18px;
+    }
+
+    .instructor .instructor-info h3 {
+        font-size: 1.45rem;
+    }
+
+    .instructor .instructor-info p,
+    .instructor-info li,
+    .instructor-info .especialidad {
+        font-size: 0.95rem;
     }
 }
