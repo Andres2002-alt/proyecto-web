@@ -796,3 +796,220 @@ button:hover {
         text-align: center;
     }
 }
+
+
+/* ===== MEJORAS VISUALES GENERALES ===== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(to bottom, #F8F8EC, #f1f1e4);
+}
+
+/* NAVBAR */
+.navbar {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.menu a {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: #AEDD2B;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+.btn-gym {
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-gym:hover {
+    transform: translateY(-2px);
+}
+
+/* BOTONES GENERALES */
+button {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* HERO */
+.hero {
+    height: 460px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    overflow: hidden;
+}
+
+.hero h2 {
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.hero p {
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* SECCIONES GENERALES */
+.descripcion-clases,
+.reservar,
+.ubicacion,
+.datos-contacto,
+.confirmacion,
+.carrito,
+.registro,
+.planes,
+.tienda {
+    border: 1px solid rgba(2, 65, 109, 0.06);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* TARJETAS DE BENEFICIOS */
+.tarjeta {
+    border: 1px solid rgba(2, 65, 109, 0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* CLASES */
+.clase {
+    border: 1px solid rgba(2, 65, 109, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.clase:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.clase img {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* PLANES */
+.plan {
+    background: linear-gradient(to bottom, #F8F8EC, #f4f4df);
+    border: 1px solid rgba(174, 221, 43, 0.35);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.plan:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+}
+
+.plan h3 {
+    margin-bottom: 18px;
+}
+
+.plan p:last-of-type {
+    font-size: 1.15rem;
+    color: #02416D;
+}
+
+/* PRODUCTOS */
+.producto {
+    background: linear-gradient(to bottom, #F8F8EC, #f4f4df);
+    border: 1px solid rgba(2, 65, 109, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.producto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.14);
+}
+
+.producto img {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.producto h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.producto button {
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* FORMULARIO */
+.registro input,
+.registro select {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.registro input:hover,
+.registro select:hover {
+    border-color: #b8cc58;
+}
+
+/* CARRITO */
+.carrito table {
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carrito tbody tr:hover {
+    background-color: rgba(174, 221, 43, 0.08);
+}
+
+/* MAPA */
+.mapa iframe {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mapa iframe:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
+}
+
+/* FOOTER MEJORADO */
+.footer-powerfit {
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.footer-col a {
+    transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.footer-col a:hover {
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE EXTRA */
+@media (max-width: 768px) {
+    .hero {
+        height: 360px;
+    }
+
+    .producto button {
+        width: 100%;
+    }
+
+    .btn-gym {
+        text-align: center;
+    }
+}
