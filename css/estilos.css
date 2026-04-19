@@ -630,34 +630,52 @@ button:hover {
 }
 
 /* FOOTER */
-footer {
+
+.footer-powerfit {
     background-color: #02416D;
     color: #F8F8EC;
-    text-align: center;
-    padding: 40px 20px;
     margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+    padding: 45px 30px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
 }
 
-.contacto,
-.redes {
-    flex: 1;
-    min-width: 250px;
-}
-
-footer h3 {
+.footer-col h3 {
     color: #AEDD2B;
     font-family: "LEMONMILK";
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-footer p {
+.footer-col p,
+.footer-col a {
     font-family: "Caviar";
-    margin-bottom: 6px;
+    color: #F8F8EC;
+    font-size: 1rem;
+    line-height: 1.7;
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: #AEDD2B;
+}
+
+.footer-bottom {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(248, 248, 236, 0.25);
+    margin-top: 10px;
+    padding-top: 18px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-family: "Caviar";
+    color: #F8F8EC;
+    font-size: 0.95rem;
 }
 
 /* RESPONSIVE */
@@ -689,6 +707,10 @@ footer p {
 
     .instructor {
         min-height: 580px;
+    }
+
+    .footer-powerfit {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -761,5 +783,16 @@ footer p {
     .instructor-info li,
     .instructor-info .especialidad {
         font-size: 0.95rem;
+    }
+
+    .footer-powerfit {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col a,
+    .footer-col p,
+    .footer-col h3 {
+        text-align: center;
     }
 }
