@@ -1122,3 +1122,44 @@ button:hover {
         padding: 8px 12px;
     }
 }
+/*Reserva general*/
+.reserva-general {
+    margin-top: 50px;
+    padding: 35px;
+    background-color: #02416D;
+    color: #F8F8EC;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.reserva-general h2 {
+    font-family: "LEMONMILK";
+    color: #AEDD2B;
+    margin-bottom: 15px;
+}
+
+.reserva-general p {
+    font-family: "Caviar";
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+/*RESERVA PERSONALIZADA BOTON*/
+.btn-reservar-instructor {
+    margin-top: 14px;
+    width: 100%;
+    background-color: #AEDD2B;
+    color: #02416D;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 30px;
+    font-family: "Caviar";
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.btn-reservar-instructor:hover {
+    background-color: #C6D84E;
+    transform: translateY(-3px);
+}

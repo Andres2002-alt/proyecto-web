@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body onload="mostrarReservaSeleccionada()">
 
 <header class="navbar">
 
@@ -50,8 +50,10 @@
 <section class="registro">
 
 <h2>Formulario de Registro</h2>
+<p id="reservaSeleccionada"></p>
 
-<form id="formRegistro" action="mensaje.html">
+
+<form id="formRegistro" action="mensaje.html" onsubmit="limpiarReserva()">
 
 
 <h3>Datos Personales</h3>

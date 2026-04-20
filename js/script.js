@@ -205,3 +205,35 @@ function cambiarImagen(direccion) {
 
     document.getElementById("imagenCarrusel").src = imagenesCarrusel[posicionCarrusel];
 }
+function reservarInstructor(nombreInstructor, clase) {
+    localStorage.setItem("tipoFormulario", "reservaInstructor");
+    localStorage.setItem("instructorSeleccionado", nombreInstructor);
+    localStorage.setItem("claseSeleccionada", clase);
+
+    window.location.href = "formulario.html";
+}
+
+function mostrarReservaSeleccionada() {
+    var tipoFormulario = localStorage.getItem("tipoFormulario");
+    var instructor = localStorage.getItem("instructorSeleccionado");
+    var clase = localStorage.getItem("claseSeleccionada");
+    var mensaje = document.getElementById("reservaSeleccionada");
+
+    if (mensaje == null) {
+        return;
+    }
+
+    if (tipoFormulario == "reservaInstructor" && instructor != null && clase != null) {
+        mensaje.innerHTML = "Estás reservando una clase de " + clase + " con " + instructor + ".";
+        mensaje.style.display = "block";
+    } else {
+        mensaje.innerHTML = "";
+        mensaje.style.display = "none";
+    }
+}
+
+function limpiarReserva() {
+    localStorage.removeItem("tipoFormulario");
+    localStorage.removeItem("instructorSeleccionado");
+    localStorage.removeItem("claseSeleccionada");
+}
