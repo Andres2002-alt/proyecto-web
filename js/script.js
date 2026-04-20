@@ -261,7 +261,9 @@ var imagenesCarrusel = [
     "imagenes/instalacion4.jpg",
     "imagenes/instalacion5.jpg",
     "imagenes/instalacion6.jpg",
-    "imagenes/instalacion7.jpg"
+    "imagenes/instalacion7.jpg",
+    "imagenes/instalacion8.jpg",
+    "imagenes/instalacion9.jpg"
 ];
 
 var posicionCarrusel = 0;
