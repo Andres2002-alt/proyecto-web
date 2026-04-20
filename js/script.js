@@ -113,14 +113,14 @@ function mostrarCarrito() {
     var tabla = document.getElementById("tablaCarrito");
     var total = 0;
 
-    if (!tabla) return; // Seguridad por si la tabla no existe en la página actual
+    if (!tabla) return;
 
     tabla.innerHTML = "";
 
     if (carrito.length == 0) {
         tabla.innerHTML = "<tr><td colspan='5'>Tu carrito está vacío</td></tr>";
         document.getElementById("totalCompra").innerHTML = "Total: $0.00";
-        actualizarContadorVisual(); // Asegura que el icono también diga 0
+        actualizarContadorVisual();
         return;
     }
 
@@ -129,20 +129,48 @@ function mostrarCarrito() {
         var subtotal = producto.precio * producto.cantidad;
         total += subtotal;
 
-        // Añadimos una celda con un botón que llama a eliminarProducto por su índice
         tabla.innerHTML +=
             "<tr>" +
             "<td>" + producto.nombre + "</td>" +
-            "<td>" + producto.cantidad + "</td>" +
+            "<td class='cantidad-carrito'>" +
+                "<button class='btn-cantidad' onclick='disminuirCantidad(" + i + ")'>-</button>" +
+                "<span>" + producto.cantidad + "</span>" +
+                "<button class='btn-cantidad' onclick='aumentarCantidad(" + i + ")'>+</button>" +
+            "</td>" +
             "<td>$" + producto.precio.toFixed(2) + "</td>" +
             "<td>$" + subtotal.toFixed(2) + "</td>" +
-            "<td><button class='btn-eliminar' onclick='eliminarProducto(" + i + ")'>❌</button></td>" +
+            "<td><button class='btn-eliminar' onclick='eliminarProducto(" + i + ")'>Eliminar</button></td>" +
             "</tr>";
     }
 
     document.getElementById("totalCompra").innerHTML = "Total: $" + total.toFixed(2);
     actualizarContadorVisual();
 }
+function aumentarCantidad(indice) {
+    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito[indice].cantidad = carrito[indice].cantidad + 1;
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito();
+    actualizarContadorVisual();
+}
+
+function disminuirCantidad(indice) {
+    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    if (carrito[indice].cantidad > 1) {
+        carrito[indice].cantidad = carrito[indice].cantidad - 1;
+    } else {
+        carrito.splice(indice, 1);
+    }
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    mostrarCarrito();
+    actualizarContadorVisual();
+}
+
+
 
 //ELIMINAR PRODUCTOS 
 function eliminarProducto(indice) {
@@ -313,3 +341,46 @@ window.onclick = function(event) {
     }
 }
 
+//VENTANA EMERGENTE TIENDA
+var productoDetalleNombre = "";
+var productoDetallePrecio = 0;
+var productoDetalleCantidad = 1;
+
+function verDetalleProducto(nombre, precio, imagen, descripcion) {
+    productoDetalleNombre = nombre;
+    productoDetallePrecio = precio;
+    productoDetalleCantidad = 1;
+
+    document.getElementById("modalNombre").innerHTML = nombre;
+    document.getElementById("modalPrecio").innerHTML = "$" + precio.toFixed(2);
+    document.getElementById("modalImagen").src = imagen;
+    document.getElementById("modalDescripcion").innerHTML = descripcion;
+    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
+
+    document.getElementById("modalProducto").style.display = "flex";
+}
+
+function cerrarDetalleProducto() {
+    document.getElementById("modalProducto").style.display = "none";
+}
+
+function aumentarCantidadDetalle() {
+    productoDetalleCantidad = productoDetalleCantidad + 1;
+    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
+}
+
+function disminuirCantidadDetalle() {
+    if (productoDetalleCantidad > 1) {
+        productoDetalleCantidad = productoDetalleCantidad - 1;
+    }
+
+    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
+}
+
+function agregarDesdeDetalle() {
+    for (var i = 1; i <= productoDetalleCantidad; i++) {
+        agregarCarrito(productoDetalleNombre, productoDetallePrecio);
+    }
+
+    cerrarDetalleProducto();
+}

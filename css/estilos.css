@@ -1228,3 +1228,134 @@ button:hover {
     background-color: #C6D84E;
     transform: translateY(-3px);
 }
+/*Ventana emergente tienda*/
+.modal-producto {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contenido-modal {
+    background-color: #F8F8EC;
+    max-width: 850px;
+    width: 100%;
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.contenido-modal img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2rem;
+    color: #02416D;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-info h2 {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    margin-bottom: 15px;
+}
+
+.modal-info p {
+    font-family: "Caviar";
+    color: #333333;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.modal-info h3 {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    font-size: 1.5rem;
+    margin: 18px 0;
+}
+
+.selector-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0 22px;
+}
+
+.selector-cantidad button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.selector-cantidad span {
+    font-family: "LEMONMILK";
+    color: #02416D;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .contenido-modal {
+        grid-template-columns: 1fr;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .contenido-modal img {
+        height: 260px;
+    }
+}
+
+/*CARRITO MODIFICACIONES*/
+.cantidad-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cantidad-carrito span {
+    min-width: 25px;
+    display: inline-block;
+    font-weight: bold;
+    color: #02416D;
+}
+
+.btn-cantidad {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 1rem;
+}
+
+.btn-eliminar {
+    background-color: #c0392b;
+    color: white;
+    padding: 9px 14px;
+}
+
+.btn-eliminar:hover {
+    background-color: #e74c3c;
+}
