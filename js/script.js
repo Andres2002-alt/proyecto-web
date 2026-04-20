@@ -179,3 +179,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+var imagenesCarrusel = [
+    "imagenes/instalacion1.jpg",
+    "imagenes/instalacion2.jpg",
+    "imagenes/instalacion3.jpg",
+    "imagenes/instalacion4.jpg",
+    "imagenes/instalacion5.jpg",
+    "imagenes/instalacion6.jpg",
+    "imagenes/instalacion7.jpg"
+];
+
+var posicionCarrusel = 0;
+
+function cambiarImagen(direccion) {
+    posicionCarrusel = posicionCarrusel + direccion;
+
+    if (posicionCarrusel >= imagenesCarrusel.length) {
+        posicionCarrusel = 0;
+    }
+
+    if (posicionCarrusel < 0) {
+        posicionCarrusel = imagenesCarrusel.length - 1;
+    }
+
+    document.getElementById("imagenCarrusel").src = imagenesCarrusel[posicionCarrusel];
+}
