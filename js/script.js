@@ -284,3 +284,32 @@ function limpiarReserva() {
     localStorage.removeItem("claseSeleccionada");
 }
 
+/**
+ * Muestra la ventana con los horarios de la clase seleccionada
+ */
+function mostrarHorarios(nombreClase, horario) {
+    const modal = document.getElementById("modalHorarios");
+    const titulo = document.getElementById("modalTitulo");
+    const cuerpo = document.getElementById("modalCuerpo");
+
+    titulo.innerText = "Horarios: " + nombreClase;
+    cuerpo.innerText = horario;
+    
+    modal.style.display = "block";
+}
+
+/**
+ * Cierra la ventana modal
+ */
+function cerrarModal() {
+    document.getElementById("modalHorarios").style.display = "none";
+}
+
+// Cerrar si el usuario hace clic fuera de la cajita blanca
+window.onclick = function(event) {
+    const modal = document.getElementById("modalHorarios");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+

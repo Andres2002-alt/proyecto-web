@@ -67,7 +67,7 @@ condición física, fuerza y bienestar.
 <img src="imagenes/boxeo1.jpg" alt="foto_boxeo"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Boxeo', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 
 </div>
 
@@ -77,7 +77,7 @@ onclick="clicImagen(this)">
 <img src="imagenes/spinning3.jpg" alt="foto_spinning"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Spinning', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 </div>
 
 <div class="clase">
@@ -86,7 +86,7 @@ onclick="clicImagen(this)">
 <img src="imagenes/bailo1.jpg" alt="foto_bailo"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Bailoterapia', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 </div>
 
 <div class="clase">
@@ -95,7 +95,7 @@ onclick="clicImagen(this)">
 <img src="imagenes/YOGA1.jpg" alt="foto_yoga"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Yoga', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 </div>
 
 <div class="clase">
@@ -104,7 +104,7 @@ onclick="clicImagen(this)">
 <img src="imagenes/JIU JITSU.jpg" alt="foto_jiujitsu"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Jiu-Jitsu', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 
 </div>
 
@@ -114,7 +114,7 @@ onclick="clicImagen(this)">
 <img src="imagenes/pilates1.jpg" alt="foto_pilates"
 onmouseover="aumentarImagen(this)"
 onmouseout="volverImagen(this)"
-onclick="clicImagen(this)">
+onclick="clicImagen(this); mostrarHorarios('Pilates', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
 </div>
 
 </section>
@@ -176,6 +176,14 @@ onclick="clicImagen(this)">
 
 </footer>
 <script src="js/script.js"></script>
+<div id="modalHorarios" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2 id="modalTitulo"></h2>
+        <p id="modalCuerpo"></p>
+        <button class="btn-gym" onclick="reservarClase()">Reservar ahora</button>
+    </div>
+</div>
 </body>
 
 </html>
