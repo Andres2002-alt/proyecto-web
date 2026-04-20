@@ -1041,6 +1041,13 @@ button:hover {
 
 .producto img {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+     width: 100%;
+     height: 250px; /* Altura fija para que todas las tarjetas midan igual */
+     object-fit: contain; /* ESTO evita que la imagen se corte y se vea el envase completo */
+     background-color: #ffffff; /* Fondo blanco tras la imagen por si es transparente */
+     border-radius: 10px;
+     margin-bottom: 15px;
+     padding: 10px;
 }
 
 .producto h3 {
@@ -1359,3 +1366,72 @@ button:hover {
 .btn-eliminar:hover {
     background-color: #e74c3c;
 }
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    /* Navbar en vertical para que quepa en el ancho del celular */
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    /* Convertimos todos los GRIDS de 2, 3 o 4 columnas a 1 SOLA columna */
+    .beneficios-container,
+    .lista-clases,
+    .contenedor-instructores,
+    .contenedor-planes,
+    .catalogo,
+    .sobre-contenedor,
+    .footer-powerfit {
+        grid-template-columns: 1fr !important;
+        gap: 25px;
+    }
+
+    /* Ajuste de textos en Hero */
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    /* Ajuste de imágenes de productos en móvil */
+    .producto img {
+        height: 220px; /* Un poco más pequeñas en móvil */
+    }
+
+    /* Tablas de Carrito Responsive */
+    .carrito table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    .carrito thead {
+        display: none; /* Ocultamos el encabezado en móvil */
+    }
+
+    .carrito tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    .carrito td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    /* Los bloques blancos de registro/tienda ocupan más ancho */
+    .descripcion-clases, .reservar, .ubicacion, .datos-contacto, 
+    .carrito, .registro, .planes, .instructores, .tienda {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}
+
