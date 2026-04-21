@@ -1435,3 +1435,25 @@ button:hover {
     }
 }
 
+
+.redes-iconos {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.redes-iconos a {
+    color: #F8F8EC;
+    font-size: 1.8rem;
+    transition: transform 0.25s ease, color 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redes-iconos a:hover {
+    color: #AEDD2B;
+    transform: scale(1.15);
+}
