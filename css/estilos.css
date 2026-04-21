@@ -80,7 +80,7 @@ button:hover {
 }
 
 .navbar {
-    background-color: #3F4600;
+    background-color: rgba(63, 70, 0, 0.95);
     padding: 15px 40px;
     display: flex;
     align-items: center;
@@ -88,6 +88,16 @@ button:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.navbar.nav-transparente {
+    background-color: rgba(63, 70, 0, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: none;
+    padding: 12px 40px;
 }
 
 .logo h1 {
@@ -118,9 +128,9 @@ button:hover {
 }
 
 .nav-derecha {
-       display: flex;
-       align-items: center;
-       gap: 10px; /* <--- ESTO controla la distancia entre el carrito y el botón */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* Contenedor del icono */
