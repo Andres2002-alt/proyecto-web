@@ -402,3 +402,32 @@ function actualizarNavbar() {
 
 window.addEventListener("scroll", actualizarNavbar);
 document.addEventListener("DOMContentLoaded", actualizarNavbar);
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const heroSlider = document.getElementById("heroSlider");
+
+    if (!heroSlider) return;
+
+    const heroSlides = heroSlider.querySelectorAll(".hero-slide");
+    let heroIndex = 0;
+    const totalSlides = heroSlides.length;
+
+    function moverHero() {
+        heroIndex++;
+        heroSlider.style.transition = "transform 0.8s ease-in-out";
+        heroSlider.style.transform = `translateX(-${heroIndex * 100}%)`;
+
+        if (heroIndex === totalSlides - 1) {
+            setTimeout(() => {
+                heroSlider.style.transition = "none";
+                heroSlider.style.transform = "translateX(0)";
+                heroIndex = 0;
+            }, 800);
+        }
+    }
+
+    setInterval(moverHero, 2000);
+});

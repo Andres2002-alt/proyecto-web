@@ -196,29 +196,59 @@ button:hover {
 
 /* HERO */
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../imagenes/gym4.png");
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+    height: 550px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-slider {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.hero-slide {
+    width: 100%;
+    height: 100%;
+    flex: 0 0 100%;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-contenido {
+    position: absolute;
+    z-index: 2;
     color: white;
     text-align: center;
     padding: 20px;
 }
 
-.hero h2 {
+.hero-contenido h2 {
     font-family: "Stronger Thinker";
     color: #F8F8EC;
-    font-size: 3rem;
+    font-size: 4rem;
+    margin-bottom: 20px;
 }
 
-.hero p {
+.hero-contenido p {
     font-family: "Caviar Italic";
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     color: #F8F8EC;
 }
 
