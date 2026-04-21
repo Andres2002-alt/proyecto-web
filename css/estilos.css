@@ -75,12 +75,12 @@ button:hover {
 }
 
 /* NAVBAR */
-.logo a {
+.logo a{
     text-decoration: none;
 }
 
 .navbar {
-    background-color: #3F4600;
+    background-color: rgba(63, 70, 0, 0.95);
     padding: 15px 40px;
     display: flex;
     align-items: center;
@@ -88,6 +88,16 @@ button:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.35s ease, backdrop-filter 0.35s ease, -webkit-backdrop-filter 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.navbar.nav-transparente {
+    background-color: rgba(63, 70, 0, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: none;
+    padding: 12px 40px;
 }
 
 .logo h1 {
@@ -118,55 +128,19 @@ button:hover {
 }
 
 .nav-derecha {
-       display: flex;
-       align-items: center;
-       gap: 10px; /* <--- ESTO controla la distancia entre el carrito y el botón */
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-/* Contenedor del icono */
 .icono-carrito {
-    margin-right: 5px; /* Reducimos el margen derecho para acercarlo más */
+    display: flex;
+    align-items: center;
 }
 
-.botonCarrito {
-     position: relative;
-     color: #ffffff;
-     font-size: 22px; /* Un poquito más pequeño para que no compita tanto con el botón */
-     text-decoration: none;
-}
-
-.botonCarrito:hover {
-    color: #d4e157;    /* Color de realce al pasar el mouse */
-}
-
-/* contador carrito*/
-#contador-carrito {
-    /* Mantenemos tu estilo pero ajustamos posición por si se mueve */
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        background-color: #ff3d00;
-        color: white;
-        font-size: 10px;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid #333d1c;
-}
-
-.btn-eliminar {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.2s;
-}
-
-.btn-eliminar:hover {
-    transform: scale(1.3); /* Crece un poquito al pasar el mouse */
+.icono-carrito img {
+    width: 50px;
+    height: auto;
 }
 
 .btn-gym {
@@ -185,6 +159,7 @@ button:hover {
 }
 
 /* HERO */
+
 .hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url("../imagenes/gym4.png");
     height: 400px;
@@ -213,6 +188,7 @@ button:hover {
 }
 
 /* SECCION SOBRE */
+
 .sobre {
     background-color: #02416D;
     color: white;
@@ -241,6 +217,7 @@ button:hover {
 }
 
 /* BENEFICIOS */
+
 .beneficios {
     max-width: 1100px;
     margin: 60px auto;
@@ -283,7 +260,8 @@ button:hover {
     font-size: 1rem;
 }
 
-/* BLOQUES GENERALES */
+/* CLASES */
+
 .descripcion-clases,
 .reservar,
 .ubicacion,
@@ -330,7 +308,6 @@ button:hover {
     text-align: center;
 }
 
-/* CLASES */
 .lista-clases {
     max-width: 1100px;
     margin: 0 auto 50px auto;
@@ -371,40 +348,12 @@ button:hover {
     transform: translateY(-5px);
 }
 
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Oscurece el fondo */
-}
-
-/* Caja blanca de la ventana */
-.modal-contenido {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: center;
-    border: 2px solid #333d1c; /* El verde de tu gym */
-}
-
-.cerrar {
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.cerrar:hover { color: #ff3d00; }
-
 .reservar {
     text-align: center;
 }
 
 /* CARRITO */
+
 .carrito table {
     width: 100%;
     border-collapse: collapse;
@@ -438,6 +387,7 @@ button:hover {
 }
 
 /* FORMULARIO */
+
 .registro form {
     display: flex;
     flex-direction: column;
@@ -476,108 +426,46 @@ button:hover {
 }
 
 /* PLANES */
-/* PLANES */
+
 .planes {
-    text-align: left;
-}
-
-.planes h2 {
     text-align: center;
-}
-
-.planes > p {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 35px auto;
 }
 
 .contenedor-planes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 25px;
     margin-top: 30px;
 }
 
 .plan {
-    background: linear-gradient(145deg, #ffffff, #f4f4df);
-    border: 1px solid rgba(174, 221, 43, 0.45);
-    border-radius: 18px;
-    padding: 32px 26px;
-    min-height: 360px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.plan::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 7px;
-    background: linear-gradient(to right, #AEDD2B, #02416D);
+    background-color: #F8F8EC;
+    border: 2px solid #dfe7b4;
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .plan:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .plan h3 {
     font-family: "Stronger Thinker";
     color: #02416D;
-    font-size: 2rem;
-    margin-bottom: 16px;
+    font-size: 1.8rem;
 }
 
 .plan p {
     font-family: "Caviar";
-    color: #333333;
-    font-size: 1rem;
-    line-height: 1.6;
-    text-align: left;
     margin-bottom: 12px;
 }
 
-.plan p strong {
-    display: block;
-    color: #02416D;
-    font-family: "LEMONMILK";
-    font-size: 1.5rem;
-    margin-top: 18px;
-    margin-bottom: 8px;
-}
-
-.plan a {
-    margin-top: auto;
-    width: 100%;
-}
-
-.plan button {
-    width: 100%;
-    margin-top: 18px;
-}
-
-
 /* INSTRUCTORES */
-.instructores {
-    background-color: transparent;
-    box-shadow: none;
+.instructor:hover {
+    transform: translateY(-5px);
 }
-
-.instructores h2 {
-    font-family: "LEMONMILK";
-    color: #02416D;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 .contenedor-instructores {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -587,97 +475,48 @@ button:hover {
 
 .instructor {
     position: relative;
-    min-height: 620px;
-    border-radius: 16px;
+    border-radius: 12px;
     overflow: hidden;
-    background-color: transparent;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-    transition: transform 0.3s ease;
-}
-
-.instructor:hover {
-    transform: translateY(-6px);
+    min-height: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 .instructor img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
-    display: block;
+    object-position: top;
 }
 
-.instructor-info {
+.instructor h3 {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 24px 22px;
-    background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.88) 0%,
-        rgba(0, 0, 0, 0.68) 45%,
-        rgba(0, 0, 0, 0.28) 80%,
-        rgba(0, 0, 0, 0.05) 100%
-    );
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-}
-
-.instructor .instructor-info h3 {
-    position: static;
-    left: auto;
-    bottom: auto;
-    transform: none;
-    width: auto;
-    margin: 0 0 10px 0;
-    padding: 0;
-    text-align: left;
-    color: #4da3ff;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
     font-family: "Stronger Thinker";
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    padding: 0 15px;
 }
 
-.instructor-info .especialidad {
-    color: #ffffff;
+.instructor p {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
     font-family: "Caviar";
-    font-size: 1.05rem;
-    font-weight: bold;
-    margin: 0 0 12px 0;
-    text-align: left;
-}
-
-.instructor .instructor-info p {
-    position: static;
-    left: auto;
-    bottom: auto;
-    transform: none;
-    width: auto;
-    margin: 0 0 10px 0;
-    text-align: left;
-    color: #ffffff;
-    font-family: "Caviar";
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.instructor-info ul {
-    margin-top: 12px;
-    padding-left: 18px;
-}
-
-.instructor-info li {
-    color: #ffffff;
-    font-family: "Caviar";
-    margin-bottom: 8px;
-    line-height: 1.4;
-}
-
-.instructor-info strong {
-    color: #ffffff;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+    width: 100%;
 }
 
 /* TIENDA */
+
 .catalogo {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -714,6 +553,7 @@ button:hover {
 }
 
 /* UBICACIONES */
+
 .mapa {
     max-width: 1100px;
     margin: 0 auto 50px auto;
@@ -735,6 +575,7 @@ button:hover {
 }
 
 /* MENSAJE DE CONFIRMACION */
+
 .confirmacion {
     text-align: center;
 }
@@ -750,54 +591,38 @@ button:hover {
 
 /* FOOTER */
 
-.footer-powerfit {
+footer {
     background-color: #02416D;
     color: #F8F8EC;
+    text-align: center;
+    padding: 40px 20px;
     margin-top: 50px;
-    padding: 45px 30px 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.footer-col h3 {
+.contacto,
+.redes {
+    flex: 1;
+    min-width: 250px;
+}
+
+footer h3 {
     color: #AEDD2B;
     font-family: "LEMONMILK";
     font-size: 1rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.footer-col p,
-.footer-col a {
+footer p {
     font-family: "Caviar";
-    color: #F8F8EC;
-    font-size: 1rem;
-    line-height: 1.7;
-    display: block;
-    margin-bottom: 8px;
-    text-decoration: none;
-}
-
-.footer-col a:hover {
-    color: #AEDD2B;
-}
-
-.footer-bottom {
-    grid-column: 1 / -1;
-    border-top: 1px solid rgba(248, 248, 236, 0.25);
-    margin-top: 10px;
-    padding-top: 18px;
-    text-align: center;
-}
-
-.footer-bottom p {
-    margin: 0;
-    font-family: "Caviar";
-    color: #F8F8EC;
-    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
 
 /* RESPONSIVE */
+
 @media (max-width: 992px) {
     .beneficios-container,
     .lista-clases,
@@ -822,14 +647,6 @@ button:hover {
 
     .nav-derecha {
         flex-direction: column;
-    }
-
-    .instructor {
-        min-height: 580px;
-    }
-
-    .footer-powerfit {
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -885,575 +702,4 @@ button:hover {
     .total-compra {
         text-align: center;
     }
-
-    .instructor {
-        min-height: 540px;
-    }
-
-    .instructor-info {
-        padding: 20px 18px;
-    }
-
-    .instructor .instructor-info h3 {
-        font-size: 1.45rem;
-    }
-
-    .instructor .instructor-info p,
-    .instructor-info li,
-    .instructor-info .especialidad {
-        font-size: 0.95rem;
-    }
-
-    .footer-powerfit {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-col a,
-    .footer-col p,
-    .footer-col h3 {
-        text-align: center;
-    }
-}
-
-
-/* ===== MEJORAS VISUALES GENERALES ===== */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: linear-gradient(to bottom, #F8F8EC, #f1f1e4);
-}
-
-/* NAVBAR */
-.navbar {
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-}
-
-.menu a {
-    position: relative;
-    padding-bottom: 4px;
-}
-
-.menu a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background-color: #AEDD2B;
-    transition: width 0.3s ease;
-}
-
-.menu a:hover::after {
-    width: 100%;
-}
-
-.btn-gym {
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.btn-gym:hover {
-    transform: translateY(-2px);
-}
-
-/* BOTONES GENERALES */
-button {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    letter-spacing: 0.5px;
-}
-
-button:hover {
-    transform: translateY(-3px) scale(1.03);
-}
-
-/* HERO */
-.hero {
-    height: 460px;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    overflow: hidden;
-}
-
-.hero h2 {
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-}
-
-.hero p {
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* SECCIONES GENERALES */
-.descripcion-clases,
-.reservar,
-.ubicacion,
-.datos-contacto,
-.confirmacion,
-.carrito,
-.registro,
-.planes,
-.tienda {
-    border: 1px solid rgba(2, 65, 109, 0.06);
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-}
-
-/* TARJETAS DE BENEFICIOS */
-.tarjeta {
-    border: 1px solid rgba(2, 65, 109, 0.08);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-}
-
-.tarjeta:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* CLASES */
-.clase {
-    border: 1px solid rgba(2, 65, 109, 0.06);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.clase:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-.clase img {
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-}
-
-/* PRODUCTOS */
-.producto {
-    background: linear-gradient(to bottom, #F8F8EC, #f4f4df);
-    border: 1px solid rgba(2, 65, 109, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.producto:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 14px 26px rgba(0, 0, 0, 0.14);
-}
-
-.producto img {
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-     width: 100%;
-     height: 250px; /* Altura fija para que todas las tarjetas midan igual */
-     object-fit: contain; /* ESTO evita que la imagen se corte y se vea el envase completo */
-     background-color: #ffffff; /* Fondo blanco tras la imagen por si es transparente */
-     border-radius: 10px;
-     margin-bottom: 15px;
-     padding: 10px;
-}
-
-.producto h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.producto button {
-    width: 100%;
-    margin-top: 8px;
-}
-
-/* FORMULARIO */
-.registro input,
-.registro select {
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
-}
-
-.registro input:hover,
-.registro select:hover {
-    border-color: #b8cc58;
-}
-
-/* CARRITO */
-.carrito table {
-    overflow: hidden;
-    border-radius: 12px;
-}
-
-.carrito tbody tr:hover {
-    background-color: rgba(174, 221, 43, 0.08);
-}
-
-/* MAPA */
-.mapa iframe {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.mapa iframe:hover {
-    transform: scale(1.01);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
-}
-
-/* FOOTER MEJORADO */
-.footer-powerfit {
-    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.12);
-}
-
-.footer-col a {
-    transition: color 0.25s ease, transform 0.2s ease;
-}
-
-.footer-col a:hover {
-    transform: translateX(4px);
-}
-
-/* RESPONSIVE EXTRA */
-@media (max-width: 768px) {
-    .hero {
-        height: 360px;
-    }
-
-    .producto button {
-        width: 100%;
-    }
-
-    .btn-gym {
-        text-align: center;
-    }
-}
-
-.carrusel-instalaciones {
-    max-width: 1100px;
-    margin: 60px auto;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.carrusel-instalaciones h2 {
-    font-family: "LEMONMILK";
-    color: #02416D;
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.carrusel-instalaciones p {
-    font-family: "Caviar";
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-
-.carrusel {
-    position: relative;
-    max-width: 900px;
-    height: 450px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-}
-
-.carrusel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.3s ease;
-}
-
-.btn-carrusel {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(2, 65, 109, 0.75);
-    color: #F8F8EC;
-    border: none;
-    font-size: 2rem;
-    padding: 12px 18px;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-}
-
-.btn-carrusel:hover {
-    background-color: #AEDD2B;
-    color: #02416D;
-}
-
-.anterior {
-    left: 20px;
-}
-
-.siguiente {
-    right: 20px;
-}
-
-@media (max-width: 768px) {
-    .carrusel {
-        height: 280px;
-    }
-
-    .btn-carrusel {
-        font-size: 1.4rem;
-        padding: 8px 12px;
-    }
-}
-/*Reserva general*/
-.reserva-general {
-    margin-top: 50px;
-    padding: 35px;
-    background-color: #02416D;
-    color: #F8F8EC;
-    border-radius: 16px;
-    text-align: center;
-}
-
-.reserva-general h2 {
-    font-family: "LEMONMILK";
-    color: #AEDD2B;
-    margin-bottom: 15px;
-}
-
-.reserva-general p {
-    font-family: "Caviar";
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-/*RESERVA PERSONALIZADA BOTON*/
-.btn-reservar-instructor {
-    margin-top: 14px;
-    width: 100%;
-    background-color: #AEDD2B;
-    color: #02416D;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 30px;
-    font-family: "Caviar";
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: transform 0.25s ease, background-color 0.25s ease;
-}
-
-.btn-reservar-instructor:hover {
-    background-color: #C6D84E;
-    transform: translateY(-3px);
-}
-/*Ventana emergente tienda*/
-.modal-producto {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.65);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.contenido-modal {
-    background-color: #F8F8EC;
-    max-width: 850px;
-    width: 100%;
-    border-radius: 18px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    padding: 30px;
-    position: relative;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-}
-
-.contenido-modal img {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border-radius: 14px;
-}
-
-.cerrar-modal {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    font-size: 2rem;
-    color: #02416D;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.modal-info h2 {
-    font-family: "LEMONMILK";
-    color: #02416D;
-    margin-bottom: 15px;
-}
-
-.modal-info p {
-    font-family: "Caviar";
-    color: #333333;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    text-align: left;
-}
-
-.modal-info h3 {
-    font-family: "LEMONMILK";
-    color: #02416D;
-    font-size: 1.5rem;
-    margin: 18px 0;
-}
-
-.selector-cantidad {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 15px 0 22px;
-}
-
-.selector-cantidad button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    padding: 0;
-    font-size: 1.2rem;
-}
-
-.selector-cantidad span {
-    font-family: "LEMONMILK";
-    color: #02416D;
-    font-size: 1.3rem;
-}
-
-@media (max-width: 768px) {
-    .contenido-modal {
-        grid-template-columns: 1fr;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .contenido-modal img {
-        height: 260px;
-    }
-}
-
-/*CARRITO MODIFICACIONES*/
-.cantidad-carrito {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.cantidad-carrito span {
-    min-width: 25px;
-    display: inline-block;
-    font-weight: bold;
-    color: #02416D;
-}
-
-.btn-cantidad {
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    border-radius: 50%;
-    font-size: 1rem;
-}
-
-.btn-eliminar {
-    background-color: #c0392b;
-    color: white;
-    padding: 9px 14px;
-}
-
-.btn-eliminar:hover {
-    background-color: #e74c3c;
-}
-
-
-/* RESPONSIVE */
-
-@media (max-width: 768px) {
-    /* Navbar en vertical para que quepa en el ancho del celular */
-    .navbar {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .menu ul {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        margin: 15px 0;
-    }
-
-    /* Convertimos todos los GRIDS de 2, 3 o 4 columnas a 1 SOLA columna */
-    .beneficios-container,
-    .lista-clases,
-    .contenedor-instructores,
-    .contenedor-planes,
-    .catalogo,
-    .sobre-contenedor,
-    .footer-powerfit {
-        grid-template-columns: 1fr !important;
-        gap: 25px;
-    }
-
-    /* Ajuste de textos en Hero */
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    /* Ajuste de imágenes de productos en móvil */
-    .producto img {
-        height: 220px; /* Un poco más pequeñas en móvil */
-    }
-
-    /* Tablas de Carrito Responsive */
-    .carrito table, thead, tbody, th, td, tr {
-        display: block;
-    }
-
-    .carrito thead {
-        display: none; /* Ocultamos el encabezado en móvil */
-    }
-
-    .carrito tr {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        padding: 10px;
-    }
-
-    .carrito td {
-        text-align: right;
-        position: relative;
-        padding-left: 50%;
-    }
-
-    /* Los bloques blancos de registro/tienda ocupan más ancho */
-    .descripcion-clases, .reservar, .ubicacion, .datos-contacto, 
-    .carrito, .registro, .planes, .instructores, .tienda {
-        margin: 20px 10px;
-        padding: 20px;
-    }
-}
-
-
-.redes-iconos {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.redes-iconos a {
-    color: #F8F8EC;
-    font-size: 1.8rem;
-    transition: transform 0.25s ease, color 0.25s ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.redes-iconos a:hover {
-    color: #AEDD2B;
-    transform: scale(1.15);
 }
