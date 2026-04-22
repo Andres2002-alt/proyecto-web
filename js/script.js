@@ -30,7 +30,6 @@ function reservarClase() {
 }
 
 //FUNCION PARA AGREGAR PRODUCTOS AL CARRITO DE COMPRAS
-// Al inicio del script, cargamos el conteo inicial basado en lo que ya hay en localStorage
 let totalProductos = 0;
 
 // Función para actualizar el número visual del carrito al cargar la página
@@ -46,7 +45,6 @@ function actualizarContadorVisual() {
 }
 
 
-// Llama a esta función cada vez que cargue el DOM
 document.addEventListener("DOMContentLoaded", actualizarContadorVisual);
 
 function agregarCarrito(nombre, precio) {
