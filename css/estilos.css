@@ -1810,3 +1810,51 @@ button:hover {
         justify-content: center;
     }
 }
+/*PLANES INDEX*/
+.plan {
+    min-height: auto;
+}
+
+.plan-frase {
+    color: var(--azul-verde);
+    font-family: "Caviar";
+    font-weight: bold;
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+
+.lista-plan {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px 0;
+    width: 100%;
+}
+
+.lista-plan li {
+    font-family: "Caviar";
+    color: var(--negro);
+    font-size: 0.98rem;
+    margin-bottom: 10px;
+    padding-left: 26px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.lista-plan li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--azul-verde);
+    font-weight: bold;
+}
+
+.precio-plan {
+    font-family: "Madani";
+    color: var(--negro);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 16px;
+}
+

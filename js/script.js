@@ -312,23 +312,21 @@ function limpiarReserva() {
     localStorage.removeItem("claseSeleccionada");
 }
 
-/**
- * Muestra la ventana con los horarios de la clase seleccionada
- */
-function mostrarHorarios(nombreClase, horario) {
+function mostrarDetalles(nombreClase, duracion, intensidad, disponibilidad) {
     const modal = document.getElementById("modalHorarios");
     const titulo = document.getElementById("modalTitulo");
     const cuerpo = document.getElementById("modalCuerpo");
 
-    titulo.innerText = "Horarios: " + nombreClase;
-    cuerpo.innerText = horario;
+    titulo.innerText = "Clase: " + nombreClase;
+    cuerpo.innerHTML = `
+        <p><strong>Duración:</strong> ${duracion}</p>
+        <p><strong>Intensidad:</strong> ${intensidad}</p>
+        <p><strong>Disponibilidad:</strong> ${disponibilidad}</p>
+    `;
     
     modal.style.display = "block";
 }
 
-/**
- * Cierra la ventana modal
- */
 function cerrarModal() {
     document.getElementById("modalHorarios").style.display = "none";
 }

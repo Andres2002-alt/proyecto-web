@@ -40,7 +40,7 @@
         </div>
 
         <a href="inscripcion.html" class="btn-gym">
-            !Inscríbete ya!
+            ¡Inscríbete ya!
         </a>
     </div>
 
@@ -51,6 +51,7 @@
 <section class="descripcion-clases">
 
 <h2>Nuestras Clases</h2>
+<p>Presiona en la imagen para ver más detalles</p>
 
 </section>
 
@@ -58,59 +59,57 @@
 <section class="lista-clases">
 
 <div class="clase">
-<h3>Boxeo</h3>
-<p>Entrenamiento intenso para mejorar fuerza y resistencia.</p>
-<img src="imagenes/boxeo1.jpg" alt="foto_boxeo"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Boxeo', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
-
+    <h3>Boxeo</h3>
+    <p>Entrenamiento intenso para mejorar fuerza y resistencia.</p>
+    <img src="imagenes/boxeo1.jpg" alt="foto_boxeo"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Boxeo', '60 minutos', 'Alta', 'Mañana y Tarde')">
 </div>
 
 <div class="clase">
-<h3>Spinning</h3>
-<p>Sesiones de ciclismo para mejorar el rendimiento cardiovascular.</p>
-<img src="imagenes/spinning3.jpg" alt="foto_spinning"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Spinning', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
+    <h3>Spinning</h3>
+    <p>Sesiones de ciclismo para mejorar el rendimiento cardiovascular.</p>
+    <img src="imagenes/spinning3.jpg" alt="foto_spinning"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Spinning', '45 minutos', 'Media', 'Mañana y Noche')">
 </div>
 
 <div class="clase">
-<h3>Bailoterapia</h3>
-<p>Ejercicio divertido al ritmo de la música.</p>
-<img src="imagenes/bailo1.jpg" alt="foto_bailo"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Bailoterapia', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
+    <h3>Bailoterapia</h3>
+    <p>Ejercicio divertido al ritmo de la música.</p>
+    <img src="imagenes/bailo1.jpg" alt="foto_bailo"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Bailoterapia', '50 minutos', 'Media', 'Tarde y Noche')">
 </div>
 
 <div class="clase">
-<h3>Yoga</h3>
-<p>Mejora tu flexibilidad y equilibrio mental.</p>
-<img src="imagenes/YOGA1.jpg" alt="foto_yoga"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Yoga', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
+    <h3>Yoga</h3>
+    <p>Mejora tu flexibilidad y equilibrio mental.</p>
+    <img src="imagenes/YOGA1.jpg" alt="foto_yoga"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Yoga', '60 minutos', 'Baja', 'Mañana y Tarde')">
 </div>
 
 <div class="clase">
-<h3>Jiu-Jitsu</h3>
-<p>Arte marcial para defensa personal y disciplina.</p>
-<img src="imagenes/JIU JITSU.jpg" alt="foto_jiujitsu"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Jiu-Jitsu', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
-
+    <h3>Jiu-Jitsu</h3>
+    <p>Arte marcial para defensa personal y disciplina.</p>
+    <img src="imagenes/JIU JITSU.jpg" alt="foto_jiujitsu"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Jiu-Jitsu', '75 minutos', 'Alta', 'Tarde y Noche')">
 </div>
 
 <div class="clase">
-<h3>Pilates</h3>
-<p>Enfocado en fortalecer el cuerpo de manera equilibrada</p>
-<img src="imagenes/pilates1.jpg" alt="foto_pilates"
-onmouseover="aumentarImagen(this)"
-onmouseout="volverImagen(this)"
-onclick="clicImagen(this); mostrarHorarios('Pilates', 'Lunes a Viernes: 07:00 - 09:00 / 18:00 - 20:00')">
+    <h3>Pilates</h3>
+    <p>Enfocado en fortalecer el cuerpo de manera equilibrada.</p>
+    <img src="imagenes/pilates1.jpg" alt="foto_pilates"
+    onmouseover="aumentarImagen(this)"
+    onmouseout="volverImagen(this)"
+    onclick="clicImagen(this); mostrarDetalles('Pilates', '55 minutos', 'Media', 'Mañana y Tarde')">
 </div>
 
 </section>
@@ -172,7 +171,6 @@ onclick="clicImagen(this); mostrarHorarios('Pilates', 'Lunes a Viernes: 07:00 - 
         <span class="cerrar" onclick="cerrarModal()">&times;</span>
         <h2 id="modalTitulo"></h2>
         <p id="modalCuerpo"></p>
-        <button class="btn-gym" onclick="reservarClase()">Reservar ahora</button>
     </div>
 </div>
 </body>
