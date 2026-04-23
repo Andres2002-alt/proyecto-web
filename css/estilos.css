@@ -788,7 +788,12 @@ button:hover {
     font-weight: bold;
     margin: 0 0 12px 0;
     text-align: left;
+    letter-spacing: 1px;
 }
+.especialidad{
+    color:#F2E85E;
+}
+
 
 .instructor .instructor-info p {
     margin: 0 0 10px 0;
@@ -1335,7 +1340,7 @@ button:hover {
     .instructor .instructor-info p,
     .instructor-info li,
     .instructor-info .especialidad {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .contenido-modal {

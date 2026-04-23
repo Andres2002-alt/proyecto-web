@@ -57,45 +57,46 @@
 <p>Encuentra suplementos para mejorar tu rendimiento y recuperación.</p>
 
 <div class="catalogo">
-    <!--
+
     <div class="producto">
         <img src="imagenes/proteinawhey.png" alt="Proteína Whey">
         <h3>Proteína Whey</h3>
         <p>$35.00</p>
+        <button onclick="verDetalleProducto(
+            'Proteína Whey', 35, 'imagenes/proteinawhey.png',
+            'Suplemento ideal para apoyar el crecimiento muscular y la recuperación.',
+            '2 lb (907 g)',
+            'Proteína de suero, aminoácidos esenciales, enzimas digestivas',
+            'Consumir 1 scoop después del entrenamiento con agua o leche'
+        )">Ver detalle</button>
         <button onclick="agregarCarrito('Proteína Whey',35)">Agregar al carrito</button>
-    </div>
-    -->
-    <div class="producto">
-        <img src="imagenes/proteinawhey.png" alt="Proteína Whey">
-        <h3>Proteína Whey</h3>
-        <p>$35.00</p>
-
-        <button onclick="verDetalleProducto('Proteína Whey', 35, 'imagenes/proteinawhey.png', 'Suplemento ideal para apoyar el crecimiento muscular y la recuperación después del entrenamiento.')">Ver detalle
-        </button>
-
-        <button onclick="agregarCarrito('Proteína Whey',35)">
-            Agregar al carrito
-        </button>
     </div>
 
     <div class="producto">
         <img src="imagenes/creatina.png" alt="Creatina">
         <h3>Creatina</h3>
         <p>$25.00</p>
-        <button onclick="verDetalleProducto('Creatina', 25, 'imagenes/creatina.png', 'Suplemento que ayuda a mejorar la fuerza, la potencia y el rendimiento durante entrenamientos intensos.')">Ver detalle
-        </button>
-
+        <button onclick="verDetalleProducto(
+            'Creatina', 25, 'imagenes/creatina.png',
+            'Mejora fuerza, potencia y rendimiento en entrenamientos intensos.',
+            '300 g',
+            'Monohidrato de creatina',
+            'Consumir 5 g diarios disueltos en agua o jugo'
+        )">Ver detalle</button>
         <button onclick="agregarCarrito('Creatina',25)">Agregar al carrito</button>
-
     </div>
 
     <div class="producto">
         <img src="imagenes/BCCA.png" alt="BCAA">
         <h3>BCAA</h3>
         <p>$20.00</p>
-        <button onclick="verDetalleProducto('BCAA', 20, 'imagenes/BCCA.png', 'Aminoácidos esenciales que ayudan a la recuperación muscular y reducen la fatiga después del ejercicio.')">Ver detalle
-        </button>
-
+        <button onclick="verDetalleProducto(
+            'BCAA', 20, 'imagenes/BCCA.png',
+            'Aminoácidos esenciales que ayudan a la recuperación muscular.',
+            '250 g',
+            'Leucina, isoleucina, valina',
+            'Consumir antes o después del entrenamiento'
+        )">Ver detalle</button>
         <button onclick="agregarCarrito('BCAA',20)">Agregar al carrito</button>
     </div>
 
@@ -103,77 +104,102 @@
         <img src="imagenes/preworkout.png" alt="Pre Workout">
         <h3>Pre Workout</h3>
         <p>$30.00</p>
-        <button onclick="verDetalleProducto('Pre Workout', 30, 'imagenes/preworkout.png', 'Suplemento pre-entreno diseñado para aumentar la energía, la concentración y la resistencia antes de entrenar.')">Ver detalle
-        </button>
-
+        <button onclick="verDetalleProducto(
+            'Pre Workout', 30, 'imagenes/preworkout.png',
+            'Suplemento para aumentar energía y concentración antes de entrenar.',
+            '300 g',
+            'Cafeína, beta-alanina, citrulina',
+            'Consumir 1 scoop 20 min antes del entrenamiento'
+        )">Ver detalle</button>
         <button onclick="agregarCarrito('Pre Workout',30)">Agregar al carrito</button>
     </div>
 
     <div class="producto">
-    <img src="imagenes/glutamina.jpg" alt="Glutamina">
-    <h3>Glutamina</h3>
-    <p>$28.00</p>
-    <button onclick="verDetalleProducto('Glutamina', 28, 'imagenes/glutamina.jpg', 'Suplemento que contribuye a la recuperación muscular y al cuidado del sistema inmune después de entrenamientos exigentes.')">Ver detalle
-    </button>
+        <img src="imagenes/glutamina.jpg" alt="Glutamina">
+        <h3>Glutamina</h3>
+        <p>$28.00</p>
+        <button onclick="verDetalleProducto(
+            'Glutamina', 28, 'imagenes/glutamina.jpg',
+            'Apoya la recuperación muscular y el sistema inmune.',
+            '250 g',
+            'L-glutamina pura',
+            'Consumir 5 g después del entrenamiento'
+        )">Ver detalle</button>
+        <button onclick="agregarCarrito('Glutamina',28)">Agregar al carrito</button>
+    </div>
 
-    <button onclick="agregarCarrito('Glutamina',28)">Agregar al carrito</button>
+    <div class="producto">
+        <img src="imagenes/quemadorgrasa.png" alt="Quemador de Grasa">
+        <h3>Quemador de Grasa</h3>
+        <p>$32.00</p>
+        <button onclick="verDetalleProducto(
+            'Quemador de Grasa', 32, 'imagenes/quemadorgrasa.png',
+            'Apoya el metabolismo y la quema de calorías.',
+            '90 cápsulas',
+            'Extracto de té verde, cafeína, L-carnitina',
+            'Consumir 2 cápsulas al día con abundante agua'
+        )">Ver detalle</button>
+        <button onclick="agregarCarrito('Quemador de Grasa',32)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/multivitaminico.png" alt="Multivitamínico">
+        <h3>Multivitamínico</h3>
+        <p>$18.00</p>
+        <button onclick="verDetalleProducto(
+            'Multivitamínico', 18, 'imagenes/multivitaminico.png',
+            'Complemento con vitaminas y minerales para energía y bienestar.',
+            '60 tabletas',
+            'Vitaminas A, C, D, complejo B, minerales',
+            'Consumir 1 tableta diaria con alimentos'
+        )">Ver detalle</button>
+        <button onclick="agregarCarrito('Multivitamínico',18)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/shaker.png" alt="Shaker PowerFit">
+        <h3>Shaker PowerFit</h3>
+        <p>$12.00</p>
+        <button onclick="verDetalleProducto(
+            'Shaker PowerFit', 12, 'imagenes/shaker.png',
+            'Botella mezcladora práctica para batidos.',
+            '700 ml',
+            'Plástico libre de BPA, rejilla mezcladora',
+            'Ideal para preparar proteínas y bebidas deportivas'
+        )">Ver detalle</button>
+        <button onclick="agregarCarrito('Shaker PowerFit',12)">Agregar al carrito</button>
+    </div>
+
+    <div class="producto">
+        <img src="imagenes/barraenergetica.png" alt="Barra Energética">
+        <h3>Barra Energética</h3>
+        <p>$5.00</p>
+        <button onclick="verDetalleProducto(
+            'Barra Energética', 5, 'imagenes/barraenergetica.png',
+            'Snack práctico para energía rápida.',
+            '50 g',
+            'Avena, miel, frutos secos',
+            'Consumir antes del entrenamiento o como snack'
+        )">Ver detalle</button>
+        <button onclick="agregarCarrito('Barra Energética',5)">Agregar al carrito</button>
+    </div>
+
 </div>
 
-<div class="producto">
-    <img src="imagenes/quemadorgrasa.png" alt="Quemador de Grasa">
-    <h3>Quemador de Grasa</h3>
-    <p>$32.00</p>
-    <button onclick="verDetalleProducto('Quemador de Grasa', 32, 'imagenes/quemadorgrasa.png', 'Producto orientado a apoyar el metabolismo y complementar rutinas de ejercicio y alimentación saludable.')">Ver detalle
-    </button>
-
-    <button onclick="agregarCarrito('Quemador de Grasa',32)">Agregar al carrito</button>
-</div>
-
-<div class="producto">
-    <img src="imagenes/multivitaminico.png" alt="Multivitamínico">
-    <h3>Multivitamínico</h3>
-    <p>$18.00</p>
-    <button onclick="verDetalleProducto('Multivitamínico', 18, 'imagenes/multivitaminico.png', 'Complemento con vitaminas y minerales que ayuda a mantener energía, bienestar general y rendimiento diario.')">Ver detalle
-    </button>
-
-    <button onclick="agregarCarrito('Multivitamínico',18)">Agregar al carrito</button>
-</div>
-
-<div class="producto">
-    <img src="imagenes/shaker.png" alt="Shaker PowerFit">
-    <h3>Shaker PowerFit</h3>
-    <p>$12.00</p>
-    <button onclick="verDetalleProducto('Shaker PowerFit', 12, 'imagenes/shaker.png', 'Botella mezcladora práctica para preparar batidos, proteínas y bebidas deportivas antes o después del entrenamiento.')">Ver detalle
-    </button>
-
-    <button onclick="agregarCarrito('Shaker PowerFit',12)">Agregar al carrito</button>
-</div>
-
-<div class="producto">
-    <img src="imagenes/barraenergetica.png" alt="Barra Energética">
-    <h3>Barra Energética</h3>
-    <p>$5.00</p>
-    <button onclick="verDetalleProducto('Barra Energética', 5, 'imagenes/barraenergetica.png', 'Snack práctico para aportar energía rápida antes del entrenamiento o como apoyo durante el día.')">Ver detalle
-    </button>
-
-    <button onclick="agregarCarrito('Barra Energética',5)">Agregar al carrito</button>
-</div>
-
-</div>
 
 </section>
 <div id="modalProducto" class="modal-producto">
 
     <div class="contenido-modal">
 
-        <span class="cerrar-modal" onclick="cerrarDetalleProducto()">&times;</span>
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
 
         <img id="modalImagen" src="" alt="Producto">
 
         <div class="modal-info">
-            <h2 id="modalNombre"></h2>
+            <h2 id="modalTitulo"></h2>
             <p id="modalDescripcion"></p>
-            <h3 id="modalPrecio"></h3>
+            <div id="modalCuerpo"></div>
 
             <label>Cantidad:</label>
 

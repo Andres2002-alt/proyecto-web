@@ -344,21 +344,26 @@ var productoDetalleNombre = "";
 var productoDetallePrecio = 0;
 var productoDetalleCantidad = 1;
 
-function verDetalleProducto(nombre, precio, imagen, descripcion) {
-    productoDetalleNombre = nombre;
-    productoDetallePrecio = precio;
-    productoDetalleCantidad = 1;
+function verDetalleProducto(nombre, precio, imagen, descripcion, tamano, ingredientes, especificaciones) {
+    const modal = document.getElementById("modalProducto");
+    const titulo = document.getElementById("modalTitulo");
+    const cuerpo = document.getElementById("modalCuerpo");
+    const imagenProducto = document.getElementById("modalImagen");
 
-    document.getElementById("modalNombre").innerHTML = nombre;
-    document.getElementById("modalPrecio").innerHTML = "$" + precio.toFixed(2);
-    document.getElementById("modalImagen").src = imagen;
-    document.getElementById("modalDescripcion").innerHTML = descripcion;
-    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
-
-    document.getElementById("modalProducto").style.display = "flex";
+    titulo.innerText = nombre;
+    imagenProducto.src = imagen;
+    cuerpo.innerHTML = `
+        <p><strong>Precio:</strong> $${precio}</p>
+        <p><strong>Descripción:</strong> ${descripcion}</p>
+        <p><strong>Tamaño:</strong> ${tamano}</p>
+        <p><strong>Ingredientes:</strong> ${ingredientes}</p>
+        <p><strong>Especificaciones:</strong> ${especificaciones}</p>
+    `;
+    
+    modal.style.display = "flex";
 }
 
-function cerrarDetalleProducto() {
+function cerrarModal() {
     document.getElementById("modalProducto").style.display = "none";
 }
 
