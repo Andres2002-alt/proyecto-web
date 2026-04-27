@@ -144,6 +144,28 @@ button:hover {
     text-decoration: none;
 }
 
+/* PARTE DEL ACCESO AL USUARIO (INICIO DE SESIO O CREAR CUENTA)*/
+.btn-registro-alternativo {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: var(--verde-neon);
+    border: 2px solid var(--verde-neon);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-registro-alternativo:hover {
+    background: var(--verde-neon);
+    color: var(--negro-fondo);
+}
+
+/* ==================================== */
+
 .navbar {
     background: linear-gradient(90deg, var(--amarillo) 0%, #F7EF75 55%, var(--celeste) 100%);
     padding: 15px 40px;
