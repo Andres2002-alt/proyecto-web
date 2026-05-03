@@ -2,7 +2,7 @@ function irInicio() {
     window.location.href = "index.html";
 }
 function irAlPago() {
-    window.location.href = "formulario.html";
+    window.location.href = "pago.html";
 }
 
 
@@ -84,7 +84,7 @@ function agregarCarrito(nombre, precio) {
 
 
 function irAlPago() {
-    window.location.href = "formulario.html";
+    window.location.href = "pago.html";
 }
 
 function calcularTotal() {
