@@ -195,6 +195,73 @@ function vaciarCarrito() {
     alert("Carrito vaciado correctamente.");
 }
 
+// registrarCliente
+function registrarCliente(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombreCliente").value.trim();
+    const apellido = document.getElementById("apellidoCliente").value.trim();
+    const email = document.getElementById("emailCliente").value.trim();
+    const celular = document.getElementById("celularCliente").value.trim();
+    const clave = document.getElementById("claveCliente").value;
+    const confirmarClave = document.getElementById("confirmarClaveCliente").value;
+
+    const cedulaInput = document.getElementById("cedulaCliente");
+    const cedula = cedulaInput ? cedulaInput.value.trim() : "";
+
+    const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    const regexCelular = /^09\d{8}$/;
+    const regexCedula = /^\d{10}$/;
+
+    if (!regexLetras.test(nombre)) {
+        alert("Ingresa un nombre válido.");
+        return;
+    }
+
+    if (!regexLetras.test(apellido)) {
+        alert("Ingresa un apellido válido.");
+        return;
+    }
+
+    if (cedulaInput && !regexCedula.test(cedula)) {
+        alert("La cédula debe tener exactamente 10 dígitos.");
+        return;
+    }
+
+    if (!regexCelular.test(celular)) {
+        alert("El número de celular debe empezar con 09 y tener 10 dígitos.");
+        return;
+    }
+
+    if (clave.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres.");
+        return;
+    }
+
+    if (clave !== confirmarClave) {
+        alert("Las contraseñas no coinciden.");
+        return;
+    }
+
+    const cliente = {
+        nombre: nombre,
+        apellido: apellido,
+        cedula: cedula,
+        email: email,
+        celular: celular
+    };
+
+    localStorage.setItem("clientePowerFit", JSON.stringify(cliente));
+    localStorage.setItem("clienteLogueado", "true");
+
+    alert("Cuenta creada correctamente.");
+    window.location.href = "pago.html";
+}
+
+
+
+
+
 
 // VALIDACION DE FORMULARIO
 function validarRegistro(formulario) {
@@ -236,20 +303,18 @@ function validarRegistro(formulario) {
 document.addEventListener("DOMContentLoaded", function() {
     const miFormulario = document.getElementById("formRegistro");
 
-    miFormulario.addEventListener("submit", function(evento) {
-        // Ejecutamos la función y guardamos el resultado
-        const esValido = validarRegistro(miFormulario);
+    if (miFormulario) {
+        miFormulario.addEventListener("submit", function(evento) {
+            const esValido = validarRegistro(miFormulario);
 
-        if (esValido) {
-            // Si la función nos dio el "OK"
-            alert("Validación correcta. Procesando inscripción...");
-            // Aquí se enviaría a la base de datos en el futuro
-            console.log("Datos listos para enviar.");
-        } else {
-            // Si la función retornó false, detenemos el envío del formulario
-            evento.preventDefault(); 
-        }
-    });
+            if (esValido) {
+                alert("Validación correcta. Procesando inscripción...");
+                console.log("Datos listos para enviar.");
+            } else {
+                evento.preventDefault();
+            }
+        });
+    }
 });
 
 var imagenesCarrusel = [
