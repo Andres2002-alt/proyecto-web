@@ -466,13 +466,11 @@ function verDetalleProducto(nombre, precio, imagen, descripcion, tamano, ingredi
 function cerrarModal() {
     document.getElementById("modalProducto").style.display = "none";
 
-    
+}  
 function cerrarModalHorarios() {
     document.getElementById("modalHorarios").style.display = "none";
 }
 
-
-}
 
 function aumentarCantidadDetalle() {
     productoDetalleCantidad = productoDetalleCantidad + 1;
@@ -494,24 +492,6 @@ function agregarDesdeDetalle() {
 
     cerrarDetalleProducto();
 }
-
-
-function actualizarNavbar() {
-    const navbar = document.querySelector(".navbar");
-
-    if (!navbar) return;
-
-    if (window.scrollY > 80) {
-        navbar.classList.add("nav-transparente");
-    } else {
-        navbar.classList.remove("nav-transparente");
-    }
-}
-
-window.addEventListener("scroll", actualizarNavbar);
-document.addEventListener("DOMContentLoaded", actualizarNavbar);
-
-
 
 
 document.addEventListener("DOMContentLoaded", function () {
