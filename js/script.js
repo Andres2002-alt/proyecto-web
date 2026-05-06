@@ -465,6 +465,13 @@ function verDetalleProducto(nombre, precio, imagen, descripcion, tamano, ingredi
 
 function cerrarModal() {
     document.getElementById("modalProducto").style.display = "none";
+
+    
+function cerrarModalHorarios() {
+    document.getElementById("modalHorarios").style.display = "none";
+}
+
+
 }
 
 function aumentarCantidadDetalle() {
