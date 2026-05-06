@@ -165,13 +165,6 @@
         box-shadow: 0 8px 24px rgba(0, 1, 13, 0.22);
     }
 
-    .navbar.nav-transparente {
-        background: linear-gradient(90deg, var(--azul-verde-oscuro) 0%, var(--azul-verde) 65%, #4F9AA1 100%);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        border-bottom: 4px solid var(--amarillo);
-    }
-
     .logo h1 {
         color: var(--blanco);
         font-size: 2.1rem;
@@ -1659,13 +1652,6 @@
         line-height: 1.15;
     }
 
-    /* NAVBAR MÁS GYM Y MENOS PÁLIDO */
-    .navbar {
-        background: linear-gradient(90deg, var(--negro) 0%, var(--negro-suave) 45%, var(--azul-verde-oscuro) 100%);
-        border-bottom: 3px solid var(--amarillo);
-        box-shadow: 0 8px 24px rgba(0, 1, 13, 0.22);
-    }
-
     .logo h1,
     .menu a,
     .botonCarrito {
@@ -2426,4 +2412,48 @@
 .texto-cambio-form a:hover {
     color: var(--negro);
     text-decoration: underline;
+}
+
+/* =========================================================
+   HEADER OSCURO FIJO - MISMO ESTILO DEL FOOTER
+========================================================= */
+
+.navbar,
+.navbar.nav-transparente {
+    background: linear-gradient(
+        135deg,
+        var(--negro) 0%,
+        #06181B 55%,
+        var(--azul-verde-oscuro) 100%
+    ) !important;
+
+    border-bottom: 4px solid var(--amarillo) !important;
+    box-shadow: 0 8px 24px rgba(0, 1, 13, 0.22);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.logo h1,
+.menu a,
+.botonCarrito,
+.icono-usuario {
+    color: var(--blanco) !important;
+}
+
+.menu a:hover,
+.botonCarrito:hover,
+.icono-usuario:hover {
+    color: var(--amarillo) !important;
+}
+
+.btn-gym {
+    background-color: var(--amarillo) !important;
+    color: var(--negro) !important;
+    border: 2px solid var(--amarillo) !important;
+}
+
+.btn-gym:hover {
+    background-color: transparent !important;
+    color: var(--amarillo) !important;
+    border-color: var(--amarillo) !important;
 }
