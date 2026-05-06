@@ -32,6 +32,11 @@
     </nav>
 
     <div class="nav-derecha">
+
+        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
         <div class="icono-carrito">
             <a href="carrito.html" class="botonCarrito">
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -39,193 +44,165 @@
             </a>
         </div>
 
+        <div id="estadoSesion" class="estado-sesion"></div>
+
         <a href="inscripcion.html" class="btn-gym">
-            ¡Inscríbete ya!
+            Inscríbete ya
         </a>
+
     </div>
 
 </header>
 
+<main>
 
+    <section class="hero">
+        <div class="hero-slider" id="heroSlider">
 
-<section class="hero">
-    <div class="hero-slider" id="heroSlider">
-        <div class="hero-slide">
-            <img src="imagenes/hero1.png" alt="Entrenamiento en PowerFit">
-        </div>
-        <div class="hero-slide">
-            <img src="imagenes/hero2.png" alt="Clases grupales en PowerFit">
-        </div>
-        <div class="hero-slide">
-            <img src="imagenes/hero3.png" alt="Zona de pesas PowerFit">
-        </div>
-        <div class="hero-slide">
-            <img src="imagenes/hero4.png" alt="Entrenamiento funcional en PowerFit">
-        </div>
+            <div class="hero-slide">
+                <img src="imagenes/hero1.png" alt="Entrenamiento en PowerFit">
+            </div>
 
-        
-        <div class="hero-slide">
-            <img src="imagenes/hero1.png" alt="Entrenamiento en PowerFit">
-        </div>
-    </div>
+            <div class="hero-slide">
+                <img src="imagenes/hero2.png" alt="Clases grupales en PowerFit">
+            </div>
 
-    <div class="hero-overlay"></div>
+            <div class="hero-slide">
+                <img src="imagenes/hero3.png" alt="Zona de pesas PowerFit">
+            </div>
 
-    <div class="hero-contenido">
-        <h2>Tu mejor versión empieza hoy</h2>
-        <p>Fuerza, disciplina y resultados reales</p>
-    </div>
-</section>
+            <div class="hero-slide">
+                <img src="imagenes/hero4.png" alt="Entrenamiento funcional en PowerFit">
+            </div>
 
+            <div class="hero-slide">
+                <img src="imagenes/hero1.png" alt="Entrenamiento en PowerFit">
+            </div>
 
-
-
-<section class="planes planes-inicio">
-
-    <h2>Planes de Membresía</h2>
-    <p>Elige el plan que mejor se adapte a tus objetivos</p>
-
-    <div class="contenedor-planes">
-
-        <div class="plan">
-            <h3>Plan Esencial</h3>
-            <p class="plan-frase">Tu primer paso al fitness</p>
-
-            <ul class="lista-plan">
-                <li>Acceso ilimitado al gimnasio</li>
-                <li>Uso de máquinas y zona de pesas</li>
-                <li>Asesoría inicial con instructor</li>
-                <li>Horario flexible: lunes a sábado</li>
-            </ul>
-
-            <p class="precio-plan">$25 + IVA/ mes</p>
-
-            <a href="formulario.html">
-                <button>¡Inscríbete ya!</button>
-            </a>
         </div>
 
-        <div class="plan destacado">
-            <h3>Plan Activo</h3>
-            <p class="plan-frase">Entrena, diviértete y progresa</p>
+        <div class="hero-overlay"></div>
 
-            <ul class="lista-plan">
-                <li>Gimnasio + clases grupales</li>
-                <li>Boxeo, spinning, yoga y bailoterapia</li>
-                <li>Seguimiento básico de tu progreso</li>
-                <li>Ambiente dinámico y motivador</li>
-            </ul>
+        <div class="hero-contenido">
+            <h2>Tu mejor versión empieza hoy</h2>
+            <p>Fuerza, disciplina y resultados reales</p>
+        </div>
+    </section>
 
-            <p class="precio-plan">$40 + IVA / mes</p>
+    <section class="planes planes-inicio">
 
-            <a href="formulario.html">
-                <button>¡Inscríbete ya!</button>
-            </a>
+        <h2>Planes de membresía</h2>
+        <p>Elige el plan que mejor se adapte a tus objetivos</p>
+
+        <div class="contenedor-planes">
+
+            <div class="plan">
+                <h3>Plan Esencial</h3>
+                <p class="plan-frase">Tu primer paso al fitness</p>
+
+                <ul class="lista-plan">
+                    <li>Acceso ilimitado al gimnasio</li>
+                    <li>Uso de máquinas y zona de pesas</li>
+                    <li>Asesoría inicial con instructor</li>
+                    <li>Horario flexible: lunes a sábado</li>
+                </ul>
+
+                <p class="precio-plan">$25 + IVA / mes</p>
+
+                <button onclick="seleccionarPlan('Plan Esencial', 25)">
+                    Comenzar ahora
+                </button>
+            </div>
+
+            <div class="plan destacado">
+                <h3>Plan Activo</h3>
+                <p class="plan-frase">Entrena, diviértete y progresa</p>
+
+                <ul class="lista-plan">
+                    <li>Gimnasio + clases grupales</li>
+                    <li>Boxeo, spinning, yoga y bailoterapia</li>
+                    <li>Seguimiento básico de tu progreso</li>
+                    <li>Ambiente dinámico y motivador</li>
+                </ul>
+
+                <p class="precio-plan">$40 + IVA / mes</p>
+
+                <button onclick="seleccionarPlan('Plan Activo', 40)">
+                    Inscribirse
+                </button>
+            </div>
+
+            <div class="plan premium">
+                <h3>Plan Elite</h3>
+                <p class="plan-frase">Transforma tu cuerpo y mente</p>
+
+                <ul class="lista-plan">
+                    <li>Acceso total al gimnasio y clases</li>
+                    <li>Entrenador personal dedicado</li>
+                    <li>Rutina personalizada por objetivos</li>
+                    <li>Control avanzado de progreso</li>
+                </ul>
+
+                <p class="precio-plan">$60 + IVA / mes</p>
+
+                <button onclick="seleccionarPlan('Plan Elite', 60)">
+                    Unirme al Elite
+                </button>
+            </div>
+
         </div>
 
-        <div class="plan premium">
-            <h3>Plan Elite</h3>
-            <p class="plan-frase">Transforma tu cuerpo y mente</p>
+    </section>
 
-            <ul class="lista-plan">
-                <li>Acceso total al gimnasio y clases</li>
-                <li>Entrenador personal dedicado</li>
-                <li>Rutina personalizada por objetivos</li>
-                <li>Control avanzado de progreso</li>
-            </ul>
+    <section class="sobre">
 
-            <p class="precio-plan">$60 + IVA/ mes</p>
+        <div class="sobre-contenedor">
 
-            <a href="formulario.html">
-                <button>¡Inscríbete ya!</button>
-            </a>
+            <div class="sobre-titulo">
+                <h2>
+                    Somos un gimnasio dedicado a la salud y al bienestar
+                </h2>
+            </div>
+
+            <div class="sobre-texto">
+                <p>
+                    PowerFit Gym es un espacio dedicado al bienestar físico y mental.
+                    Ofrecemos entrenamiento personalizado, clases grupales y equipos
+                    de última generación para ayudarte a alcanzar tus objetivos.
+                </p>
+            </div>
+
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <section class="carrusel-instalaciones">
 
-<section class="sobre">
+        <h2>Nuestras instalaciones</h2>
+        <p>Conoce los espacios donde entrenarás cada día.</p>
 
-    <div class="sobre-contenedor">
+        <div class="carrusel">
 
-        <div class="sobre-titulo">
-            <h2>
-                Somos un gimnasio dedicado a la salud y al bienestar
-            </h2>
+            <button class="btn-carrusel anterior" onclick="cambiarImagen(-1)">
+                &#10094;
+            </button>
+
+            <img id="imagenCarrusel" src="imagenes/instalacion1.jpg" alt="Instalaciones del gimnasio">
+
+            <button class="btn-carrusel siguiente" onclick="cambiarImagen(1)">
+                &#10095;
+            </button>
+
         </div>
 
-        <div class="sobre-texto">
-            <p>
-                PowerFit Gym es un espacio dedicado al bienestar físico y mental.
-                Ofrecemos entrenamiento personalizado, clases grupales y equipos
-                de última generación para ayudarte a alcanzar tus objetivos.
-            </p>
-        </div>
+    </section>
 
-    </div>
+</main>
 
-</section>
-
-
-<section class="carrusel-instalaciones">
-
-    <h2>Nuestras Instalaciones</h2>
-    <p>Conoce los espacios donde entrenarás cada día.</p>
-
-    <div class="carrusel">
-
-        <button class="btn-carrusel anterior" onclick="cambiarImagen(-1)">
-            &#10094;
-        </button>
-
-        <img id="imagenCarrusel" src="imagenes/instalacion1.jpg" alt="Instalaciones del gimnasio">
-
-
-        <button class="btn-carrusel siguiente" onclick="cambiarImagen(1)">
-            &#10095;
-        </button>
-
-    </div>
-
-</section>
-
-
-<!--
-<section class="beneficios">
-
-    <h2>¿Por qué entrenar con nosotros?</h2>
-
-    <div class="beneficios-container">
-
-        <div class="tarjeta">
-            <h3>Equipos modernos</h3>
-            <p>Máquinas de última generación para todos los niveles.</p>
-        </div>
-
-        <div class="tarjeta">
-            <h3>Instructores profesionales</h3>
-            <p>Entrenadores certificados que te guiarán.</p>
-        </div>
-
-        <div class="tarjeta">
-            <h3>Clases grupales</h3>
-            <p>Entrena con energía y motivación en grupo.</p>
-        </div>
-
-        <div class="tarjeta">
-            <h3>Ambiente motivador</h3>
-            <p>Un espacio diseñado para superarte cada día.</p>
-        </div>
-
-    </div>
-
-</section>
--->
 <footer class="footer-powerfit">
 
     <div class="footer-col">
-        <h3>Enlaces Rápidos</h3>
+        <h3>Enlaces rápidos</h3>
         <a href="clases.html">Clases</a>
         <a href="instructores.html">Instructores</a>
         <a href="ubicaciones.html">Ubicaciones</a>
@@ -233,45 +210,46 @@
         <a href="inscripcion.html">Membresías</a>
     </div>
 
-     <div class="footer-col">
+    <div class="footer-col">
         <h3>Contacto</h3>
         <p><strong>Tel:</strong> 0999999999</p>
         <p><strong>Email:</strong> powerfit@gmail.com</p>
         <p><strong>Dirección:</strong> Cuenca, Ecuador</p>
-        <p><strong>Horario:</strong> Lunes a Sábado de 6:00 a 22:00</p>
+        <p><strong>Horario:</strong> Lunes a sábado de 6:00 a 22:00</p>
     </div>
 
     <div class="footer-col">
-    <h3>Síguenos</h3>
+        <h3>Síguenos</h3>
 
-    <div class="redes-iconos">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-        </a>
+        <div class="redes-iconos">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
 
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <i class="bi bi-youtube"></i>
-        </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="bi bi-youtube"></i>
+            </a>
 
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-        </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
 
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <i class="bi bi-tiktok"></i>
-        </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i class="bi bi-tiktok"></i>
+            </a>
 
-        <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
+            <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
     </div>
-</div>
 
     <div class="footer-bottom">
         <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
     </div>
 
 </footer>
+
 <script src="js/script.js"></script>
 </body>
 </html>

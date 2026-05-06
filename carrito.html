@@ -31,55 +31,78 @@
         </ul>
     </nav>
 
-   <div class="nav-derecha">
-       <div class="icono-carrito">
-           <a href="carrito.html" class="botonCarrito">
-               <i class="fa-solid fa-cart-shopping"></i>
-               <span id="contador-carrito">0</span>
-           </a>
-       </div>
+    <div class="nav-derecha">
 
-       <a href="inscripcion.html" class="btn-gym">
-           ¡Inscríbete ya!
-       </a>
-   </div>
+        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="carrito.html" class="botonCarrito" title="Carrito de compras">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="contador-carrito">0</span>
+        </a>
+
+        <a href="inscripcion.html" class="btn-gym">
+            Inscríbete ya
+        </a>
+
+    </div>
 
 </header>
 
-
 <main>
 
-<section class="carrito">
+    <section class="carrito carrito-layout">
 
-<h2>Carrito de Compras</h2>
+        <h2>Carrito de compras</h2>
 
-<table>
+        <div class="carrito-contenido">
 
-<thead>
-<tr>
-<th>Producto</th>
-<th>Cantidad</th>
-<th>Precio</th>
-<th>Subtotal</th>
-<th>Acciones</th>
-</tr>
-</thead>
+            <div class="tabla-carrito-contenedor">
 
-<tbody id="tablaCarrito">
+                <table class="tabla-carrito">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
 
-</tbody>
+                    <tbody id="tablaCarrito">
+                    </tbody>
+                </table>
 
-</table>
+            </div>
 
-<div class="total-compra">
+            <aside class="resumen-compra">
+                <h3>Resumen de compra</h3>
 
-<h3 id="totalCompra">Total: $0.00</h3>
+                <div class="fila-resumen">
+                    <span>Subtotal</span>
+                    <strong id="subtotalCompra">$0.00</strong>
+                </div>
 
-<button onclick="irAlPago()">Continuar al pago</button>
+                <div class="fila-resumen">
+                    <span>IVA 15%</span>
+                    <strong id="ivaCompra">$0.00</strong>
+                </div>
 
-</div>
+                <div class="fila-resumen total-final">
+                    <span>Total</span>
+                    <strong id="totalCompra">$0.00</strong>
+                </div>
 
-</section>
+                <button onclick="irAlPago()" class="btn-pago">
+                    Continuar al pago
+                </button>
+            </aside>
+
+        </div>
+
+    </section>
 
 </main>
 
@@ -103,37 +126,38 @@
         <p><strong>Horario:</strong> Lunes a Sábado de 6:00 a 22:00</p>
     </div>
 
-  <div class="footer-col">
-    <h3>Síguenos</h3>
+    <div class="footer-col">
+        <h3>Síguenos</h3>
 
-    <div class="redes-iconos">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-        </a>
+        <div class="redes-iconos">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
 
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <i class="bi bi-youtube"></i>
-        </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="bi bi-youtube"></i>
+            </a>
 
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-        </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="bi bi-facebook"></i>
+            </a>
 
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <i class="bi bi-tiktok"></i>
-        </a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <i class="bi bi-tiktok"></i>
+            </a>
 
-        <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
+            <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
     </div>
-</div>
 
     <div class="footer-bottom">
         <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
     </div>
 
 </footer>
+
 <script src="js/script.js"></script>
 </body>
 </html>

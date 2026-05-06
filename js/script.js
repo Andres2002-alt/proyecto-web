@@ -2,27 +2,27 @@ function irInicio() {
     window.location.href = "index.html";
 }
 function irAlPago() {
-    window.location.href = "formulario.html";
+    if (estaLogueado()) {
+        window.location.href = "pago.html";
+    } else {
+        guardarDestinoPendiente("pago.html");
+        window.location.href = "login.html";
+    }
 }
 
-
 function aumentarImagen(imagen) {
-    imagen.style.transform = "scale(1.08)";
-    imagen.style.transition = "0.3s";
+    imagen.style.transform = "scale(1.03)";
+    imagen.style.transition = "0.35s";
 }
 
 function volverImagen(imagen) {
     imagen.style.transform = "scale(1)";
+    imagen.style.transition = "0.35s";
 }
 
 function clicImagen(imagen) {
-    if (imagen.style.transform === "scale(1.18)") {
-        imagen.style.transform = "scale(1)";
-    } else {
-        imagen.style.transform = "scale(1.18)";
-    }
-
-    imagen.style.transition = "0.3s";
+    imagen.style.transform = "scale(1.03)";
+    imagen.style.transition = "0.35s";
 }
 
 function reservarClase() {
@@ -83,10 +83,6 @@ function agregarCarrito(nombre, precio) {
 
 
 
-function irAlPago() {
-    window.location.href = "formulario.html";
-}
-
 function calcularTotal() {
     var cantidad1 = 1;
     var precio1 = 35.00;
@@ -109,15 +105,34 @@ function confirmarRegistro() {
 function mostrarCarrito() {
     var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     var tabla = document.getElementById("tablaCarrito");
+    var subtotalGeneral = 0;
+    var iva = 0;
     var total = 0;
 
-    if (!tabla) return;
+    if (!tabla) {
+        return;
+    }
 
     tabla.innerHTML = "";
 
-    if (carrito.length == 0) {
-        tabla.innerHTML = "<tr><td colspan='5'>Tu carrito está vacío</td></tr>";
-        document.getElementById("totalCompra").innerHTML = "Total: $0.00";
+    if (carrito.length === 0) {
+        tabla.innerHTML =
+            "<tr>" +
+                "<td colspan='5' class='carrito-vacio'>Tu carrito está vacío</td>" +
+            "</tr>";
+
+        if (document.getElementById("subtotalCompra")) {
+            document.getElementById("subtotalCompra").innerHTML = "$0.00";
+        }
+
+        if (document.getElementById("ivaCompra")) {
+            document.getElementById("ivaCompra").innerHTML = "$0.00";
+        }
+
+        if (document.getElementById("totalCompra")) {
+            document.getElementById("totalCompra").innerHTML = "$0.00";
+        }
+
         actualizarContadorVisual();
         return;
     }
@@ -125,23 +140,42 @@ function mostrarCarrito() {
     for (var i = 0; i < carrito.length; i++) {
         var producto = carrito[i];
         var subtotal = producto.precio * producto.cantidad;
-        total += subtotal;
+        subtotalGeneral = subtotalGeneral + subtotal;
 
         tabla.innerHTML +=
             "<tr>" +
-            "<td>" + producto.nombre + "</td>" +
-            "<td class='cantidad-carrito'>" +
-                "<button class='btn-cantidad' onclick='disminuirCantidad(" + i + ")'>-</button>" +
-                "<span>" + producto.cantidad + "</span>" +
-                "<button class='btn-cantidad' onclick='aumentarCantidad(" + i + ")'>+</button>" +
-            "</td>" +
-            "<td>$" + producto.precio.toFixed(2) + "</td>" +
-            "<td>$" + subtotal.toFixed(2) + "</td>" +
-            "<td><button class='btn-eliminar' onclick='eliminarProducto(" + i + ")'>Eliminar</button></td>" +
+                "<td>" + producto.nombre + "</td>" +
+
+                "<td class='cantidad-carrito'>" +
+                    "<button type='button' class='btn-cantidad' onclick='disminuirCantidad(" + i + ")'>-</button>" +
+                    "<span>" + producto.cantidad + "</span>" +
+                    "<button type='button' class='btn-cantidad' onclick='aumentarCantidad(" + i + ")'>+</button>" +
+                "</td>" +
+
+                "<td>$" + producto.precio.toFixed(2) + "</td>" +
+                "<td>$" + subtotal.toFixed(2) + "</td>" +
+
+                "<td>" +
+                    "<button type='button' class='btn-eliminar' onclick='eliminarProducto(" + i + ")'>Eliminar</button>" +
+                "</td>" +
             "</tr>";
     }
 
-    document.getElementById("totalCompra").innerHTML = "Total: $" + total.toFixed(2);
+    iva = subtotalGeneral * 0.15;
+    total = subtotalGeneral + iva;
+
+    if (document.getElementById("subtotalCompra")) {
+        document.getElementById("subtotalCompra").innerHTML = "$" + subtotalGeneral.toFixed(2);
+    }
+
+    if (document.getElementById("ivaCompra")) {
+        document.getElementById("ivaCompra").innerHTML = "$" + iva.toFixed(2);
+    }
+
+    if (document.getElementById("totalCompra")) {
+        document.getElementById("totalCompra").innerHTML = "$" + total.toFixed(2);
+    }
+
     actualizarContadorVisual();
 }
 function aumentarCantidad(indice) {
@@ -232,22 +266,21 @@ function validarRegistro(formulario) {
     return true;
 }
 
-// --- ESCUCHA DEL EVENTO ---
 document.addEventListener("DOMContentLoaded", function() {
     const miFormulario = document.getElementById("formRegistro");
 
+    if (miFormulario == null) {
+        return;
+    }
+
     miFormulario.addEventListener("submit", function(evento) {
-        // Ejecutamos la función y guardamos el resultado
         const esValido = validarRegistro(miFormulario);
 
         if (esValido) {
-            // Si la función nos dio el "OK"
             alert("Validación correcta. Procesando inscripción...");
-            // Aquí se enviaría a la base de datos en el futuro
             console.log("Datos listos para enviar.");
         } else {
-            // Si la función retornó false, detenemos el envío del formulario
-            evento.preventDefault(); 
+            evento.preventDefault();
         }
     });
 });
@@ -432,3 +465,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(moverHero, 2000);
 });
+
+function finalizarPago(evento) {
+    evento.preventDefault();
+
+    localStorage.removeItem("carrito");
+    localStorage.removeItem("planSeleccionado");
+
+    alert("Pago realizado correctamente.");
+    window.location.href = "mensaje.html";
+}

@@ -32,16 +32,20 @@
     </nav>
 
     <div class="nav-derecha">
-        <div class="icono-carrito">
-            <a href="carrito.html" class="botonCarrito">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="contador-carrito">0</span>
-            </a>
-        </div>
+
+        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="carrito.html" class="botonCarrito" title="Carrito de compras">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="contador-carrito">0</span>
+        </a>
 
         <a href="inscripcion.html" class="btn-gym">
-            ¡Inscríbete ya!
+            Inscríbete ya
         </a>
+
     </div>
 
 </header>
@@ -130,7 +134,7 @@
 
     <div class="producto">
         <img src="imagenes/quemadorgrasa.png" alt="Quemador de Grasa">
-        <h3>Quemador de Grasa</h3>
+        <h3>Quema Grasa</h3>
         <p>$32.00</p>
         <button onclick="verDetalleProducto(
             'Quemador de Grasa', 32, 'imagenes/quemadorgrasa.png',
@@ -157,22 +161,8 @@
     </div>
 
     <div class="producto">
-        <img src="imagenes/shaker.png" alt="Shaker PowerFit">
-        <h3>Shaker PowerFit</h3>
-        <p>$12.00</p>
-        <button onclick="verDetalleProducto(
-            'Shaker PowerFit', 12, 'imagenes/shaker.png',
-            'Botella mezcladora práctica para batidos.',
-            '700 ml',
-            'Plástico libre de BPA, rejilla mezcladora',
-            'Ideal para preparar proteínas y bebidas deportivas'
-        )">Ver detalle</button>
-        <button onclick="agregarCarrito('Shaker PowerFit',12)">Agregar al carrito</button>
-    </div>
-
-    <div class="producto">
         <img src="imagenes/barraenergetica.png" alt="Barra Energética">
-        <h3>Barra Energética</h3>
+        <h3>Barra Nutritiva</h3>
         <p>$5.00</p>
         <button onclick="verDetalleProducto(
             'Barra Energética', 5, 'imagenes/barraenergetica.png',

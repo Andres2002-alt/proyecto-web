@@ -31,18 +31,22 @@
         </ul>
     </nav>
 
-   <div class="nav-derecha">
-       <div class="icono-carrito">
-           <a href="carrito.html" class="botonCarrito">
-               <i class="fa-solid fa-cart-shopping"></i>
-               <span id="contador-carrito">0</span>
-           </a>
-       </div>
+    <div class="nav-derecha">
 
-       <a href="inscripcion.html" class="btn-gym">
-           ¡Inscríbete ya!
-       </a>
-   </div>
+        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+            <i class="fa-regular fa-user"></i>
+        </a>
+
+        <a href="carrito.html" class="botonCarrito" title="Carrito de compras">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="contador-carrito">0</span>
+        </a>
+
+        <a href="inscripcion.html" class="btn-gym">
+            Inscríbete ya
+        </a>
+
+    </div>
 
 </header>
 
@@ -69,9 +73,9 @@
 
             <p class="precio-plan">$25 + IVA / mes</p>
 
-            <a href="formulario.html">
-                <button>Comenzar ahora</button>
-            </a>
+            <button onclick="seleccionarPlan('Plan Esencial', 25)">
+                Comenzar ahora
+            </button>
         </div>
 
         <div class="plan destacado">
@@ -87,9 +91,9 @@
 
             <p class="precio-plan">$40 + IVA / mes</p>
 
-            <a href="formulario.html">
-                <button>Inscribirse</button>
-            </a>
+            <button onclick="seleccionarPlan('Plan Activo', 40)">
+                Inscribirse
+            </button>
         </div>
 
         <div class="plan premium">
@@ -105,9 +109,9 @@
 
             <p class="precio-plan">$60 + IVA / mes</p>
 
-            <a href="formulario.html">
-                <button>Unirme al Elite</button>
-            </a>
+            <button onclick="seleccionarPlan('Plan Elite', 60)">
+                Unirme al Elite
+            </button>
         </div>
 
     </div>
