@@ -2429,3 +2429,304 @@
     color: var(--negro);
     text-decoration: underline;
 }
+
+/* =========================================================
+   INSTRUCTORES - TARJETAS MÁS PEQUEÑAS
+========================================================= */
+
+.instructores {
+    max-width: 1150px;
+    margin: 45px auto;
+    padding: 38px 20px;
+}
+
+.instructores h2 {
+    margin-bottom: 28px;
+}
+
+.contenedor-instructores {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+}
+
+/* Antes estaba demasiado alta */
+.instructor,
+.instructor-detalle {
+    min-height: 0 !important;
+    height: 430px !important;
+    border-radius: 16px;
+}
+
+/* La imagen ocupa la tarjeta, pero con altura controlada */
+.instructor img,
+.instructor-detalle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Texto más compacto para que no tape demasiado */
+.instructor-info {
+    padding: 18px 20px !important;
+}
+
+.instructor .instructor-info h3 {
+    font-size: 1.45rem !important;
+    margin-bottom: 6px;
+}
+
+.instructor-info .especialidad {
+    font-size: 0.95rem !important;
+    margin-bottom: 8px;
+}
+
+.instructor .instructor-info p,
+.instructor-info li {
+    font-size: 0.9rem !important;
+    line-height: 1.35;
+}
+
+.instructor-info ul {
+    margin-top: 8px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contenedor-instructores {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+    }
+
+    .instructor,
+    .instructor-detalle {
+        height: 420px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .instructor,
+    .instructor-detalle {
+        height: 390px !important;
+    }
+}
+.instructor-info strong {
+    font-family: "Inter", Arial, sans-serif !important;
+    font-weight: 800 !important;
+    color: var(--celeste) !important;
+}
+
+/* =========================================================
+   CLASES - ESTILO SIMILAR A PLANES Y TIENDA
+========================================================= */
+
+.lista-clases {
+    max-width: 1120px;
+    margin: 20px auto 60px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.descripcion-clases {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 55px auto 10px auto !important;
+    padding-bottom: 10px !important;
+}
+
+.descripcion-clases h2 {
+    color: var(--negro) !important;
+    font-size: 2.55rem !important;
+    margin-bottom: 10px;
+}
+
+.clase {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
+    border-radius: 18px !important;
+    overflow: hidden;
+    background: linear-gradient(to bottom, var(--blanco), rgba(169, 203, 217, 0.16));
+    border: 1px solid rgba(0, 1, 13, 0.10);
+    box-shadow: 0 12px 28px rgba(0, 1, 13, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Franja superior como en planes/productos */
+.clase::before {
+    content: "";
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--azul-verde), var(--amarillo));
+    z-index: 2;
+}
+
+/* Imagen arriba, más controlada */
+.clase img {
+    order: -1;
+    width: 100%;
+    height: 210px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    box-shadow: none !important;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+/* Título y texto */
+.clase h3 {
+    color: var(--negro) !important;
+    font-size: 1.55rem !important;
+    margin: 22px 22px 8px 22px !important;
+    line-height: 1.15;
+}
+
+.clase p {
+    color: rgba(0, 1, 13, 0.72) !important;
+    font-size: 1rem;
+    line-height: 1.45;
+    margin: 0 22px 20px 22px !important;
+    min-height: 48px;
+}
+
+/* Etiqueta visual de acción */
+.clase::after {
+    content: "Ver detalles";
+    margin: auto 22px 24px 22px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: var(--negro);
+    color: var(--amarillo);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-align: center;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Hover más suave */
+.clase:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 38px rgba(0, 1, 13, 0.16);
+    border-color: rgba(59, 132, 140, 0.35);
+}
+
+.clase:hover img {
+    transform: scale(1.025) !important;
+    filter: contrast(1.04) saturate(1.05);
+}
+
+.clase:hover::after {
+    background: var(--azul-verde);
+    color: var(--blanco);
+}
+
+/* Evita que el JavaScript agrande demasiado la imagen */
+.clase img[style] {
+    transform: scale(1.025) !important;
+}
+
+/* Responsive */
+@media (max-width: 1050px) {
+    .lista-clases {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .lista-clases {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .clase img {
+        height: 200px !important;
+    }
+
+    .descripcion-clases h2 {
+        font-size: 2rem !important;
+    }
+}
+.clase::after {
+    content: none !important;
+    display: none !important;
+}
+.clase p {
+    margin-bottom: 28px !important;
+}
+
+/* =========================================================
+   CARRITO - RESUMEN DE COMPRA MÁS LIMPIO
+========================================================= */
+
+.resumen-compra {
+    background: linear-gradient(to bottom, var(--blanco), rgba(169, 203, 217, 0.16)) !important;
+    color: var(--negro) !important;
+
+    border: 1px solid rgba(0, 1, 13, 0.10);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 1, 13, 0.08);
+
+    padding: 30px;
+}
+
+.resumen-compra h3 {
+    color: var(--negro) !important;
+    font-size: 1.45rem;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 1, 13, 0.10);
+}
+
+.fila-resumen {
+    border-bottom: 1px solid rgba(0, 1, 13, 0.10) !important;
+}
+
+.fila-resumen span {
+    color: rgba(0, 1, 13, 0.72) !important;
+}
+
+.fila-resumen strong {
+    color: var(--negro) !important;
+}
+
+.total-final {
+    border-bottom: none !important;
+    margin-top: 10px;
+    padding-top: 18px;
+}
+
+.total-final span,
+.total-final strong {
+    color: var(--azul-verde) !important;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.resumen-compra .btn-pago,
+.resumen-compra button {
+    background: var(--negro) !important;
+    color: var(--amarillo) !important;
+    border: 2px solid var(--negro) !important;
+    box-shadow: none !important;
+}
+
+.resumen-compra .btn-pago:hover,
+.resumen-compra button:hover {
+    background: var(--azul-verde) !important;
+    color: var(--blanco) !important;
+    border-color: var(--azul-verde) !important;
+}
