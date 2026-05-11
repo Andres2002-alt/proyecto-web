@@ -29,29 +29,29 @@
 
         <form class="form-card form-login" action="php/procesar_registro.php" method="POST">
 
-            <label for="nombreCliente">Nombre</label>
-            <input type="text" id="nombreCliente" placeholder="Ingresa tu nombre" required>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
 
-            <label for="apellidoCliente">Apellido</label>
-            <input type="text" id="apellidoCliente" placeholder="Ingresa tu apellido" required>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" placeholder="Ingresa tu apellido" required>
 
-            <label for="emailCliente">Correo electrónico</label>
-            <input type="email" id="emailCliente" placeholder="ejemplo@correo.com" required>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" placeholder="ejemplo@correo.com" required>
 
-            <label for="celularCliente">Número de celular</label>
-            <input type="tel" id="celularCliente" placeholder="0999999999" required>
+            <label for="celular">Número de celular</label>
+            <input type="tel" id="celular" placeholder="0999999999" required>
 
-            <label for="claveCliente">Contraseña</label>
-            <input type="password" id="claveCliente" placeholder="Crea una contraseña" required>
+            <label for="clave">Contraseña</label>
+            <input type="password" id="clave" placeholder="Crea una contraseña" required>
 
-            <label for="confirmarClaveCliente">Confirmar contraseña</label>
-            <input type="password" id="confirmarClaveCliente" placeholder="Repite tu contraseña" required>
+            <label for="confirmarClave">Confirmar contraseña</label>
+            <input type="password" id="confirmarClave" placeholder="Repite tu contraseña" required>
 
             <button type="submit">Crear cuenta</button>
 
             <p class="texto-cambio-form">
                 ¿Ya tienes una cuenta?
-                <a href="login.html">Inicia sesión aquí</a>
+                <a href="login.php">Inicia sesión aquí</a>
             </p>
 
         </form>
