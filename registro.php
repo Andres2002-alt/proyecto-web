@@ -101,11 +101,11 @@
 
     <div class="footer-col">
         <h3>Enlaces rápidos</h3>
-        <a href="clases.html">Clases</a>
-        <a href="instructores.html">Instructores</a>
-        <a href="ubicaciones.html">Ubicaciones</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="inscripcion.html">Membresías</a>
+        <a href="clases.php">Clases</a>
+        <a href="instructores.php">Instructores</a>
+        <a href="ubicaciones.php">Ubicaciones</a>
+        <a href="tienda.php">Tienda</a>
+        <a href="inscripcion.php">Membresías</a>
     </div>
 
     <div class="footer-col">

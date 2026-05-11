@@ -128,12 +128,12 @@
 
     <div class="footer-col">
         <h3>Enlaces Rápidos</h3>
-        <a href="indice.html">Inicio</a>
-        <a href="clases.html">Clases</a>
-        <a href="instructores.html">Instructores</a>
-        <a href="ubicaciones.html">Ubicaciones</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="inscripcion.html">Membresías</a>
+        <a href="indice.php">Inicio</a>
+        <a href="clases.php">Clases</a>
+        <a href="instructores.php">Instructores</a>
+        <a href="ubicaciones.php">Ubicaciones</a>
+        <a href="tienda.php">Tienda</a>
+        <a href="inscripcion.php">Membresías</a>
     </div>
 
      <div class="footer-col">
