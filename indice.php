@@ -16,29 +16,29 @@
 <header class="navbar">
 
     <div class="logo">
-        <a href="indice.html">
+        <a href="indice.php">
             <h1>PowerFit</h1>
         </a>
     </div>
 
     <nav class="menu">
         <ul>
-            <li><a href="indice.html">Inicio</a></li>
-            <li><a href="clases.html">Clases</a></li>
-            <li><a href="instructores.html">Instructores</a></li>
-            <li><a href="ubicaciones.html">Ubicaciones</a></li>
-            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="indice.php">Inicio</a></li>
+            <li><a href="clases.php">Clases</a></li>
+            <li><a href="instructores.php">Instructores</a></li>
+            <li><a href="ubicaciones.php">Ubicaciones</a></li>
+            <li><a href="tienda.php">Tienda</a></li>
         </ul>
     </nav>
 
     <div class="nav-derecha">
 
-        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+        <a href="login.php" class="icono-usuario" title="Iniciar sesión">
             <i class="fa-regular fa-user"></i>
         </a>
 
         <div class="icono-carrito">
-            <a href="carrito.html" class="botonCarrito">
+            <a href="carrito.php" class="botonCarrito">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="contador-carrito">0</span>
             </a>
@@ -46,7 +46,7 @@
 
         <div id="estadoSesion" class="estado-sesion"></div>
 
-        <a href="inscripcion.html" class="btn-gym">
+        <a href="inscripcion.php" class="btn-gym">
             Inscríbete ya
         </a>
 
@@ -203,11 +203,11 @@
 
     <div class="footer-col">
         <h3>Enlaces rápidos</h3>
-        <a href="clases.html">Clases</a>
-        <a href="instructores.html">Instructores</a>
-        <a href="ubicaciones.html">Ubicaciones</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="inscripcion.html">Membresías</a>
+        <a href="clases.php">Clases</a>
+        <a href="instructores.php">Instructores</a>
+        <a href="ubicaciones.php">Ubicaciones</a>
+        <a href="tienda.php">Tienda</a>
+        <a href="inscripcion.php">Membresías</a>
     </div>
 
     <div class="footer-col">

@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Pago - PowerFit Gym</title>
+    <title>PowerFit Gym</title>
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
+
 <body>
 
 <header class="navbar">
 
     <div class="logo">
-        <a href="indice.html">
+        <a href="indice.php">
             <h1>PowerFit</h1>
         </a>
     </div>
 
     <nav class="menu">
         <ul>
-            <li><a href="indice.html">Inicio</a></li>
-            <li><a href="clases.html">Clases</a></li>
-            <li><a href="instructores.html">Instructores</a></li>
-            <li><a href="ubicaciones.html">Ubicaciones</a></li>
-            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="indice.php">Inicio</a></li>
+            <li><a href="clases.php">Clases</a></li>
+            <li><a href="instructores.php">Instructores</a></li>
+            <li><a href="ubicaciones.php">Ubicaciones</a></li>
+            <li><a href="tienda.php">Tienda</a></li>
         </ul>
     </nav>
 
     <div class="nav-derecha">
 
-        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+        <a href="login.php" class="icono-usuario" title="Iniciar sesión">
             <i class="fa-regular fa-user"></i>
         </a>
 
-        <a href="carrito.html" class="botonCarrito" title="Carrito de compras">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span id="contador-carrito">0</span>
-        </a>
+        <div class="icono-carrito">
+            <a href="carrito.php" class="botonCarrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="contador-carrito">0</span>
+            </a>
+        </div>
 
-        <a href="inscripcion.html" class="btn-gym">
+        <div id="estadoSesion" class="estado-sesion"></div>
+
+        <a href="inscripcion.php" class="btn-gym">
             Inscríbete ya
         </a>
 
     </div>
 
 </header>
+
 
 <main>
 <section class="registro">
