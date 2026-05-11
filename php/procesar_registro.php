@@ -7,7 +7,7 @@
     $email = trim($_POST["email"]);
     $celular = trim($_POST["celular"]);
     $clave = trim($_POST["clave"]);
-    $confirmarClave = trim($_POST["confirmar_clave"]);
+    $confirmarClave = trim($_POST["confirmarClave"]);
 
     if ($nombre == "" || $apellido == "" || $email == "" || $celular == "" || $clave == "" || $confirmarClave == "") {
         echo "<script>
