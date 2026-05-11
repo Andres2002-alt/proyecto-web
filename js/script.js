@@ -77,8 +77,17 @@ function agregarCarrito(nombre, precio) {
         setTimeout(() => spanContador.style.transform = "scale(1)", 200);
     }
     
-    // Cambié "producto" por "nombre" que es la variable correcta
-    alert("Has agregado " + nombre + " al carrito");
+  
+    Swal.fire({
+        title: '¡Añadido!',
+        text: `Has agregado ${nombre} al carrito con éxito.`,
+        icon: 'success',
+        confirmButtonColor: '#ff6600', // Usa el naranja de tu marca
+        timer: 2000, // Se cierra solo en 2 segundos
+        showConfirmButton: false, // Oculta el botón para que sea más fluido
+        toast: true, // Lo hace ver como una pequeña burbuja
+        position: 'top-end' // Aparece en la esquina superior derecha
+    });
 }
 
 
