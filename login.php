@@ -16,7 +16,7 @@ session_start();
 
 <body>
 
-<?php include("php/header.php"); ?>
+<?php include("header.php"); ?>
 
 <main>
 
@@ -48,7 +48,7 @@ session_start();
 
 </main>
 
-<?php include("php/footer.php"); ?>
+<?php include("footer.php"); ?>
 
 <script src="js/script.js"></script>
 </body>
