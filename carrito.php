@@ -16,33 +16,33 @@
 <header class="navbar">
 
     <div class="logo">
-        <a href="indice.html">
+        <a href="indice.php">
             <h1>PowerFit</h1>
         </a>
     </div>
 
     <nav class="menu">
         <ul>
-            <li><a href="indice.html">Inicio</a></li>
-            <li><a href="clases.html">Clases</a></li>
-            <li><a href="instructores.html">Instructores</a></li>
-            <li><a href="ubicaciones.html">Ubicaciones</a></li>
-            <li><a href="tienda.html">Tienda</a></li>
+            <li><a href="indice.php">Inicio</a></li>
+            <li><a href="clases.php">Clases</a></li>
+            <li><a href="instructores.php">Instructores</a></li>
+            <li><a href="ubicaciones.php">Ubicaciones</a></li>
+            <li><a href="tienda.php">Tienda</a></li>
         </ul>
     </nav>
 
     <div class="nav-derecha">
 
-        <a href="login.html" class="icono-usuario" title="Iniciar sesión">
+        <a href="login.php" class="icono-usuario" title="Iniciar sesión">
             <i class="fa-regular fa-user"></i>
         </a>
 
-        <a href="carrito.html" class="botonCarrito" title="Carrito de compras">
+        <a href="carrito.php" class="botonCarrito" title="Carrito de compras">
             <i class="fa-solid fa-cart-shopping"></i>
             <span id="contador-carrito">0</span>
         </a>
 
-        <a href="inscripcion.html" class="btn-gym">
+        <a href="inscripcion.php" class="btn-gym">
             Inscríbete ya
         </a>
 
