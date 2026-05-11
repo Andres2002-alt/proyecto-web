@@ -18,6 +18,9 @@
     <meta charset="UTF-8">
     <title>Mi Cuenta - PowerFit</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-cuenta">
@@ -30,10 +33,8 @@
         <nav>
             <a href="#" class="active"><i class="bi bi-grid"></i> Descripción general</a>
             <a href="#"><i class="bi bi-credit-card"></i> Membresía</a>
-            <a href="#"><i class="bi bi-shield-lock"></i> Seguridad</a>
-            <a href="#"><i class="bi bi-person-gear"></i> Perfiles</a>
             <hr>
-            <a href="index.php" class="btn-volver"><i class="bi bi-arrow-left"></i> Volver a la tienda</a>
+            <a href="indice.php" class="btn-volver"><i class="bi bi-arrow-left"></i> Volver al inicio</a>
         </nav>
     </aside>
 
@@ -130,6 +131,5 @@
     </div>
 </footer>
 </div>
-
 </body>
 </html>

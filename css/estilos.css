@@ -2730,3 +2730,81 @@
     color: var(--blanco) !important;
     border-color: var(--azul-verde) !important;
 }
+
+
+/* ============================================================= */
+/* ESTILOS PARA MI-CUENTA */
+
+.bg-cuenta { background-color: #f5f5f7; margin: 0; }
+
+.dashboard-container { display: flex; min-height: 100vh; }
+
+/* BARRA LATERAL */
+.sidebar-cuenta {
+    width: 280px;
+    background: #fff;
+    padding: 30px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.logo-cuenta h2 { color: #333; font-weight: 800; }
+.logo-cuenta span { color: #ff6600; } /* Tu naranja */
+
+.sidebar-cuenta nav { margin-top: 40px; display: flex; flex-direction: column; }
+
+.sidebar-cuenta nav a {
+    text-decoration: none;
+    color: #666;
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-cuenta nav a.active, .sidebar-cuenta nav a:hover {
+    background: #fff5ee;
+    color: #ff6600;
+    font-weight: bold;
+}
+
+
+.main-cuenta { flex: 1; padding: 50px 80px; }
+
+.card-premium {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.card-badge {
+    background: #ff6600;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px 15px;
+    display: inline-block;
+    border-radius: 0 0 10px 0;
+}
+
+.card-body-p { padding: 30px; display: flex; justify-content: space-between; align-items: center; }
+
+.card-footer-p {
+    background: #fafafa;
+    padding: 15px 30px;
+    border-top: 1px solid #eee;
+}
+
+.card-footer-p a { text-decoration: none; color: #007bff; font-weight: 500; }
+
+.opcion-item {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    border: 1px solid #eee;
+}
