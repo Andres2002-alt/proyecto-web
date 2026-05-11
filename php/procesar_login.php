@@ -1,59 +1,51 @@
 <?php
-    session_start();
-    include("conexion.php");
+session_start();
 
-    $email = trim($_POST["email"]);
-    $clave = trim($_POST["clave"]);
+include("conexion.php");
+include("funciones.php");
 
-    if ($email == "" || $clave == "") {
-        echo "<script>
-                alert('Completa todos los campos.');
-                window.location='../login.php';
-              </script>";
-        exit();
-    }
+$email = trim($_POST["email"]);
+$clave = trim($_POST["clave"]);
 
-    $sql = "SELECT id_cliente, nombre, apellido, email, clave 
-            FROM cliente 
-            WHERE email = ?";
-
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-
-    $resultado = mysqli_stmt_get_result($stmt);
-
-    if (mysqli_num_rows($resultado) == 0) {
-        echo "<script>
-                alert('Correo o contraseña incorrectos.');
-                window.location='../login.php';
-              </script>";
-        exit();
-    }
-
-    $fila = mysqli_fetch_assoc($resultado);
-
-    if (password_verify($clave, $fila["clave"])) {
-
-        $_SESSION["id_cliente"] = $fila["id_cliente"];
-        $_SESSION["nombre"] = $fila["nombre"];
-        $_SESSION["apellido"] = $fila["apellido"];
-        $_SESSION["email"] = $fila["email"];
-
-        if (isset($_SESSION["destino_pendiente"])) {
-            $destino = $_SESSION["destino_pendiente"];
-            unset($_SESSION["destino_pendiente"]);
-            header("Location: ../" . $destino);
-        } else {
-            header("Location: ../indice.php");
-        }
-
-    } else {
-        echo "<script>
-                alert('Correo o contraseña incorrectos.');
-                window.location='../login.php';
-              </script>";
-    }
-
+if ($email == "" || $clave == "") {
+    echo "<script>
+            alert('Completa todos los campos.');
+            window.location='../login.php';
+          </script>";
     exit();
+}
+
+$cliente = consultarClientePorEmail($conn, $email);
+
+if ($cliente == null) {
+    echo "<script>
+            alert('Correo o contraseña incorrectos.');
+            window.location='../login.php';
+          </script>";
+    exit();
+}
+
+if (password_verify($clave, $cliente["clave"])) {
+
+    $_SESSION["id_cliente"] = $cliente["id_cliente"];
+    $_SESSION["nombre"] = $cliente["nombre"];
+    $_SESSION["apellido"] = $cliente["apellido"];
+    $_SESSION["email"] = $cliente["email"];
+
+    if (isset($_SESSION["destino_pendiente"])) {
+        $destino = $_SESSION["destino_pendiente"];
+        unset($_SESSION["destino_pendiente"]);
+        header("Location: ../" . $destino);
+    } else {
+        header("Location: ../indice.php");
+    }
+
+} else {
+    echo "<script>
+            alert('Correo o contraseña incorrectos.');
+            window.location='../login.php';
+          </script>";
+}
+
+exit();
 ?>

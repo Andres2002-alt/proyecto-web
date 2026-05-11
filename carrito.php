@@ -1,5 +1,13 @@
 <?php
-    session_start();
+    session_start();    
+
+
+    include("php/funciones.php");
+
+    $carrito = obtenerCarrito();
+    $subtotal = calcularSubtotalCarrito();
+    $iva = calcularIvaCarrito();
+    $total = calcularTotalCarrito();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
-<body onload="mostrarCarrito()">
+<body>
 
 <?php include("header.php"); ?>
 <main>
@@ -39,34 +47,84 @@
                         </tr>
                     </thead>
 
-                    <tbody id="tablaCarrito">
-                    </tbody>
-                </table>
+                    <tbody>
+
+                    <?php if (count($carrito) == 0) { ?>
+
+                    <tr>
+                        <td colspan="5" class="carrito-vacio">
+                            Tu carrito está vacío.
+                        </td>
+                    </tr>
+
+                    <?php } else { ?>
+
+                    <?php foreach ($carrito as $producto) { ?>
+
+                        <tr>
+                            <td><?php echo $producto["nombre"]; ?></td>
+
+                            <td>
+                                <div class="cantidad-carrito">
+                                    <a href="php/disminuir_carrito.php?id_producto=<?php echo $producto["id_producto"]; ?>">
+                                        <button type="button" class="btn-cantidad">-</button>
+                                    </a>
+
+                                    <span><?php echo $producto["cantidad"]; ?></span>
+
+                                    <a href="php/aumentar_carrito.php?id_producto=<?php echo $producto["id_producto"]; ?>">
+                                        <button type="button" class="btn-cantidad">+</button>
+                                    </a>
+                                </div>
+                            </td>
+
+                            <td>$<?php echo number_format($producto["precio"], 2); ?></td>
+
+                            <td>
+                                $<?php echo number_format($producto["precio"] * $producto["cantidad"], 2); ?>
+                            </td>
+
+                            <td>
+                                <a href="php/eliminar_carrito.php?id_producto=<?php echo $producto["id_producto"]; ?>">
+                                    <button type="button" class="btn-eliminar">Eliminar</button>
+                                </a>
+                            </td>
+                        </tr>
+
+                    <?php } ?>
+
+                <?php } ?>
+
+            </tbody>
+
+            </table>
 
             </div>
 
-            <aside class="resumen-compra">
-                <h3>Resumen de compra</h3>
+           <aside class="resumen-compra">
+            <h3>Resumen de compra</h3>
 
-                <div class="fila-resumen">
-                    <span>Subtotal</span>
-                    <strong id="subtotalCompra">$0.00</strong>
-                </div>
+            <div class="fila-resumen">
+                <span>Subtotal</span>
+                <strong>$<?php echo number_format($subtotal, 2); ?></strong>
+            </div>
 
-                <div class="fila-resumen">
-                    <span>IVA 15%</span>
-                    <strong id="ivaCompra">$0.00</strong>
-                </div>
+            <div class="fila-resumen">
+                <span>IVA 15%</span>
+                <strong>$<?php echo number_format($iva, 2); ?></strong>
+            </div>
 
-                <div class="fila-resumen total-final">
-                    <span>Total</span>
-                    <strong id="totalCompra">$0.00</strong>
-                </div>
+            <div class="fila-resumen total-final">
+                <span>Total</span>
+                <strong>$<?php echo number_format($total, 2); ?></strong>
+            </div>
 
-                <button onclick="irAlPago()" class="btn-pago">
+            <a href="php/verificar_compra.php">
+                <button type="button" class="btn-pago">
                     Continuar al pago
                 </button>
-            </aside>
+            </a>
+        </aside>
 
         </div>
 
