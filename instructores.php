@@ -153,7 +153,7 @@
 </div>
 <div class="reserva-general">
     <h2>¿Quieres entrenar con uno de nuestros instructores?</h2>
-    <button onclick="location.href='inscripcion.html'">Inscríbete ya</button>
+    <button onclick="location.href='inscripcion.php'">Inscríbete ya</button>
 </div>
 
 </section>
@@ -164,11 +164,11 @@
 
     <div class="footer-col">
         <h3>Enlaces Rápidos</h3>
-        <a href="indice.html">Inicio</a>
-        <a href="clases.html">Clases</a>
-        <a href="ubicaciones.html">Ubicaciones</a>
-        <a href="tienda.html">Tienda</a>
-        <a href="inscripcion.html">Membresías</a>
+        <a href="indice.php">Inicio</a>
+        <a href="clases.php">Clases</a>
+        <a href="ubicaciones.php">Ubicaciones</a>
+        <a href="tienda.php">Tienda</a>
+        <a href="inscripcion.php">Membresías</a>
     </div>
 
      <div class="footer-col">
