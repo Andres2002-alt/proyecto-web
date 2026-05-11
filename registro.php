@@ -27,7 +27,7 @@
             <p>Regístrate para comprar productos, adquirir membresías y continuar con tus pagos.</p>
         </div>
 
-        <form class="form-card form-login" onsubmit="registrarCliente(event)">
+        <form class="form-card form-login" action="php/procesar_registro.php" method="POST">
 
             <label for="nombreCliente">Nombre</label>
             <input type="text" id="nombreCliente" placeholder="Ingresa tu nombre" required>
