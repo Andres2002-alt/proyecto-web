@@ -45,7 +45,7 @@
             unset($_SESSION["destino_pendiente"]);
             header("Location: ../" . $destino);
         } else {
-            header("Location: ../index.php");
+            header("Location: ../indice.php");
         }
 
     } else {

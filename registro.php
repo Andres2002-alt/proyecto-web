@@ -30,22 +30,22 @@
         <form class="form-card form-login" action="php/procesar_registro.php" method="POST">
 
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+            <input type="text" id="nombre" placeholder="Ingresa tu nombre" required name="nombre">
 
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" placeholder="Ingresa tu apellido" required>
+            <input type="text" id="apellido" placeholder="Ingresa tu apellido" required name="apellido">
 
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+            <input type="email" id="email" placeholder="ejemplo@correo.com" required name="email">
 
             <label for="celular">Número de celular</label>
-            <input type="tel" id="celular" placeholder="0999999999" required>
+            <input type="tel" id="celular" placeholder="0999999999" required name="celular">
 
             <label for="clave">Contraseña</label>
-            <input type="password" id="clave" placeholder="Crea una contraseña" required>
+            <input type="password" id="clave" placeholder="Crea una contraseña" required name="clave">
 
             <label for="confirmarClave">Confirmar contraseña</label>
-            <input type="password" id="confirmarClave" placeholder="Repite tu contraseña" required>
+            <input type="password" id="confirmarClave" placeholder="Repite tu contraseña" required name="confirmarClave">
 
             <button type="submit">Crear cuenta</button>
 

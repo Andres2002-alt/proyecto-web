@@ -73,9 +73,10 @@
 
                 <p class="precio-plan">$25 + IVA / mes</p>
 
-                <button onclick="seleccionarPlan('Plan Esencial', 25)">
-                    Comenzar ahora
-                </button>
+                <form action="php/procesar_plan.php" method="POST">
+                    <input type="hidden" name="id_plan" value="1">
+                    <button type="submit">Comenzar ahora</button>
+                </form>
             </div>
 
             <div class="plan destacado">
@@ -91,9 +92,10 @@
 
                 <p class="precio-plan">$40 + IVA / mes</p>
 
-                <button onclick="seleccionarPlan('Plan Activo', 40)">
-                    Inscribirse
-                </button>
+                <form action="php/procesar_plan.php" method="POST">
+                    <input type="hidden" name="id_plan" value="2">
+                    <button type="submit">Inscribirse</button>
+                </form>
             </div>
 
             <div class="plan premium">
@@ -109,9 +111,10 @@
 
                 <p class="precio-plan">$60 + IVA / mes</p>
 
-                <button onclick="seleccionarPlan('Plan Elite', 60)">
-                    Unirme al Elite
-                </button>
+                <form action="php/procesar_plan.php" method="POST">
+                    <input type="hidden" name="id_plan" value="3">
+                    <button type="submit">Unirme al Elite</button>
+                </form>
             </div>
 
         </div>

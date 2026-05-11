@@ -1,12 +1,13 @@
 <?php
     session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>PowerFit Gym</title>
+    <title>Confirmación - PowerFit Gym</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/png" href="imagenes/favicon.png?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -20,24 +21,26 @@
 
 <main>
 
-<section class="confirmacion">
+    <section class="confirmacion">
 
-<h2>¡Registro completado!</h2>
+        <h2>¡Registro completado!</h2>
 
-<p>
-Tu inscripción o compra se ha realizado correctamente.
-Gracias por confiar en <strong>PowerFit Gym</strong>.
-</p>
+        <p>
+            Tu inscripción se ha registrado correctamente.
+            El pago queda pendiente hasta integrar la pasarela de pago.
+            Gracias por confiar en <strong>PowerFit Gym</strong>.
+        </p>
 
-<a href="indice.html">
-<button>Volver al inicio</button>
-</a>
+        <a href="indice.php">
+            <button>Volver al inicio</button>
+        </a>
 
-</section>
+    </section>
 
 </main>
 
 <?php include("footer.php"); ?>
+
 <script src="js/script.js"></script>
 </body>
 </html>

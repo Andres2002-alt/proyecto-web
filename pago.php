@@ -1,12 +1,80 @@
 <?php
-    session_start();
+session_start();
+include("php/conexion.php");
+
+if (!isset($_SESSION["id_cliente"])) {
+    $_SESSION["destino_pendiente"] = "pago.php";
+    header("Location: login.php");
+    exit();
+}
+
+if (!isset($_SESSION["tipo_compra"])) {
+    echo "<script>
+            alert('No hay una compra pendiente.');
+            window.location='index.php';
+          </script>";
+    exit();
+}
+
+$subtotal = 0;
+$iva = 0;
+$total = 0;
+$descripcionCompra = "";
+$nombrePlan = "";
+
+if ($_SESSION["tipo_compra"] == "membresia") {
+
+    if (!isset($_SESSION["id_plan"])) {
+        echo "<script>
+                alert('No se seleccionó ningún plan.');
+                window.location='inscripcion.php';
+              </script>";
+        exit();
+    }
+
+    $id_plan = $_SESSION["id_plan"];
+
+    $sql = "SELECT id_plan, nombre, precio, duracion_dias 
+            FROM plan 
+            WHERE id_plan = ?";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "i", $id_plan);
+    mysqli_stmt_execute($stmt);
+
+    $resultado = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($resultado) == 0) {
+        echo "<script>
+                alert('El plan seleccionado no existe.');
+                window.location='inscripcion.php';
+              </script>";
+        exit();
+    }
+
+    $plan = mysqli_fetch_assoc($resultado);
+
+    $nombrePlan = $plan["nombre"];
+    $subtotal = $plan["precio"];
+    $iva = $subtotal * 0.15;
+    $total = $subtotal + $iva;
+    $descripcionCompra = "Membresía: " . $plan["nombre"];
+
+} else {
+    echo "<script>
+            alert('Por ahora el pago está configurado para membresías. Luego se migrará tienda/carrito.');
+            window.location='index.php';
+          </script>";
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>PowerFit Gym</title>
+    <title>Pago - PowerFit Gym</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/png" href="imagenes/favicon.png?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,58 +87,62 @@
 <?php include("header.php"); ?>
 
 <main>
-<section class="registro">
-    <h2>Formulario de Pago</h2>
-    <p>Completa tus datos para finalizar tu compra.</p>
 
-    <form id="formPago" onsubmit="finalizarPago(event)">
-        <h3>Datos Personales</h3>
+    <section class="login-contenedor login-simple">
 
-        <label>Nombre</label>
-        <input type="text" required>
+        <div class="login-info">
+            <h2>Resumen de pago</h2>
+            <p>Revisa los datos de tu membresía antes de confirmar.</p>
+        </div>
 
-        <label>Apellido</label>
-        <input type="text" required>
+        <div class="form-card form-login">
 
-        <label for="cedulaPago">Cédula</label>
-        <input type="text" id="cedulaPago" maxlength="10" required>
+            <h3>Detalle de la compra</h3>
 
-        <label>Cédula</label>
-        <input type="text" required>
+            <p>
+                <strong>Cliente:</strong>
+                <?php echo $_SESSION["nombre"] . " " . $_SESSION["apellido"]; ?>
+            </p>
 
-        <label>Email</label>
-        <input type="email" required>
+            <p>
+                <strong>Correo:</strong>
+                <?php echo $_SESSION["email"]; ?>
+            </p>
 
-        <label>Número de celular</label>
-        <input type="tel" required>
+            <p>
+                <strong>Compra:</strong>
+                <?php echo $descripcionCompra; ?>
+            </p>
 
-        <h3>Datos de Pago</h3>
+            <p>
+                <strong>Subtotal:</strong>
+                $<?php echo number_format($subtotal, 2); ?>
+            </p>
 
-        <label>Dirección de cobro</label>
-        <input type="text" required>
+            <p>
+                <strong>IVA 15%:</strong>
+                $<?php echo number_format($iva, 2); ?>
+            </p>
 
-        <label>Método de pago</label>
-        <select required>
-            <option>Tarjeta de crédito</option>
-            <option>Tarjeta de débito</option>
-            <option>Transferencia bancaria</option>
-        </select>
+            <p>
+                <strong>Total:</strong>
+                $<?php echo number_format($total, 2); ?>
+            </p>
 
-        <label>Nombre en la tarjeta</label>
-        <input type="text">
+            <form action="php/confirmar_membresia.php" method="POST">
+                <button type="submit">
+                    Confirmar membresía
+                </button>
+            </form>
 
-        <label>Número de tarjeta</label>
-        <input type="text">
+            <p class="texto-cambio-form">
+                El pago será registrado temporalmente como pendiente hasta integrar la pasarela de pago.
+            </p>
 
-        <label>Fecha de expiración</label>
-        <input type="month">
+        </div>
 
-        <label>CVV</label>
-        <input type="text">
+    </section>
 
-        <button type="submit">Confirmar Pago</button>
-    </form>
-</section>
 </main>
 
 <?php include("footer.php"); ?>
