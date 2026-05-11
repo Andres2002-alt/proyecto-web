@@ -27,10 +27,9 @@
             <p>Regístrate para comprar productos, adquirir membresías y continuar con tus pagos.</p>
         </div>
 
-        <form class="form-card form-login" action="../php/procesar_registro.php" method="POST">
+        <form class="form-card form-login" action="php/procesar_registro.php" method="POST">
 
             <label for="nombre">Nombre</label>
-<<<<<<< HEAD
             <input type="text" id="nombre" placeholder="Ingresa tu nombre" required name="nombre">
 
             <label for="apellido">Apellido</label>
@@ -47,24 +46,7 @@
 
             <label for="confirmarClave">Confirmar contraseña</label>
             <input type="password" id="confirmarClave" placeholder="Repite tu contraseña" required name="confirmarClave">
-=======
-            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
 
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido" required>
-
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-
-            <label for="celular">Número de celular</label>
-            <input type="tel" id="celular" name="celular" placeholder="0999999999" required>
-
-            <label for="clave">Contraseña</label>
-            <input type="password" id="clave" name="clave" placeholder="Crea una contraseña" required>
-
-            <label for="confirmarClave">Confirmar contraseña</label>
-            <input type="password" id="confirmarClave" name="confirmarClave" placeholder="Repite tu contraseña" required>
->>>>>>> 9f9033955a590e05f63c2e70c80d7e59b61c58a9
 
             <button type="submit">Crear cuenta</button>
 

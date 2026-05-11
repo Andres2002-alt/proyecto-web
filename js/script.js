@@ -301,11 +301,6 @@ function registrarCliente(event) {
     window.location.href = "pago.html";
 }
 
-
-
-
-
-
 // VALIDACION DE FORMULARIO
 function validarRegistro(formulario) {
     // 1. Obtención de valores
@@ -448,61 +443,6 @@ window.onclick = function(event) {
     }
 }
 
-//VENTANA EMERGENTE TIENDA
-var productoDetalleNombre = "";
-var productoDetallePrecio = 0;
-var productoDetalleCantidad = 1;
-
-function verDetalleProducto(nombre, precio, imagen, descripcion, tamano, ingredientes, especificaciones) {
-    const modal = document.getElementById("modalProducto");
-    const titulo = document.getElementById("modalTitulo");
-    const cuerpo = document.getElementById("modalCuerpo");
-    const imagenProducto = document.getElementById("modalImagen");
-
-    titulo.innerText = nombre;
-    imagenProducto.src = imagen;
-    cuerpo.innerHTML = `
-        <p><strong>Precio:</strong> $${precio}</p>
-        <p><strong>Descripción:</strong> ${descripcion}</p>
-        <p><strong>Tamaño:</strong> ${tamano}</p>
-        <p><strong>Ingredientes:</strong> ${ingredientes}</p>
-        <p><strong>Especificaciones:</strong> ${especificaciones}</p>
-    `;
-    
-    modal.style.display = "flex";
-}
-
-function cerrarModal() {
-    document.getElementById("modalProducto").style.display = "none";
-
-}  
-function cerrarModalHorarios() {
-    document.getElementById("modalHorarios").style.display = "none";
-}
-
-
-function aumentarCantidadDetalle() {
-    productoDetalleCantidad = productoDetalleCantidad + 1;
-    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
-}
-
-function disminuirCantidadDetalle() {
-    if (productoDetalleCantidad > 1) {
-        productoDetalleCantidad = productoDetalleCantidad - 1;
-    }
-
-    document.getElementById("cantidadDetalle").innerHTML = productoDetalleCantidad;
-}
-
-function agregarDesdeDetalle() {
-    for (var i = 1; i <= productoDetalleCantidad; i++) {
-        agregarCarrito(productoDetalleNombre, productoDetallePrecio);
-    }
-
-    cerrarDetalleProducto();
-}
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const heroSlider = document.getElementById("heroSlider");
 
@@ -538,3 +478,105 @@ function finalizarPago(evento) {
     alert("Pago realizado correctamente.");
     window.location.href = "mensaje.html";
 }
+/* =========================================================
+   MODAL DE PRODUCTO - TIENDA CON CARRITO PHP
+========================================================= */
+
+var productoDetalleCantidad = 1;
+
+function verDetalleProducto(nombre, precio, imagen, descripcion, tamano, ingredientes, especificaciones, idProducto) {
+    var modal = document.getElementById("modalProducto");
+    var titulo = document.getElementById("modalTitulo");
+    var descripcionModal = document.getElementById("modalDescripcion");
+    var cuerpo = document.getElementById("modalCuerpo");
+    var imagenProducto = document.getElementById("modalImagen");
+    var cantidadTexto = document.getElementById("cantidadDetalle");
+    var inputCantidad = document.getElementById("cantidadProductoModal");
+    var inputProducto = document.getElementById("idProductoModal");
+
+    productoDetalleCantidad = 1;
+
+    if (titulo) {
+        titulo.innerText = nombre;
+    }
+
+    if (descripcionModal) {
+        descripcionModal.innerText = descripcion;
+    }
+
+    if (imagenProducto) {
+        imagenProducto.src = imagen;
+    }
+
+    if (cuerpo) {
+        cuerpo.innerHTML =
+            "<p><strong>Precio:</strong> $" + parseFloat(precio).toFixed(2) + "</p>" +
+            "<p><strong>Tamaño:</strong> " + tamano + "</p>" +
+            "<p><strong>Ingredientes:</strong> " + ingredientes + "</p>" +
+            "<p><strong>Especificaciones:</strong> " + especificaciones + "</p>";
+    }
+
+    if (cantidadTexto) {
+        cantidadTexto.innerText = productoDetalleCantidad;
+    }
+
+    if (inputCantidad) {
+        inputCantidad.value = productoDetalleCantidad;
+    }
+
+    if (inputProducto) {
+        inputProducto.value = idProducto;
+    }
+
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+
+function cerrarModalProducto() {
+    var modal = document.getElementById("modalProducto");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+function aumentarCantidadDetalle() {
+    var cantidadTexto = document.getElementById("cantidadDetalle");
+    var inputCantidad = document.getElementById("cantidadProductoModal");
+
+    productoDetalleCantidad = productoDetalleCantidad + 1;
+
+    if (cantidadTexto) {
+        cantidadTexto.innerText = productoDetalleCantidad;
+    }
+
+    if (inputCantidad) {
+        inputCantidad.value = productoDetalleCantidad;
+    }
+}
+
+function disminuirCantidadDetalle() {
+    var cantidadTexto = document.getElementById("cantidadDetalle");
+    var inputCantidad = document.getElementById("cantidadProductoModal");
+
+    if (productoDetalleCantidad > 1) {
+        productoDetalleCantidad = productoDetalleCantidad - 1;
+    }
+
+    if (cantidadTexto) {
+        cantidadTexto.innerText = productoDetalleCantidad;
+    }
+
+    if (inputCantidad) {
+        inputCantidad.value = productoDetalleCantidad;
+    }
+}
+
+window.addEventListener("click", function(evento) {
+    var modal = document.getElementById("modalProducto");
+
+    if (modal && evento.target === modal) {
+        cerrarModalProducto();
+    }
+});

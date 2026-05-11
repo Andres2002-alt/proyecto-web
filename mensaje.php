@@ -26,7 +26,6 @@
         <h2>¡Registro completado!</h2>
 
         <p>
-            Tu inscripción se ha registrado correctamente.
             El pago queda pendiente hasta integrar la pasarela de pago.
             Gracias por confiar en <strong>PowerFit Gym</strong>.
         </p>

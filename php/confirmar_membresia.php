@@ -1,6 +1,8 @@
 <?php
 session_start();
+
 include("conexion.php");
+include("funciones.php");
 
 if (!isset($_SESSION["id_cliente"])) {
     echo "<script>
@@ -21,21 +23,15 @@ if (!isset($_SESSION["id_plan"])) {
 $id_cliente = $_SESSION["id_cliente"];
 $id_plan = $_SESSION["id_plan"];
 
-$sqlPlan = "SELECT precio, duracion_dias FROM plan WHERE id_plan = ?";
-$stmtPlan = mysqli_prepare($conn, $sqlPlan);
-mysqli_stmt_bind_param($stmtPlan, "i", $id_plan);
-mysqli_stmt_execute($stmtPlan);
-$resultadoPlan = mysqli_stmt_get_result($stmtPlan);
+$plan = consultarPlanPorId($conn, $id_plan);
 
-if (mysqli_num_rows($resultadoPlan) == 0) {
+if ($plan == null) {
     echo "<script>
             alert('El plan seleccionado no existe.');
             window.location='../inscripcion.php';
           </script>";
     exit();
 }
-
-$plan = mysqli_fetch_assoc($resultadoPlan);
 
 $precio = $plan["precio"];
 $duracion = $plan["duracion_dias"];
@@ -52,7 +48,8 @@ $fecha_inicio = date("Y-m-d");
 $fecha_fin = date("Y-m-d", strtotime("+".$duracion." days"));
 $estado_membresia = "Activa";
 
-$tipo_pago = "Pendiente PayPal";
+$tipo_pago = "Pendiente PayPhone";
+$metodo_pago = "Pasarela pendiente";
 $estado_pago = "Pendiente";
 $referencia = "PAGO-PENDIENTE";
 
@@ -60,13 +57,8 @@ mysqli_begin_transaction($conn);
 
 try {
 
-    $sqlMembresia = "INSERT INTO membresia(id_cliente, id_plan, fecha_inicio, fecha_fin, estado)
-                     VALUES (?, ?, ?, ?, ?)";
-
-    $stmtMembresia = mysqli_prepare($conn, $sqlMembresia);
-    mysqli_stmt_bind_param(
-        $stmtMembresia,
-        "iisss",
+    $id_membresia = registrarMembresia(
+        $conn,
         $id_cliente,
         $id_plan,
         $fecha_inicio,
@@ -74,21 +66,12 @@ try {
         $estado_membresia
     );
 
-    if (!mysqli_stmt_execute($stmtMembresia)) {
+    if ($id_membresia == 0) {
         throw new Exception(mysqli_error($conn));
     }
 
-    $id_membresia = mysqli_insert_id($conn);
-
-    $sqlPago = "INSERT INTO pago(id_cliente, id_membresia, tipo_pago, metodo_pago, monto, estado, referencia)
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-    $metodo_pago = "PayPal Sandbox pendiente";
-
-    $stmtPago = mysqli_prepare($conn, $sqlPago);
-    mysqli_stmt_bind_param(
-        $stmtPago,
-        "iissdss",
+    $pagoRegistrado = registrarPagoMembresia(
+        $conn,
         $id_cliente,
         $id_membresia,
         $tipo_pago,
@@ -98,7 +81,7 @@ try {
         $referencia
     );
 
-    if (!mysqli_stmt_execute($stmtPago)) {
+    if (!$pagoRegistrado) {
         throw new Exception(mysqli_error($conn));
     }
 

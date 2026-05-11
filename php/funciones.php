@@ -167,6 +167,60 @@ function obtenerImagenProducto($id_producto) {
 
     return "producto-default.png";
 }
+function obtenerDetallesProducto($id_producto) {
+    $detalles = array(
+        1 => array(
+            "tamano" => "2 lb (907 g)",
+            "ingredientes" => "Proteína de suero, aminoácidos esenciales, enzimas digestivas",
+            "especificaciones" => "Consumir 1 scoop después del entrenamiento con agua o leche"
+        ),
+        2 => array(
+            "tamano" => "300 g",
+            "ingredientes" => "Monohidrato de creatina",
+            "especificaciones" => "Consumir 5 g diarios disueltos en agua o jugo"
+        ),
+        3 => array(
+            "tamano" => "250 g",
+            "ingredientes" => "Leucina, isoleucina, valina",
+            "especificaciones" => "Consumir antes o después del entrenamiento"
+        ),
+        4 => array(
+            "tamano" => "300 g",
+            "ingredientes" => "Cafeína, beta-alanina, citrulina",
+            "especificaciones" => "Consumir 1 scoop 20 minutos antes del entrenamiento"
+        ),
+        5 => array(
+            "tamano" => "250 g",
+            "ingredientes" => "L-glutamina pura",
+            "especificaciones" => "Consumir 5 g después del entrenamiento"
+        ),
+        6 => array(
+            "tamano" => "90 cápsulas",
+            "ingredientes" => "Extracto de té verde, cafeína, L-carnitina",
+            "especificaciones" => "Consumir 2 cápsulas al día con abundante agua"
+        ),
+        7 => array(
+            "tamano" => "60 tabletas",
+            "ingredientes" => "Vitaminas A, C, D, complejo B y minerales",
+            "especificaciones" => "Consumir 1 tableta diaria con alimentos"
+        ),
+        8 => array(
+            "tamano" => "50 g",
+            "ingredientes" => "Avena, miel y frutos secos",
+            "especificaciones" => "Consumir antes del entrenamiento o como snack"
+        )
+    );
+
+    if (isset($detalles[$id_producto])) {
+        return $detalles[$id_producto];
+    }
+
+    return array(
+        "tamano" => "No especificado",
+        "ingredientes" => "Información no disponible",
+        "especificaciones" => "Consultar con el instructor o encargado de tienda"
+    );
+}
 
 
 /* =========================================================
@@ -181,7 +235,7 @@ function obtenerCarrito() {
     return $_SESSION["carrito"];
 }
 
-function agregarProductoAlCarrito($producto) {
+function agregarProductoAlCarrito($producto, $cantidad) {
     if (!isset($_SESSION["carrito"])) {
         $_SESSION["carrito"] = array();
     }
@@ -189,13 +243,13 @@ function agregarProductoAlCarrito($producto) {
     $id = $producto["id_producto"];
 
     if (isset($_SESSION["carrito"][$id])) {
-        $_SESSION["carrito"][$id]["cantidad"] += 1;
+        $_SESSION["carrito"][$id]["cantidad"] += $cantidad;
     } else {
         $_SESSION["carrito"][$id] = array(
             "id_producto" => $producto["id_producto"],
             "nombre" => $producto["nombre"],
             "precio" => $producto["precio"],
-            "cantidad" => 1
+            "cantidad" => $cantidad
         );
     }
 }
