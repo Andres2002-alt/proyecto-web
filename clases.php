@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,49 +17,7 @@
 
 <body>
 
-<header class="navbar">
-
-    <div class="logo">
-        <a href="indice.php">
-            <h1>PowerFit</h1>
-        </a>
-    </div>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="indice.php">Inicio</a></li>
-            <li><a href="clases.php">Clases</a></li>
-            <li><a href="instructores.php">Instructores</a></li>
-            <li><a href="ubicaciones.php">Ubicaciones</a></li>
-            <li><a href="tienda.php">Tienda</a></li>
-        </ul>
-    </nav>
-
-    <div class="nav-derecha">
-
-        <a href="login.php" class="icono-usuario" title="Iniciar sesión">
-            <i class="fa-regular fa-user"></i>
-        </a>
-
-        <div class="icono-carrito">
-            <a href="carrito.php" class="botonCarrito">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span id="contador-carrito">0</span>
-            </a>
-        </div>
-
-        <div id="estadoSesion" class="estado-sesion"></div>
-
-        <a href="inscripcion.php" class="btn-gym">
-            Inscríbete ya
-        </a>
-
-    </div>
-
-</header>
-
-
-
+<?php include("header.php"); ?>
 
 <section class="descripcion-clases">
 
@@ -123,56 +85,7 @@
 </section>
 
 
-<footer class="footer-powerfit">
-
-    <div class="footer-col">
-        <h3>Enlaces Rápidos</h3>
-        <a href="indice.php">Inicio</a>
-        <a href="clases.php">Clases</a>
-        <a href="ubicaciones.php">Ubicaciones</a>
-        <a href="tienda.php">Tienda</a>
-        <a href="inscripcion.php">Membresías</a>
-    </div>
-
-    <div class="footer-col">
-        <h3>Contacto</h3>
-        <p><strong>Tel:</strong> 0999999999</p>
-        <p><strong>Email:</strong> powerfit@gmail.com</p>
-        <p><strong>Dirección:</strong> Cuenca, Ecuador</p>
-        <p><strong>Horario:</strong> Lunes a Sábado de 6:00 a 22:00</p>
-    </div>
-
-   <div class="footer-col">
-    <h3>Síguenos</h3>
-
-    <div class="redes-iconos">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <i class="bi bi-instagram"></i>
-        </a>
-
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <i class="bi bi-youtube"></i>
-        </a>
-
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <i class="bi bi-facebook"></i>
-        </a>
-
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-            <i class="bi bi-tiktok"></i>
-        </a>
-
-        <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp"></i>
-        </a>
-    </div>
-</div>
-
-    <div class="footer-bottom">
-        <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
-    </div>
-
-</footer>
+<?php include("footer.php"); ?>
 <script src="js/script.js"></script>
 <div id="modalHorarios" class="modal">
     <div class="modal-contenido">
