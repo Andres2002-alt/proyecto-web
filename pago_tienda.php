@@ -76,7 +76,7 @@ $_SESSION['total_pago'] = $total;
 
 <?php include("footer.php"); ?>
 
-<script src="https://www.paypal.com/sdk/js?client-id=ATaYdcoBL8eldomkrKt2tLNAV82KJJZTa58DprHY5HT8U7qUyYTsA2HHLkLbYPaLp60mqy3AonOO6ebk&currency=USD"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=AWlRuCsQyJzhXd7yhUrMinsRtEYqOW-44xBHKPZuMpmkpckQyEP5ge7fTVaBn6uWPZaw7zbXicNvcuXY&currency=USD"></script>
 
 <script>
     paypal.Buttons({
