@@ -1,135 +1,112 @@
 <?php
-//include("php/conexion.php");
-//include("php/funciones.php");
+session_start();
+include("conexion.php"); // Están en la misma carpeta 'php'
 
-// Por ahora simulamos el usuario 1 (luego será con $_SESSION)
-//$id_usuario = 1; 
-//$datos = obtenerPerfilCompleto($conn, $id_usuario);
+// Seguridad: Si no hay sesión, mandamos al login
+if (!isset($_SESSION["id_cliente"])) {
+    header("Location: ../login.php");
+    exit();
+}
 
-// Cálculo de fecha de próximo pago
-//$fecha_inicio = new DateTime($datos['fecha_inicio']);
-//$meses = $datos['duracion_meses'] ?? 1; // Si no tiene plan, asumimos 1 para evitar error
-//$proximo_pago = $fecha_inicio->modify("+$meses month")->format('d/m/Y');
+$id_cliente = $_SESSION["id_cliente"];
+
+// Consulta corregida con tus nombres de tabla y columnas reales
+$sql = "SELECT c.*, p.nombre AS nombre_plan, p.precio, m.fecha_inicio, p.duracion_dias 
+        FROM cliente c
+        LEFT JOIN membresia m ON c.id_cliente = m.id_cliente
+        LEFT JOIN plan p ON m.id_plan = p.id_plan
+        WHERE c.id_cliente = $id_cliente";
+
+$resultado = mysqli_query($conn, $sql);
+$datos = mysqli_fetch_assoc($resultado);
+
+// Cálculo de próximo pago (en base a los días de tu tabla plan)
+$proximo_pago = "No activo";
+if ($datos && $datos['fecha_inicio']) {
+    $fecha = new DateTime($datos['fecha_inicio']);
+    $dias = $datos['duracion_dias'] ?? 30;
+    $proximo_pago = $fecha->modify("+$dias days")->format('d/m/Y');
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Cuenta - PowerFit</title>
+    <title>Mi Cuenta - PowerFit Gym</title>
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="icon" type="image/png" href="/..imagenes/favicon.png?v=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../imagenes/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="bg-cuenta">
+<body class="body-mi-cuenta">
 
-<div class="dashboard-container">
-    <aside class="sidebar-cuenta">
-        <div class="logo-cuenta">
-            <h2>POWER<span>FIT</span></h2>
-        </div>
-        <nav>
-            <a href="#" class="active"><i class="bi bi-grid"></i> Descripción general</a>
-            <a href="#"><i class="bi bi-credit-card"></i> Membresía</a>
-            <hr>
-            <a href="../indice.php" class="btn-volver"><i class="bi bi-arrow-left"></i> Volver al inicio</a>
-        </nav>
-    </aside>
+    <main class="contenedor-perfil-centrado">
+        <div class="cuenta-wrapper">
+            
+            <nav class="nav-retorno">
+                <a href="../indice.php">
+                    <i class="bi bi-arrow-left-short"></i> Volver al inicio
+                </a>
+            </nav>
+            <header class="cuenta-header">
+                <h1>Hola, <span><?php echo htmlspecialchars($datos['nombre']); ?></span></h1>
+                <p>Gestiona los detalles de tu cuenta y tu suscripción al gimnasio.</p>
+            </header>
 
-    <main class="main-cuenta">
-        <header class="header-main">
-            <h1>Configuración de la cuenta</h1>
-        </header>
-
-        <section class="seccion-perfil">
-            <div class="card-premium">
-                <div class="card-badge">MIEMBRO ACTIVO</div>
-                <div class="card-body-p">
-                    <div class="info-principal">
-                        <h3>Plan Actual: <span><?php echo $datos['nombre_plan'] ?? 'Sin Plan'; ?></span></h3>
-                        <p>Tu próxima fecha de facturación es el <strong><?php echo $proximo_pago; ?></strong>.</p>
+            <section class="cuenta-card-principal">
+                <div class="card-status-tag">
+                    <?php echo $datos['nombre_plan'] ? 'MIEMBRO POWERFIT' : 'SIN MEMBRESÍA'; ?>
+                </div>
+                
+                <div class="card-contenido">
+                    <div class="plan-detalle">
+                        <h3>Plan actual: <strong><?php echo $datos['nombre_plan'] ?? 'Ninguno seleccionado'; ?></strong></h3>
+                        <p>Tu próxima fecha de facturación es el <b><?php echo $proximo_pago; ?></b>.</p>
                     </div>
-                    <div class="metodo-pago">
-                        <p><i class="bi bi-credit-card-2-back"></i> Visa **** 1155</p>
-                        <a href="#">Administrar forma de pago</a>
+                    
+                    <div class="pago-detalle">
+                        <p><i class="bi bi-credit-card"></i> Visa **** 1155</p>
+                        <a href="#" class="link-azul">Administrar forma de pago</a>
                     </div>
                 </div>
-                <div class="card-footer-p">
-                    <a href="#">Cambiar de plan <i class="bi bi-chevron-right"></i></a>
-                </div>
-            </div>
 
-            <div class="opciones-grid">
-                <div class="opcion-item">
-                    <div class="texto">
-                        <strong>Email de contacto</strong>
+                <div class="card-footer-acciones">
+                    <a href="../inscripcion.php">Cambiar de plan <i class="bi bi-chevron-right"></i></a>
+                </div>
+            </section>
+
+            <div class="cuenta-grid-info">
+                <div class="info-item">
+                    <div class="info-texto">
+                        <strong>Correo electrónico</strong>
                         <span><?php echo $datos['email']; ?></span>
                     </div>
-                    <a href="#">Cambiar</a>
+                    <a href="#" class="btn-editar-perfil">Cambiar</a>
                 </div>
-                <div class="opcion-item">
-                    <div class="texto">
+
+                <div class="info-item">
+                    <div class="info-texto">
+                        <strong>Teléfono celular</strong>
+                        <span><?php echo $datos['celular'] ?? 'No registrado'; ?></span>
+                    </div>
+                    <a href="#" class="btn-editar-perfil">Editar</a>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-texto">
                         <strong>Contraseña</strong>
                         <span>********</span>
                     </div>
-                    <a href="#">Actualizar</a>
+                    <a href="#" class="btn-editar-perfil">Actualizar</a>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="footer-powerfit">
-
-    <div class="footer-col">
-        <h3>Enlaces rápidos</h3>
-        <a href="indice.php">Inicio</a>
-        <a href="clases.php">Clases</a>
-        <a href="instructores.php">Instructores</a>
-        <a href="ubicaciones.php">Ubicaciones</a>
-        <a href="tienda.php">Tienda</a>
-        <a href="inscripcion.php">Membresías</a>
-    </div>
-
-    <div class="footer-col">
-        <h3>Contacto</h3>
-        <p><strong>Tel:</strong> 0999999999</p>
-        <p><strong>Email:</strong> powerfit@gmail.com</p>
-        <p><strong>Dirección:</strong> Cuenca, Ecuador</p>
-        <p><strong>Horario:</strong> Lunes a sábado de 6:00 a 22:00</p>
-    </div>
-
-    <div class="footer-col">
-        <h3>Síguenos</h3>
-
-        <div class="redes-iconos">
-            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <i class="bi bi-instagram"></i>
-            </a>
-
-            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <i class="bi bi-youtube"></i>
-            </a>
-
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i class="bi bi-facebook"></i>
-            </a>
-
-            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <i class="bi bi-tiktok"></i>
-            </a>
-
-            <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <i class="bi bi-whatsapp"></i>
-            </a>
+            <div class="cuenta-extra-links">
+                <a href="cerrar_sesion.php" class="logout-link-simple">Cerrar sesión en este dispositivo</a>
+            </div>
         </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 PowerFit Gym. Todos los derechos reservados.</p>
-    </div>
-</footer>
-</div>
+    </main>
+    <?php include("../footer.php"); ?>
 </body>
 </html>

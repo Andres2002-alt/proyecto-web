@@ -2735,78 +2735,112 @@
 /* ============================================================= */
 /* ESTILOS PARA MI-CUENTA */
 
-.bg-cuenta { background-color: #f5f5f7; margin: 0; }
-
-.dashboard-container { display: flex; min-height: 100vh; }
-
-/* BARRA LATERAL */
-.sidebar-cuenta {
-    width: 280px;
-    background: #fff;
-    padding: 30px;
-    border-right: 1px solid #e0e0e0;
+.bg-cuenta {
+    background: var(--fondo-suave);
+    margin: 0;
 }
 
-.logo-cuenta h2 { color: #333; font-weight: 800; }
-.logo-cuenta span { color: #ff6600; } /* Tu naranja */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
 
-.sidebar-cuenta nav { margin-top: 40px; display: flex; flex-direction: column; }
+.sidebar-cuenta {
+    width: 260px;
+    background: var(--negro);
+    padding: 30px 20px;
+    border-right: 4px solid var(--amarillo);
+    color: var(--blanco);
+}
+
+.logo-cuenta h2 {
+    font-family: "Inter", sans-serif;
+    color: var(--blanco);
+}
+
+.logo-cuenta span {
+    color: var(--amarillo);
+}
+
+.sidebar-cuenta nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
 .sidebar-cuenta nav a {
-    text-decoration: none;
-    color: #666;
-    padding: 15px;
-    margin-bottom: 5px;
-    border-radius: 8px;
+    color: var(--blanco);
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.sidebar-cuenta nav a.active, .sidebar-cuenta nav a:hover {
-    background: #fff5ee;
-    color: #ff6600;
-    font-weight: bold;
+.sidebar-cuenta nav a.active, 
+.sidebar-cuenta nav a:hover {
+    background: var(--azul-verde);
+    color: var(--amarillo);
 }
 
+.main-cuenta {
+    flex: 1;
+    padding: 60px;
+}
 
-.main-cuenta { flex: 1; padding: 50px 80px; }
+.header-main h1 {
+    font-size: 2.8rem;
+    color: var(--negro);
+}
 
+/* LA TARJETA ESTILO NETFLIX */
 .card-premium {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: var(--blanco);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--sombra);
     overflow: hidden;
     margin-top: 30px;
+    border: 1px solid var(--gris);
 }
 
 .card-badge {
-    background: #ff6600;
-    color: white;
-    font-size: 11px;
+    background: var(--amarillo);
+    color: var(--negro);
+    padding: 6px 15px;
     font-weight: bold;
-    padding: 5px 15px;
+    font-size: 0.8rem;
     display: inline-block;
     border-radius: 0 0 10px 0;
 }
 
-.card-body-p { padding: 30px; display: flex; justify-content: space-between; align-items: center; }
-
-.card-footer-p {
-    background: #fafafa;
-    padding: 15px 30px;
-    border-top: 1px solid #eee;
-}
-
-.card-footer-p a { text-decoration: none; color: #007bff; font-weight: 500; }
-
-.opcion-item {
+.card-body-p {
+    padding: 30px;
     display: flex;
     justify-content: space-between;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 1px solid #eee;
+    align-items: center;
+}
+
+.card-body-p h3 span {
+    color: var(--azul-verde);
+    font-family: "Outer", sans-serif;
+}
+
+.card-footer-p {
+    background: var(--gris-suave);
+    padding: 15px 30px;
+    text-align: right;
+}
+
+.card-footer-p a {
+    color: var(--azul-verde-oscuro);
+    font-weight: bold;
+}
+
+.btn-edit {
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    background: var(--celeste);
+    color: var(--negro);
 }
 
 
@@ -3091,4 +3125,309 @@
     font-family: "Outer", sans-serif;
     color: var(--negro);
     font-size: 1.3rem;
+}
+
+
+/* ==================================================== 
+APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
+
+.body-mi-cuenta {
+    background-color: var(--fondo-suave) !important;
+}
+
+.contenedor-perfil-centrado {
+    min-height: 80vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.cuenta-wrapper {
+    width: 100%;
+    max-width: 850px; /* Ancho ideal para lectura */
+}
+
+.cuenta-header {
+    margin-bottom: 40px;
+}
+
+.cuenta-header h1 {
+    font-family: "Outer", sans-serif;
+    font-size: 3rem;
+    color: var(--negro);
+}
+
+.cuenta-header h1 span {
+    color: var(--azul-verde);
+}
+
+.cuenta-header p {
+    font-family: "Caviar", sans-serif;
+    color: rgba(0, 1, 13, 0.6);
+    font-size: 1.1rem;
+}
+
+/* TARJETA DE MEMBRESÍA */
+.cuenta-card-principal {
+    background: var(--blanco);
+    border: 1px solid var(--gris);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px var(--sombra);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.card-status-tag {
+    background: var(--amarillo);
+    color: var(--negro);
+    display: inline-block;
+    padding: 6px 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 0.75rem;
+    border-radius: 0 0 12px 0;
+}
+
+.card-contenido {
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.plan-detalle h3 {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.plan-detalle h3 strong {
+    color: var(--azul-verde);
+}
+
+.pago-detalle {
+    text-align: right;
+}
+
+.link-azul {
+    color: var(--azul-verde);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.card-footer-acciones {
+    background: #fbfbfb;
+    padding: 15px 30px;
+    border-top: 1px solid var(--gris-suave);
+    text-align: right;
+}
+
+.card-footer-acciones a {
+    color: var(--negro);
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* GRID DE INFORMACIÓN */
+.cuenta-grid-info {
+    margin-top: 20px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+.info-texto strong {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    color: var(--negro);
+    margin-bottom: 4px;
+}
+
+.info-texto span {
+    font-family: "Caviar", sans-serif;
+    color: rgba(0, 1, 13, 0.7);
+}
+
+.btn-editar-perfil {
+    color: var(--azul-verde);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cuenta-extra-links {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.logout-link-simple {
+    color: #d9534f;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 0.95rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .card-contenido {
+        flex-direction: column;
+        text-align: center;
+    }
+    .pago-detalle {
+        text-align: center;
+    }
+    .cuenta-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* --- ESTILO BOTÓN VOLVER (MI CUENTA) --- */
+.nav-retorno {
+    margin-bottom: 25px;
+}
+
+.nav-retorno a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--azul-verde);
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.nav-retorno a i {
+    font-size: 1.4rem; /* Flecha un poco más grande */
+    line-height: 0;
+}
+
+.nav-retorno a:hover {
+    color: var(--negro);
+    transform: translateX(-5px); /* Pequeño salto a la izquierda al pasar el mouse */
+}
+
+/* Ajuste opcional para que el título no quede tan pegado arriba ahora que no hay header */
+.contenedor-perfil-centrado {
+    padding-top: 80px !important;
+}
+
+/* =========================================================
+  DROPDOWN logo de cuenta
+   ========================================================= */
+/* 1. Contenedor padre */
+.user-dropdown {
+    position: relative;
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Área de contacto extra */
+}
+
+/* 2. La caja de opciones (Centrada) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); 
+    top: 100%;
+    background-color: var(--blanco);
+    min-width: 210px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.18);
+    border-radius: 14px;
+    z-index: 1001;
+    margin-top: 12px; /* Este es el hueco que vamos a puentear */
+    border: 1px solid var(--gris);
+    overflow: visible; /* Cambiado a visible para que el puente funcione */
+}
+
+/* --- EL PUENTE INVISIBLE (CRÍTICO) --- */
+/* Este bloque rellena el vacío para que el mouse nunca deje de tocar el menú */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -15px; /* Cubre los 12px de margin-top + un poquito más */
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent; /* Invisible pero presente */
+    display: block;
+}
+
+/* --- LA FLECHITA INDICADORA --- */
+.dropdown-content::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent var(--blanco) transparent;
+}
+
+/* 3. Activador Hover */
+.user-dropdown:hover .dropdown-content {
+    display: block;
+    animation: scaleInCentrado 0.2s ease;
+}
+
+/* 4. Estilos internos (Nombre y Enlaces) */
+.user-info-mini {
+    padding: 15px 20px;
+    background-color: var(--fondo-suave);
+    border-bottom: 1px solid var(--gris);
+    border-radius: 14px 14px 0 0;
+}
+
+.user-info-mini p {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    text-decoration: none !important;
+    color: var(--negro) !important;
+    font-family: "Caviar", sans-serif;
+    transition: background 0.2s;
+}
+
+.dropdown-content a i {
+    color: var(--azul-verde);
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--gris-suave);
+}
+
+.txt-rojo { color: #d9534f !important; border-top: 1px solid var(--gris-suave); }
+.txt-rojo i { color: #d9534f !important; }
+
+/* 5. Animación Pro */
+@keyframes scaleInCentrado {
+    from { 
+        opacity: 0; 
+        transform: translateX(-50%) scale(0.95) translateY(-10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(-50%) scale(1) translateY(0); 
+    }
 }
