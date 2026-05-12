@@ -136,22 +136,29 @@ if ($_SESSION["tipo_compra"] == "membresia") {
 
             <script>
                 paypal.Buttons({
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    value: '<?php echo number_format($total, 2, '.', ''); ?>' // El total del plan
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(orderData) {
-                            // Redirigir al script que procesa la membresía
-                            window.location.href = "php/confirmar_membresia.php";
-                        });
-                    }
-                }).render('#paypal-button-container');
+                        createOrder: function(data, actions) {
+                            return actions.order.create({
+                                purchase_units: [{
+                                    amount: {
+                                        // Usamos el total calculado en PHP
+                                        value: '<?php echo number_format($total, 2, '.', ''); ?>' 
+                                    },
+                                    description: '<?php echo $descripcionCompra; ?>'
+                                }]
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            return actions.order.capture().then(function(orderData) {
+                                // --- AJUSTE 2: ENVIAR EL ID DE ORDEN AL BACKEND ---
+                                // Esto es vital para que php/confirmar_membresia.php sepa qué se pagó
+                                window.location.href = "php/confirmar_membresia.php?orderID=" + data.orderID;
+                            });
+                        },
+                        onError: function(err) {
+                            console.error('Error en PayPal:', err);
+                            alert('Hubo un error al procesar el pago con PayPal.');
+                        }
+                    }).render('#paypal-button-container');
             </script>
 
 

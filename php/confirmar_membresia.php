@@ -12,6 +12,15 @@ if (!isset($_SESSION["id_cliente"])) {
     exit();
 }
 
+// --- AJUSTE 1: VERIFICACIÓN DE PAYPAL ---
+if (!isset($_GET['orderID'])) {
+    echo "<script>
+            alert('No se recibió la confirmación de pago de PayPal.');
+            window.location='../inscripcion.php';
+          </script>";
+    exit();
+}
+
 if (!isset($_SESSION["id_plan"])) {
     echo "<script>
             alert('No se seleccionó ningún plan.');
@@ -48,10 +57,13 @@ $fecha_inicio = date("Y-m-d");
 $fecha_fin = date("Y-m-d", strtotime("+".$duracion." days"));
 $estado_membresia = "Activa";
 
-$tipo_pago = "Pendiente PayPhone";
-$metodo_pago = "Pasarela pendiente";
-$estado_pago = "Pendiente";
-$referencia = "PAGO-PENDIENTE";
+// --- AJUSTE 2: DATOS REALES DE PAYPAL ---
+$orderID = $_GET['orderID']; // Capturamos el ID de transacción
+$tipo_pago = "PayPal";
+$metodo_pago = "Digital";
+$estado_pago = "Aprobado";
+$referencia = $orderID; // Usamos el ID de PayPal como número de referencia
+// ----------------------------------------
 
 mysqli_begin_transaction($conn);
 
@@ -67,7 +79,7 @@ try {
     );
 
     if ($id_membresia == 0) {
-        throw new Exception(mysqli_error($conn));
+        throw new Exception("Error al registrar la membresía en la base de datos.");
     }
 
     $pagoRegistrado = registrarPagoMembresia(
@@ -82,17 +94,19 @@ try {
     );
 
     if (!$pagoRegistrado) {
-        throw new Exception(mysqli_error($conn));
+        throw new Exception("Error al registrar el pago de la membresía.");
     }
 
     mysqli_commit($conn);
 
+    // Limpieza de sesión de la compra
     unset($_SESSION["id_plan"]);
     unset($_SESSION["nombre_plan"]);
     unset($_SESSION["precio_plan"]);
     unset($_SESSION["tipo_compra"]);
+    unset($_SESSION["total_pago"]);
 
-    header("Location: ../mensaje.php");
+    header("Location: ../mensaje.php?status=success&type=membresia&ref=" . $referencia);
     exit();
 
 } catch (Exception $e) {

@@ -21,11 +21,13 @@ $carrito = obtenerCarrito();
 $subtotal = calcularSubtotalCarrito();
 $iva = calcularIvaCarrito();
 $total = calcularTotalCarrito();
+
+// --- AJUSTE 1: GUARDAR EL TOTAL EN SESIÓN ---
+$_SESSION['total_pago'] = $total; 
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <title>Pago de tienda - PowerFit Gym</title>
@@ -34,22 +36,18 @@ $total = calcularTotalCarrito();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 
 <?php include("header.php"); ?>
 
 <main>
-
     <section class="login-contenedor login-simple">
-
         <div class="login-info">
             <h2>Resumen de compra</h2>
             <p>Revisa los productos antes de confirmar la compra.</p>
         </div>
 
         <div class="form-card form-login">
-
             <h3>Detalle de productos</h3>
 
             <?php foreach ($carrito as $producto) { ?>
@@ -67,42 +65,43 @@ $total = calcularTotalCarrito();
             <p><strong>IVA 15%:</strong> $<?php echo number_format($iva, 2); ?></p>
             <p><strong>Total:</strong> $<?php echo number_format($total, 2); ?></p>
 
-            <div id="paypal-button-container"></div>
+            <div id="paypal-button-container" style="margin-top: 20px;"></div>
 
-            <script src="https://www.paypal.com/sdk/js?client-id=ATaYdcoBL8eldomkrKt2tLNAV82KJJZTa58DprHY5HT8U7qUyYTsA2HHLkLbYPaLp60mqy3AonOO6ebk&currency=USD"></script>
-
-            <script>
-                paypal.Buttons({
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{
-                                amount: {
-                                    value: '<?php echo number_format($total, 2, '.', ''); ?>' // El total de tu carrito
-                                }
-                            }]
-                        });
-                    },
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(orderData) {
-                            // Si el pago es exitoso, enviamos al usuario al script que guarda en la base de datos
-                            window.location.href = "php/confirmar_compra.php"; 
-                        });
-                    }
-                }).render('#paypal-button-container');
-            </script>
-
-
-            <p class="texto-cambio-form">
-                El pago será registrado temporalmente como pendiente hasta integrar la pasarela de pago.
+            <p class="texto-cambio-form" style="margin-top: 15px;">
+                Tu compra se procesará de forma segura a través de PayPal.
             </p>
-
         </div>
-
     </section>
-
 </main>
 
 <?php include("footer.php"); ?>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ATaYdcoBL8eldomkrKt2tLNAV82KJJZTa58DprHY5HT8U7qUyYTsA2HHLkLbYPaLp60mqy3AonOO6ebk&currency=USD"></script>
+
+<script>
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        // Formato estricto de PayPal (punto decimal)
+                        value: '<?php echo number_format($total, 2, '.', ''); ?>'
+                    }
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(orderData) {
+                // --- AJUSTE 2: REDIRIGIR CON EL ID DE ORDEN ---
+                window.location.href = "php/confirmar_compra.php?orderID=" + data.orderID;
+            });
+        },
+        onError: function(err) {
+            console.error('Error PayPal:', err);
+            alert('No se pudo completar el pago de la tienda.');
+        }
+    }).render('#paypal-button-container');
+</script>
 
 <script src="js/script.js"></script>
 </body>
