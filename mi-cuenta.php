@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("conexion.php"); // Están en la misma carpeta 'php'
+include("php/conexion.php"); // Están en la misma carpeta 'php'
 
 // Seguridad: Si no hay sesión, mandamos al login
 if (!isset($_SESSION["id_cliente"])) {
-    header("Location: ../login.php");
+    header("Location: login.php");
     exit();
 }
 
@@ -34,18 +34,19 @@ if ($datos && $datos['fecha_inicio']) {
 <head>
     <meta charset="UTF-8">
     <title>Mi Cuenta - PowerFit Gym</title>
-    <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="icon" type="image/png" href="../imagenes/favicon.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="body-mi-cuenta">
 
+<?php include("header.php"); ?>
     <main class="contenedor-perfil-centrado">
         <div class="cuenta-wrapper">
             
             <nav class="nav-retorno">
-                <a href="../indice.php">
+                <a href="indice.php">
                     <i class="bi bi-arrow-left-short"></i> Volver al inicio
                 </a>
             </nav>
@@ -72,7 +73,7 @@ if ($datos && $datos['fecha_inicio']) {
                 </div>
 
                 <div class="card-footer-acciones">
-                    <a href="../inscripcion.php">Cambiar de plan <i class="bi bi-chevron-right"></i></a>
+                    <a href="inscripcion.php">Cambiar de plan <i class="bi bi-chevron-right"></i></a>
                 </div>
             </section>
 
@@ -84,29 +85,9 @@ if ($datos && $datos['fecha_inicio']) {
                     </div>
                     <a href="#" class="btn-editar-perfil">Cambiar</a>
                 </div>
-
-                <div class="info-item">
-                    <div class="info-texto">
-                        <strong>Teléfono celular</strong>
-                        <span><?php echo $datos['celular'] ?? 'No registrado'; ?></span>
-                    </div>
-                    <a href="#" class="btn-editar-perfil">Editar</a>
-                </div>
-
-                <div class="info-item">
-                    <div class="info-texto">
-                        <strong>Contraseña</strong>
-                        <span>********</span>
-                    </div>
-                    <a href="#" class="btn-editar-perfil">Actualizar</a>
-                </div>
-            </div>
-
-            <div class="cuenta-extra-links">
-                <a href="cerrar_sesion.php" class="logout-link-simple">Cerrar sesión en este dispositivo</a>
             </div>
         </div>
     </main>
-    <?php include("../footer.php"); ?>
+    <?php include("footer.php"); ?>
 </body>
 </html>

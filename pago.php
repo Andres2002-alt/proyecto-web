@@ -59,6 +59,7 @@ if ($_SESSION["tipo_compra"] == "membresia") {
     $iva = $subtotal * 0.15;
     $total = $subtotal + $iva;
     $descripcionCompra = "Membresía: " . $plan["nombre"];
+    $_SESSION['total_pago'] = $total;
 
 } else {
     echo "<script>

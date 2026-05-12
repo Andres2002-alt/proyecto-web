@@ -27,7 +27,7 @@
                         <div class="user-info-mini">
                             <p>Hola, <strong><?php echo $_SESSION["nombre"]; ?></strong></p>
                         </div>
-                            <a href="php/mi-cuenta.php">
+                            <a href="mi-cuenta.php">
                                 <i class="fa-solid fa-gear"></i> Mi Cuenta
                             </a>
                             <a href="php/cerrar_sesion.php" class="txt-rojo">
@@ -49,13 +49,6 @@
         <a href="inscripcion.php" class="btn-gym">
             Inscríbete ya
         </a>
-
-        <?php if (isset($_SESSION["id_cliente"])) { ?>
-            <a href="php/cerrar_sesion.php" class="btn-sesion">
-                Salir
-            </a>
-        <?php } ?>
-
     </div>
 
 </header>
