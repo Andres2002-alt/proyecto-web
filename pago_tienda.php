@@ -67,9 +67,30 @@ $total = calcularTotalCarrito();
             <p><strong>IVA 15%:</strong> $<?php echo number_format($iva, 2); ?></p>
             <p><strong>Total:</strong> $<?php echo number_format($total, 2); ?></p>
 
-            <form action="php/confirmar_compra.php" method="POST">
-                <button type="submit">Confirmar compra</button>
-            </form>
+            <div id="paypal-button-container"></div>
+
+            <script src="https://www.paypal.com/sdk/js?client-id=ATaYdcoBL8eldomkrKt2tLNAV82KJJZTa58DprHY5HT8U7qUyYTsA2HHLkLbYPaLp60mqy3AonOO6ebk&currency=USD"></script>
+
+            <script>
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '<?php echo number_format($total, 2, '.', ''); ?>' // El total de tu carrito
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+                            // Si el pago es exitoso, enviamos al usuario al script que guarda en la base de datos
+                            window.location.href = "php/confirmar_compra.php"; 
+                        });
+                    }
+                }).render('#paypal-button-container');
+            </script>
+
 
             <p class="texto-cambio-form">
                 El pago será registrado temporalmente como pendiente hasta integrar la pasarela de pago.
