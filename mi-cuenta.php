@@ -1,8 +1,7 @@
 <?php
 session_start();
-include("php/conexion.php"); // Están en la misma carpeta 'php'
+include("php/conexion.php");
 
-// Seguridad: Si no hay sesión, mandamos al login
 if (!isset($_SESSION["id_cliente"])) {
     header("Location: login.php");
     exit();
@@ -10,7 +9,6 @@ if (!isset($_SESSION["id_cliente"])) {
 
 $id_cliente = $_SESSION["id_cliente"];
 
-// Consulta corregida con tus nombres de tabla y columnas reales
 $sql = "SELECT c.*, p.nombre AS nombre_plan, p.precio, m.fecha_inicio, p.duracion_dias 
         FROM cliente c
         LEFT JOIN membresia m ON c.id_cliente = m.id_cliente
@@ -20,7 +18,6 @@ $sql = "SELECT c.*, p.nombre AS nombre_plan, p.precio, m.fecha_inicio, p.duracio
 $resultado = mysqli_query($conn, $sql);
 $datos = mysqli_fetch_assoc($resultado);
 
-// Cálculo de próximo pago (en base a los días de tu tabla plan)
 $proximo_pago = "No activo";
 if ($datos && $datos['fecha_inicio']) {
     $fecha = new DateTime($datos['fecha_inicio']);
@@ -36,12 +33,20 @@ if ($datos && $datos['fecha_inicio']) {
     <title>Mi Cuenta - PowerFit Gym</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    
+    <!-- LIBRERÍAS DE ICONOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<!-- Es crucial esta clase para el fondo gris claro -->
 <body class="body-mi-cuenta">
 
-<?php include("header.php"); ?>
+    <!-- INCLUIR HEADER AQUÍ -->
+    <?php include("header.php"); ?>
+
     <main class="contenedor-perfil-centrado">
         <div class="cuenta-wrapper">
             
@@ -50,6 +55,7 @@ if ($datos && $datos['fecha_inicio']) {
                     <i class="bi bi-arrow-left-short"></i> Volver al inicio
                 </a>
             </nav>
+
             <header class="cuenta-header">
                 <h1>Hola, <span><?php echo htmlspecialchars($datos['nombre']); ?></span></h1>
                 <p>Gestiona los detalles de tu cuenta y tu suscripción al gimnasio.</p>
@@ -67,7 +73,7 @@ if ($datos && $datos['fecha_inicio']) {
                     </div>
                     
                     <div class="pago-detalle">
-                        <p><i class="bi bi-credit-card"></i> Visa **** 1155</p>
+                        <p><i class="bi bi-credit-card"></i> PAYPAL</p>
                         <a href="#" class="link-azul">Administrar forma de pago</a>
                     </div>
                 </div>
@@ -83,11 +89,15 @@ if ($datos && $datos['fecha_inicio']) {
                         <strong>Correo electrónico</strong>
                         <span><?php echo $datos['email']; ?></span>
                     </div>
-                    <a href="#" class="btn-editar-perfil">Cambiar</a>
+                    <a href="registro.php" class="btn-editar-perfil">Cambiar</a>
                 </div>
             </div>
+
         </div>
     </main>
+
+    <!-- INCLUIR FOOTER AQUÍ -->
     <?php include("footer.php"); ?>
+
 </body>
 </html>
