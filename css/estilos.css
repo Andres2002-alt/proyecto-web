@@ -2870,3 +2870,220 @@
         display: none;
     }
 }
+/* CARRITO */
+
+.carrito {
+    max-width: 1180px;
+    margin: 50px auto;
+    background-color: var(--blanco);
+    border-radius: 18px;
+    padding: 40px;
+    border: 1px solid rgba(0, 1, 13, 0.08);
+    box-shadow: 0 18px 42px rgba(0, 1, 13, 0.10);
+}
+
+.carrito h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+/* Tabla centrada y ordenada */
+.carrito table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px auto 35px auto;
+    background-color: var(--blanco);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(0, 1, 13, 0.08);
+}
+
+.carrito th,
+.carrito td {
+    padding: 16px 14px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0, 1, 13, 0.10);
+}
+
+.carrito th {
+    background-color: var(--azul-verde);
+    color: var(--blanco);
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+.carrito td {
+    color: var(--negro);
+    font-family: "Caviar", sans-serif;
+    font-size: 1rem;
+}
+
+.carrito td strong,
+.carrito td b {
+    font-family: "Inter", sans-serif;
+}
+
+/* Cantidad */
+.cantidad-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cantidad-carrito span,
+.cantidad-carrito strong {
+    min-width: 24px;
+    display: inline-block;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+}
+
+.btn-cantidad {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--negro);
+    color: var(--amarillo);
+    border: 2px solid var(--negro);
+    box-shadow: none;
+}
+
+.btn-cantidad:hover {
+    background: var(--azul-verde);
+    color: var(--blanco);
+    border-color: var(--azul-verde);
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+    background: var(--negro);
+    color: var(--amarillo);
+    border: 2px solid var(--negro);
+    padding: 9px 18px;
+    border-radius: 999px;
+    box-shadow: none;
+}
+
+.btn-eliminar:hover {
+    background: #b00020;
+    color: var(--blanco);
+    border-color: #b00020;
+}
+
+/* Resumen debajo de la tabla, alineado a la derecha */
+.resumen-compra {
+    max-width: 420px;
+    margin: 30px 0 0 auto;
+    padding: 28px;
+    background: linear-gradient(to bottom, var(--blanco), rgba(169, 203, 217, 0.16)) !important;
+    color: var(--negro) !important;
+    border: 1px solid rgba(0, 1, 13, 0.10);
+    border-radius: 18px;
+    box-shadow: 0 12px 28px rgba(0, 1, 13, 0.08);
+}
+
+.resumen-compra h3 {
+    color: var(--negro) !important;
+    font-size: 1.45rem;
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 1, 13, 0.10);
+    text-align: left;
+}
+
+.fila-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 1, 13, 0.10) !important;
+}
+
+.fila-resumen span {
+    color: rgba(0, 1, 13, 0.72) !important;
+}
+
+.fila-resumen strong {
+    color: var(--negro) !important;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+}
+
+.total-final {
+    border-bottom: none !important;
+    margin-top: 10px;
+    padding-top: 18px;
+}
+
+.total-final span,
+.total-final strong {
+    color: var(--azul-verde) !important;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.resumen-compra .btn-pago,
+.resumen-compra button {
+    width: 100%;
+    margin-top: 22px;
+    background: var(--negro) !important;
+    color: var(--amarillo) !important;
+    border: 2px solid var(--negro) !important;
+    box-shadow: none !important;
+}
+
+.resumen-compra .btn-pago:hover,
+.resumen-compra button:hover {
+    background: var(--azul-verde) !important;
+    color: var(--blanco) !important;
+    border-color: var(--azul-verde) !important;
+}
+
+/* Responsive carrito */
+@media (max-width: 768px) {
+    .carrito {
+        margin: 20px 10px;
+        padding: 22px;
+    }
+
+    .carrito table,
+    .carrito thead,
+    .carrito tbody,
+    .carrito th,
+    .carrito td,
+    .carrito tr {
+        display: block;
+        width: 100%;
+    }
+
+    .carrito thead {
+        display: none;
+    }
+
+    .carrito tr {
+        background-color: var(--blanco);
+        margin-bottom: 15px;
+        padding: 15px;
+        border-radius: 14px;
+        border: 1px solid rgba(0, 1, 13, 0.10);
+        box-shadow: 0 8px 18px rgba(0, 1, 13, 0.06);
+    }
+
+    .carrito td {
+        border: none;
+        text-align: center;
+        padding: 8px 0;
+    }
+
+    .resumen-compra {
+        max-width: 100%;
+        margin: 25px 0 0 0;
+    }
+}
