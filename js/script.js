@@ -303,54 +303,91 @@ function registrarCliente(event) {
 
 // VALIDACION DE FORMULARIO
 function validarRegistro(formulario) {
-    // 1. Obtención de valores
-    const nombre = formulario["nombre"].value.trim();
-    const celular = formulario["celular"].value.trim();
-    const fechaNacimiento = formulario["fecha_nacimiento"].value;
+    var nombre = formulario["nombre"].value.trim();
+    var apellido = formulario["apellido"].value.trim();
+    var email = formulario["email"].value.trim();
+    var celular = formulario["celular"].value.trim();
+    var clave = formulario["clave"].value.trim();
+    var confirmarClave = formulario["confirmarClave"].value.trim();
 
-    // 2. Validar nombre (Solo letras)
-    const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-    if (!regexLetras.test(nombre)) {
-        alert("Por favor, ingresa un nombre válido.");
-        return false; 
-    }
+    var regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    var regexCelular = /^09\d{8}$/;
+    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // 3. Validar celular (Ecuador: empieza con 09 y tiene 10 dígitos)
-    const regexCelular = /^09\d{8}$/;
-    if (!regexCelular.test(celular)) {
-        alert("Número de celular no válido. Debe tener 10 dígitos y empezar con 09.");
+    if (nombre == "") {
+        alert("Debe ingresar el nombre.");
         return false;
     }
 
-    // 4. Validar edad mínima (Opcional)
-    if (fechaNacimiento) {
-        const hoy = new Date();
-        const cumple = new Date(fechaNacimiento);
-        let edad = hoy.getFullYear() - cumple.getFullYear();
-        if (edad < 16) {
-            alert("Debes ser mayor de 16 años para inscribirte.");
-            return false;
-        }
+    if (!regexLetras.test(nombre)) {
+        alert("El nombre solo debe contener letras.");
+        return false;
     }
 
-    // Si llega aquí, es que todo pasó las pruebas
+    if (apellido == "") {
+        alert("Debe ingresar el apellido.");
+        return false;
+    }
+
+    if (!regexLetras.test(apellido)) {
+        alert("El apellido solo debe contener letras.");
+        return false;
+    }
+
+    if (email == "") {
+        alert("Debe ingresar el correo electrónico.");
+        return false;
+    }
+
+    if (!regexEmail.test(email)) {
+        alert("Debe ingresar un correo electrónico válido.");
+        return false;
+    }
+
+    if (celular == "") {
+        alert("Debe ingresar el número de celular.");
+        return false;
+    }
+
+    if (!regexCelular.test(celular)) {
+        alert("El celular debe empezar con 09 y tener exactamente 10 dígitos.");
+        return false;
+    }
+
+    if (clave == "") {
+        alert("Debe ingresar una contraseña.");
+        return false;
+    }
+
+    if (clave.length < 6) {
+        alert("La contraseña debe tener al menos 6 caracteres.");
+        return false;
+    }
+
+    if (confirmarClave == "") {
+        alert("Debe confirmar la contraseña.");
+        return false;
+    }
+
+    if (clave != confirmarClave) {
+        alert("Las contraseñas no coinciden.");
+        return false;
+    }
+
     return true;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const miFormulario = document.getElementById("formRegistro");
+    var formulario = document.getElementById("formRegistro");
 
-    if (miFormulario == null) {
+    if (formulario == null) {
         return;
     }
 
-    miFormulario.addEventListener("submit", function(evento) {
-        const esValido = validarRegistro(miFormulario);
+    formulario.addEventListener("submit", function(evento) {
+        var esValido = validarRegistro(formulario);
 
-        if (esValido) {
-            alert("Validación correcta. Procesando inscripción...");
-            console.log("Datos listos para enviar.");
-        } else {
+        if (!esValido) {
             evento.preventDefault();
         }
     });
