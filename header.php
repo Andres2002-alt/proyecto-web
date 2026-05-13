@@ -62,7 +62,7 @@
 
         <a href="carrito.php" class="botonCarrito">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span id="contador-carrito">0</span>
+            <span id="contador-carrito"><?php echo $cantidadCarritoHeader; ?></span>
         </a>
 
         <a href="registro.php" class="btn-gym">

@@ -45,9 +45,9 @@ function actualizarContadorVisual() {
 }
 
 
-document.addEventListener("DOMContentLoaded", actualizarContadorVisual);
+//document.addEventListener("DOMContentLoaded", actualizarContadorVisual);
 
-function agregarCarrito(nombre, precio) {
+/*function agregarCarrito(nombre, precio) {
     // Obtener el carrito actual
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -68,7 +68,7 @@ function agregarCarrito(nombre, precio) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
     // Actualizar el contador visual 
-    actualizarContadorVisual();
+    //actualizarContadorVisual();
 
     // Feedback visual
     const spanContador = document.getElementById("contador-carrito");
@@ -89,7 +89,7 @@ function agregarCarrito(nombre, precio) {
         position: 'top-end' // Aparece en la esquina superior derecha
     });
 }
-
+*/
 
 
 function calcularTotal() {
@@ -111,7 +111,7 @@ function calcularTotal() {
 function confirmarRegistro() {
     alert("Formulario enviado correctamente");
 }
-function mostrarCarrito() {
+/*function mostrarCarrito() {
     var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     var tabla = document.getElementById("tablaCarrito");
     var subtotalGeneral = 0;
@@ -195,9 +195,9 @@ function aumentarCantidad(indice) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
     actualizarContadorVisual();
-}
+}*/
 
-function disminuirCantidad(indice) {
+/*function disminuirCantidad(indice) {
     var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     if (carrito[indice].cantidad > 1) {
@@ -209,12 +209,12 @@ function disminuirCantidad(indice) {
     localStorage.setItem("carrito", JSON.stringify(carrito));
     mostrarCarrito();
     actualizarContadorVisual();
-}
+}*/
 
 
 
 //ELIMINAR PRODUCTOS 
-function eliminarProducto(indice) {
+/*function eliminarProducto(indice) {
     // 1. Obtenemos el carrito actual
     var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -236,7 +236,7 @@ function vaciarCarrito() {
     localStorage.removeItem("carrito");
     mostrarCarrito(); // llama internamente a actualizarContadorVisual()
     alert("Carrito vaciado correctamente.");
-}
+}*/
 
 // registrarCliente
 function registrarCliente(event) {
