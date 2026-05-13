@@ -43,24 +43,31 @@
             <p>Actualiza tus datos personales. Por seguridad, el correo no puede ser modificado.</p>
         </div>
 
-        <form id="formEditarCuenta" class="form-card form-login" action="php/procesar_edicion_cuenta.php" method="POST">
+        <form id="formEditarCuenta" class="form-card form-login" action="php/procesar_edicion_cuenta.php" method="POST" onsubmit="return validarEdicion(this)">
 
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($datos['nombre']); ?>" required>
+            <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($datos['nombre']); ?>">
+            <!-- FALTA ESTO: -->
+            <span class="mensaje-error-campo" id="errorNombre"></span>
 
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" value="<?php echo htmlspecialchars($datos['apellido']); ?>" required>
+            <input type="text" id="apellido" name="apellido" value="<?php echo htmlspecialchars($datos['apellido']); ?>">
+            <!-- FALTA ESTO: -->
+            <span class="mensaje-error-campo" id="errorApellido"></span>
 
-            <!-- CAMPO BLOQUEADO (Readonly) -->
             <label for="email">Correo electrónico (No editable)</label>
             <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($datos['email']); ?>" readonly style="background-color: #e9ecef; color: #6c757d; cursor: not-allowed;">
+            <!-- El email no necesita error porque es readonly -->
 
             <label for="celular">Número de celular</label>
-            <input type="tel" id="celular" name="celular" value="<?php echo htmlspecialchars($datos['celular']); ?>" required>
+            <input type="tel" id="celular" name="celular" value="<?php echo htmlspecialchars($datos['celular']); ?>">
+            <!-- FALTA ESTO: -->
+            <span class="mensaje-error-campo" id="errorCelular"></span>
 
-            <!-- LA CONTRASEÑA ES OPCIONAL AL EDITAR -->
             <label for="clave">Nueva Contraseña (Opcional)</label>
             <input type="password" id="clave" name="clave" placeholder="Déjalo en blanco para mantener la actual">
+            <!-- FALTA ESTO: -->
+            <span class="mensaje-error-campo" id="errorClave"></span>
 
             <button type="submit">Guardar cambios</button>
 
@@ -69,6 +76,8 @@
             </p>
 
         </form>
+
+
 
     </section>
 </main>

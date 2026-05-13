@@ -35,7 +35,6 @@ if (empty($clave)) {
 if (mysqli_stmt_execute($stmt)) {
     $_SESSION["nombre"] = $nombre; // Actualiza el nombre en el header
     echo "<script>
-            alert('Tus datos han sido actualizados correctamente.');
             window.location='../mi-cuenta.php'; // 
           </script>";
 } else {

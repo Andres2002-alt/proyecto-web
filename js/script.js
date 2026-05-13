@@ -425,6 +425,98 @@ function limpiarErroresRegistro() {
         }
     }
 }
+
+
+// VALIDAR FORMULARIO DE EDICION DE PERFIL 
+
+// VALIDACIÓN PARA EDITAR PERFIL
+function validarEdicion(formulario) {
+    var nombre = formulario["nombre"].value.trim();
+    var apellido = formulario["apellido"].value.trim();
+    var celular = formulario["celular"].value.trim();
+    var clave = formulario["clave"].value.trim();
+    // Nota: Si agregaste el campo confirmarClave en editar_perfil.php, úsalo aquí:
+    var confirmarClave = formulario["confirmarClave"] ? formulario["confirmarClave"].value.trim() : "";
+
+    var regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    var regexCelular = /^09\d{8}$/;
+
+    var valido = true;
+
+    limpiarErroresEdicion();
+
+    // Validar Nombre
+    if (nombre == "") {
+        mostrarErrorCampo("nombre", "errorNombre", "El nombre es obligatorio.");
+        valido = false;
+    } else if (!regexLetras.test(nombre)) {
+        mostrarErrorCampo("nombre", "errorNombre", "El nombre solo debe contener letras.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("nombre");
+    }
+
+    // Validar Apellido
+    if (apellido == "") {
+        mostrarErrorCampo("apellido", "errorApellido", "El apellido es obligatorio.");
+        valido = false;
+    } else if (!regexLetras.test(apellido)) {
+        mostrarErrorCampo("apellido", "errorApellido", "El apellido solo debe contener letras.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("apellido");
+    }
+
+    // Validar Celular
+    if (celular == "") {
+        mostrarErrorCampo("celular", "errorCelular", "El número de celular es obligatorio.");
+        valido = false;
+    } else if (!regexCelular.test(celular)) {
+        mostrarErrorCampo("celular", "errorCelular", "Debe empezar con 09 y tener 10 dígitos.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("celular");
+    }
+
+    // Validar Contraseña (SOLO si el usuario escribió algo)
+    if (clave !== "") {
+        if (clave.length < 6) {
+            mostrarErrorCampo("clave", "errorClave", "La nueva contraseña debe tener al menos 6 caracteres.");
+            valido = false;
+        } else {
+            marcarCampoCorrecto("clave");
+            
+            // Validar confirmación solo si existe el campo y se escribió una clave
+            if (formulario["confirmarClave"] && clave !== confirmarClave) {
+                mostrarErrorCampo("confirmarClave", "errorConfirmarClave", "Las contraseñas no coinciden.");
+                valido = false;
+            } else if (formulario["confirmarClave"]) {
+                marcarCampoCorrecto("confirmarClave");
+            }
+        }
+    }
+
+    return valido;
+}
+
+function limpiarErroresEdicion() {
+    var campos = ["nombre", "apellido", "celular", "clave", "confirmarClave"];
+    var errores = ["errorNombre", "errorApellido", "errorCelular", "errorClave", "errorConfirmarClave"];
+
+    campos.forEach(id => {
+        var campo = document.getElementById(id);
+        if (campo) {
+            campo.classList.remove("campo-error", "campo-correcto");
+        }
+    });
+
+    errores.forEach(id => {
+        var error = document.getElementById(id);
+        if (error) error.innerHTML = "";
+    });
+}
+
+
 var imagenesCarrusel = [
     "imagenes/instalacion1.jpg",
     "imagenes/instalacion2.jpg",
