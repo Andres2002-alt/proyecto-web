@@ -3458,7 +3458,7 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
 ========================================================= */
 
 .navbar {
-    overflow: hidden !important;
+    overflow: visible !important;
 }
 
 /* TABLET Y PANTALLAS MEDIANAS */
@@ -3632,4 +3632,34 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
         width: 21px !important;
         height: 21px !important;
     }
+}
+
+
+
+.navbar {
+    overflow: visible !important;
+}
+
+.nav-derecha,
+.user-dropdown {
+    overflow: visible !important;
+}
+
+.user-dropdown {
+    position: relative !important;
+    z-index: 3000 !important;
+}
+
+.dropdown-content {
+    top: 100% !important;
+    z-index: 4000 !important;
+}
+
+/* Evita barras solo en el menú, no en todo el header */
+.menu {
+    overflow: hidden !important;
+}
+
+.menu ul {
+    overflow: hidden !important;
 }
