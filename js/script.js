@@ -314,85 +314,117 @@ function validarRegistro(formulario) {
     var regexCelular = /^09\d{8}$/;
     var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (nombre == "") {
-        alert("Debe ingresar el nombre.");
-        return false;
-    }
+    var valido = true;
 
-    if (!regexLetras.test(nombre)) {
-        alert("El nombre solo debe contener letras.");
-        return false;
+    limpiarErroresRegistro();
+
+    if (nombre == "") {
+        mostrarErrorCampo("nombre", "errorNombre", "Debe ingresar el nombre.");
+        valido = false;
+    } else if (!regexLetras.test(nombre)) {
+        mostrarErrorCampo("nombre", "errorNombre", "El nombre solo debe contener letras.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("nombre");
     }
 
     if (apellido == "") {
-        alert("Debe ingresar el apellido.");
-        return false;
-    }
-
-    if (!regexLetras.test(apellido)) {
-        alert("El apellido solo debe contener letras.");
-        return false;
+        mostrarErrorCampo("apellido", "errorApellido", "Debe ingresar el apellido.");
+        valido = false;
+    } else if (!regexLetras.test(apellido)) {
+        mostrarErrorCampo("apellido", "errorApellido", "El apellido solo debe contener letras.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("apellido");
     }
 
     if (email == "") {
-        alert("Debe ingresar el correo electrónico.");
-        return false;
-    }
-
-    if (!regexEmail.test(email)) {
-        alert("Debe ingresar un correo electrónico válido.");
-        return false;
+        mostrarErrorCampo("email", "errorEmail", "Debe ingresar el correo electrónico.");
+        valido = false;
+    } else if (!regexEmail.test(email)) {
+        mostrarErrorCampo("email", "errorEmail", "Debe ingresar un correo electrónico válido.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("email");
     }
 
     if (celular == "") {
-        alert("Debe ingresar el número de celular.");
-        return false;
-    }
-
-    if (!regexCelular.test(celular)) {
-        alert("El celular debe empezar con 09 y tener exactamente 10 dígitos.");
-        return false;
+        mostrarErrorCampo("celular", "errorCelular", "Debe ingresar el número de celular.");
+        valido = false;
+    } else if (!regexCelular.test(celular)) {
+        mostrarErrorCampo("celular", "errorCelular", "El celular debe empezar con 09 y tener exactamente 10 dígitos.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("celular");
     }
 
     if (clave == "") {
-        alert("Debe ingresar una contraseña.");
-        return false;
-    }
-
-    if (clave.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres.");
-        return false;
+        mostrarErrorCampo("clave", "errorClave", "Debe ingresar una contraseña.");
+        valido = false;
+    } else if (clave.length < 6) {
+        mostrarErrorCampo("clave", "errorClave", "La contraseña debe tener al menos 6 caracteres.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("clave");
     }
 
     if (confirmarClave == "") {
-        alert("Debe confirmar la contraseña.");
-        return false;
+        mostrarErrorCampo("confirmarClave", "errorConfirmarClave", "Debe confirmar la contraseña.");
+        valido = false;
+    } else if (clave != confirmarClave) {
+        mostrarErrorCampo("confirmarClave", "errorConfirmarClave", "Las contraseñas no coinciden.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("confirmarClave");
     }
 
-    if (clave != confirmarClave) {
-        alert("Las contraseñas no coinciden.");
-        return false;
-    }
-
-    return true;
+    return valido;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var formulario = document.getElementById("formRegistro");
+function mostrarErrorCampo(idCampo, idError, mensaje) {
+    var campo = document.getElementById(idCampo);
+    var error = document.getElementById(idError);
 
-    if (formulario == null) {
-        return;
+    if (campo) {
+        campo.classList.add("campo-error");
+        campo.classList.remove("campo-correcto");
     }
 
-    formulario.addEventListener("submit", function(evento) {
-        var esValido = validarRegistro(formulario);
+    if (error) {
+        error.innerHTML = mensaje;
+    }
+}
 
-        if (!esValido) {
-            evento.preventDefault();
+function marcarCampoCorrecto(idCampo) {
+    var campo = document.getElementById(idCampo);
+
+    if (campo) {
+        campo.classList.remove("campo-error");
+        campo.classList.add("campo-correcto");
+    }
+}
+
+function limpiarErroresRegistro() {
+    var campos = ["nombre", "apellido", "email", "celular", "clave", "confirmarClave"];
+    var errores = ["errorNombre", "errorApellido", "errorEmail", "errorCelular", "errorClave", "errorConfirmarClave"];
+
+    for (var i = 0; i < campos.length; i++) {
+        var campo = document.getElementById(campos[i]);
+
+        if (campo) {
+            campo.classList.remove("campo-error");
+            campo.classList.remove("campo-correcto");
         }
-    });
-});
+    }
 
+    for (var j = 0; j < errores.length; j++) {
+        var error = document.getElementById(errores[j]);
+
+        if (error) {
+            error.innerHTML = "";
+        }
+    }
+}
 var imagenesCarrusel = [
     "imagenes/instalacion1.jpg",
     "imagenes/instalacion2.jpg",

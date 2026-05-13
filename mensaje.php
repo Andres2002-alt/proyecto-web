@@ -26,7 +26,7 @@
         <h2>¡Registro completado!</h2>
 
         <p>
-            El pago queda pendiente hasta integrar la pasarela de pago.
+            El pago fue realizado con PayPal
             Gracias por confiar en <strong>PowerFit Gym</strong>.
         </p>
 

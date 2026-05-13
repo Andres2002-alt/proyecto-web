@@ -3431,3 +3431,24 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
         transform: translateX(-50%) scale(1) translateY(0); 
     }
 }
+
+/*Para errores formulario*/
+
+.mensaje-error-campo {
+    display: block;
+    color: #b00020;
+    font-family: "Inter", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.campo-error {
+    border-color: #b00020 !important;
+    box-shadow: 0 0 0 4px rgba(176, 0, 32, 0.15) !important;
+}
+
+.campo-correcto {
+    border-color: var(--azul-verde) !important;
+}
