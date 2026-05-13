@@ -1,15 +1,3 @@
-function irInicio() {
-    window.location.href = "index.html";
-}
-function irAlPago() {
-    if (estaLogueado()) {
-        window.location.href = "pago.html";
-    } else {
-        guardarDestinoPendiente("pago.html");
-        window.location.href = "login.html";
-    }
-}
-
 function aumentarImagen(imagen) {
     imagen.style.transform = "scale(1.03)";
     imagen.style.transition = "0.35s";
@@ -25,99 +13,7 @@ function clicImagen(imagen) {
     imagen.style.transition = "0.35s";
 }
 
-// Función para actualizar el número visual del carrito al cargar la página
-/*function actualizarContadorVisual() {
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    // Sumamos todas las cantidades de los productos en el carrito
-    totalProductos = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
-    
-    const spanContador = document.getElementById("contador-carrito");
-    if (spanContador) {
-        spanContador.innerText = totalProductos;
-    }
-}*/
-
-
-function calcularTotal() {
-    var cantidad1 = 1;
-    var precio1 = 35.00;
-    var subtotal1 = cantidad1 * precio1;
-
-    var cantidad2 = 2;
-    var precio2 = 25.00;
-    var subtotal2 = cantidad2 * precio2;
-
-    var total = subtotal1 + subtotal2;
-
-    document.getElementById("subtotal1").innerHTML = "$" + subtotal1.toFixed(2);
-    document.getElementById("subtotal2").innerHTML = "$" + subtotal2.toFixed(2);
-    document.getElementById("totalCompra").innerHTML = "Total: $" + total.toFixed(2);
-}
-
-// registrarCliente
-function registrarCliente(event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombreCliente").value.trim();
-    const apellido = document.getElementById("apellidoCliente").value.trim();
-    const email = document.getElementById("emailCliente").value.trim();
-    const celular = document.getElementById("celularCliente").value.trim();
-    const clave = document.getElementById("claveCliente").value;
-    const confirmarClave = document.getElementById("confirmarClaveCliente").value;
-
-    const cedulaInput = document.getElementById("cedulaCliente");
-    const cedula = cedulaInput ? cedulaInput.value.trim() : "";
-
-    const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-    const regexCelular = /^09\d{8}$/;
-    const regexCedula = /^\d{10}$/;
-
-    if (!regexLetras.test(nombre)) {
-        alert("Ingresa un nombre válido.");
-        return;
-    }
-
-    if (!regexLetras.test(apellido)) {
-        alert("Ingresa un apellido válido.");
-        return;
-    }
-
-    if (cedulaInput && !regexCedula.test(cedula)) {
-        alert("La cédula debe tener exactamente 10 dígitos.");
-        return;
-    }
-
-    if (!regexCelular.test(celular)) {
-        alert("El número de celular debe empezar con 09 y tener 10 dígitos.");
-        return;
-    }
-
-    if (clave.length < 6) {
-        alert("La contraseña debe tener al menos 6 caracteres.");
-        return;
-    }
-
-    if (clave !== confirmarClave) {
-        alert("Las contraseñas no coinciden.");
-        return;
-    }
-
-    const cliente = {
-        nombre: nombre,
-        apellido: apellido,
-        cedula: cedula,
-        email: email,
-        celular: celular
-    };
-
-    localStorage.setItem("clientePowerFit", JSON.stringify(cliente));
-    localStorage.setItem("clienteLogueado", "true");
-
-    alert("Cuenta creada correctamente.");
-    window.location.href = "pago.html";
-}
-
-// VALIDACION DE FORMULARIO
+// VALIDACION DE FORMULARIO DE REGISTRO
 function validarRegistro(formulario) {
     var nombre = formulario["nombre"].value.trim();
     var apellido = formulario["apellido"].value.trim();
@@ -242,10 +138,7 @@ function limpiarErroresRegistro() {
     }
 }
 
-
-// VALIDAR FORMULARIO DE EDICION DE PERFIL 
-
-// VALIDACIÓN PARA EDITAR PERFIL
+// VALIDACIÓN DE FORMULARIO PARA EDITAR PERFIL
 function validarEdicion(formulario) {
     var nombre = formulario["nombre"].value.trim();
     var apellido = formulario["apellido"].value.trim();
@@ -391,8 +284,6 @@ window.onclick = function(event) {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // actualizarContadorVisual();
-
     const heroSlider = document.getElementById("heroSlider");
     if (!heroSlider) return;
 
@@ -417,18 +308,8 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(moverHero, 2000);
 });
 
-function finalizarPago(evento) {
-    evento.preventDefault();
 
-    localStorage.removeItem("carrito");
-    localStorage.removeItem("planSeleccionado");
-
-    alert("Pago realizado correctamente.");
-    window.location.href = "mensaje.html";
-}
-/* =========================================================
-   MODAL DE PRODUCTO - TIENDA CON CARRITO PHP
-========================================================= */
+/*MODAL DE PRODUCTO - TIENDA CON CARRITO PHP */
 
 var productoDetalleCantidad = 1;
 
