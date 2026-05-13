@@ -22,7 +22,7 @@ $subtotal = calcularSubtotalCarrito();
 $iva = calcularIvaCarrito();
 $total = calcularTotalCarrito();
 
-// --- AJUSTE 1: GUARDAR EL TOTAL EN SESIÓN ---
+
 $_SESSION['total_pago'] = $total; 
 ?>
 
@@ -84,7 +84,7 @@ $_SESSION['total_pago'] = $total;
             return actions.order.create({
                 purchase_units: [{
                     amount: {
-                        // Formato estricto de PayPal (punto decimal)
+                        
                         value: '<?php echo number_format($total, 2, '.', ''); ?>'
                     }
                 }]
@@ -92,7 +92,7 @@ $_SESSION['total_pago'] = $total;
         },
         onApprove: function(data, actions) {
             return actions.order.capture().then(function(orderData) {
-                // --- AJUSTE 2: REDIRIGIR CON EL ID DE ORDEN ---
+                
                 window.location.href = "php/confirmar_compra.php?orderID=" + data.orderID;
             });
         },

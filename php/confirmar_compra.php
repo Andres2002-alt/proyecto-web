@@ -36,7 +36,7 @@ $subtotal = calcularSubtotalCarrito();
 $iva = calcularIvaCarrito();
 $total = calcularTotalCarrito();
 
-// --- CAMBIOS PARA PAYPAL ---
+// --- PAYPAL ---
 $orderID = $_GET['orderID']; // Capturamos el ID que viene de la URL
 $estado_compra = "Pagado";   // Cambiamos de Pendiente a Pagado
 $tipo_pago = "PayPal";       // Identificamos el origen

@@ -33,18 +33,15 @@ if ($datos && $datos['fecha_inicio']) {
     <title>Mi Cuenta - PowerFit Gym</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
-    
-    <!-- LIBRERÍAS DE ICONOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<!-- Es crucial esta clase para el fondo gris claro -->
 <body class="body-mi-cuenta">
 
-    <!-- INCLUIR HEADER AQUÍ -->
+ 
     <?php include("header.php"); ?>
 
     <main class="contenedor-perfil-centrado">
@@ -74,7 +71,6 @@ if ($datos && $datos['fecha_inicio']) {
                     
                     <div class="pago-detalle">
                         <p><i class="bi bi-credit-card"></i> PAYPAL</p>
-                        <a href="#" class="link-azul">Administrar forma de pago</a>
                     </div>
                 </div>
 
@@ -86,7 +82,7 @@ if ($datos && $datos['fecha_inicio']) {
             <div class="cuenta-grid-info">
                 <div class="info-item">
                     <div class="info-texto">
-                        <strong>Datos</strong>
+                        <strong>Datos del usuario</strong>
                         <span><?php echo $datos['nombre']. "  ".$datos['apellido']; ?></span>
                     </div>
                     <a href="editar_perfil.php" class="btn-editar-perfil">Cambiar</a>
@@ -96,7 +92,6 @@ if ($datos && $datos['fecha_inicio']) {
         </div>
     </main>
 
-    <!-- INCLUIR FOOTER AQUÍ -->
     <?php include("footer.php"); ?>
 
 </body>

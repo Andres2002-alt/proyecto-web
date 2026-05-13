@@ -149,8 +149,7 @@ if ($_SESSION["tipo_compra"] == "membresia") {
                         },
                         onApprove: function(data, actions) {
                             return actions.order.capture().then(function(orderData) {
-                                // --- AJUSTE 2: ENVIAR EL ID DE ORDEN AL BACKEND ---
-                                // Esto es vital para que php/confirmar_membresia.php sepa qué se pagó
+                                
                                 window.location.href = "php/confirmar_membresia.php?orderID=" + data.orderID;
                             });
                         },

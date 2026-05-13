@@ -57,12 +57,12 @@ $fecha_inicio = date("Y-m-d");
 $fecha_fin = date("Y-m-d", strtotime("+".$duracion." days"));
 $estado_membresia = "Activa";
 
-// --- AJUSTE 2: DATOS REALES DE PAYPAL ---
-$orderID = $_GET['orderID']; // Capturamos el ID de transacción
+// --- DE PAYPAL ---
+$orderID = $_GET['orderID']; 
 $tipo_pago = "PayPal";
 $metodo_pago = "Digital";
 $estado_pago = "Aprobado";
-$referencia = $orderID; // Usamos el ID de PayPal como número de referencia
+$referencia = $orderID; 
 // ----------------------------------------
 
 mysqli_begin_transaction($conn);
