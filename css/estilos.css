@@ -14,10 +14,11 @@
           font-weight: 100 900; 
           font-display: swap;
     }
-
+      /* PALETA DE COLORES */
     :root {
         --amarillo: #F2E85E;
         --negro: #00010D;
+        --negro-suave: #06181B;
         --azul-verde: #3B848C;
         --azul-verde-oscuro: #2F6F76;
         --celeste: #A9CBD9;
@@ -25,8 +26,9 @@
         --gris: #D3D3D3;
         --gris-suave: #F4F4F4;
         --fondo-suave: #F6F7F4;
-        --sombra: rgba(0, 1, 13, 0.14);
+        --sombra: rgba(0, 1, 13, 0.12);
         --sombra-media: rgba(0, 1, 13, 0.22);
+        --sombra-fuerte: rgba(0, 1, 13, 0.22);
     }
 
     * {
@@ -474,82 +476,6 @@
         color: var(--azul-verde);
     }
 
-    /* CLASES */
-    .descripcion-clases {
-        background: transparent;
-        box-shadow: none;
-        border: none;
-        margin-bottom: 10px;
-    }
-
-    .descripcion-clases h2 {
-        font-size: 2.4rem;
-    }
-
-    .descripcion-clases p {
-        color: rgba(0, 1, 13, 0.7);
-    }
-
-    .lista-clases {
-        gap: 26px;
-        padding-top: 0;
-    }
-
-    .clase {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .clase::before {
-        display: none;
-    }
-
-    .clase h3,
-    .clase p {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
-
-    .clase h3 {
-        color: var(--negro);
-        font-size: 1.55rem;
-        margin-top: 22px;
-        margin-bottom: 6px;
-    }
-
-    .clase p {
-        color: rgba(0, 1, 13, 0.72);
-        min-height: 52px;
-        margin-bottom: 16px;
-    }
-
-    .clase img {
-        order: -1;
-        margin-top: 0;
-        width: 100%;
-        height: 235px;
-        border-radius: 10px 10px 0 0;
-        object-fit: cover;
-        cursor: pointer;
-        box-shadow: none;
-        transition: transform 0.35s ease, filter 0.35s ease;
-    }
-
-    .clase:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 32px rgba(0, 1, 13, 0.15);
-    }
-
-    .clase:hover img {
-        transform: scale(1.035) !important;
-        filter: contrast(1.04) saturate(1.04);
-    }
-
-    .clase img[style] {
-        transform: scale(1.035) !important;
-    }
-
     /* MODAL CLASES */
     .modal {
         display: none;
@@ -581,233 +507,8 @@
         color: var(--azul-verde);
     }
 
-    /* PLANES */
-    .planes {
-        max-width: 1180px;
-        background: linear-gradient(135deg, var(--negro), #06181B 58%, var(--azul-verde-oscuro));
-        color: var(--blanco);
-        text-align: center;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 60px 40px;
-    }
 
-    .planes h2 {
-        color: var(--amarillo);
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-
-    .planes > p {
-        color: rgba(255, 255, 255, 0.82);
-        max-width: 650px;
-        margin: 0 auto 38px auto;
-        text-align: center;
-    }
-
-    .contenedor-planes {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-        margin-top: 30px;
-        align-items: stretch;
-    }
-
-    .plan {
-        background: var(--blanco);
-        color: var(--negro);
-        padding: 30px 26px;
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        box-shadow: 0 16px 30px rgba(0, 1, 13, 0.22);
-    }
-
-    .plan::before {
-        background: var(--azul-verde);
-    }
-
-    .plan:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 22px 38px rgba(0, 1, 13, 0.28);
-    }
-
-    .plan h3 {
-        color: var(--negro);
-        font-size: 1.75rem;
-        margin-bottom: 8px;
-    }
-
-    .plan p {
-        color: rgba(0, 1, 13, 0.82);
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: left;
-        margin-bottom: 12px;
-    }
-
-    .plan-frase {
-        color: var(--azul-verde);
-        font-family: "Inter", sans-serif;
-        font-weight: bold;
-        font-size: 1rem;
-        margin-bottom: 20px;
-    }
-
-    .lista-plan {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 22px 0;
-        width: 100%;
-    }
-
-    .lista-plan li {
-        font-size: 0.97rem;
-        margin-bottom: 12px;
-        padding-left: 26px;
-        position: relative;
-        line-height: 1.4;
-    }
-
-    .lista-plan li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--azul-verde);
-        font-weight: bold;
-    }
-
-    .precio-plan {
-        font-family: "Outer", sans-serif;
-        color: var(--negro);
-        font-size: 1.9rem;
-        font-weight: bold;
-        margin-top: auto;
-        margin-bottom: 16px;
-        padding-top: 18px;
-        border-top: 1px solid rgba(0, 1, 13, 0.1);
-    }
-
-    .plan a,
-    .plan button {
-        width: 100%;
-    }
-
-    .plan a {
-        margin-top: auto;
-    }
-
-    .plan button {
-        margin-top: 18px;
-        background: var(--negro);
-        color: var(--amarillo);
-        box-shadow: none;
-    }
-
-    .plan button:hover {
-        background: var(--azul-verde);
-        color: var(--blanco);
-    }
-
-    .plan.destacado {
-        background: linear-gradient(180deg, var(--amarillo), #FFF8A6);
-        border: 2px solid var(--amarillo);
-        transform: translateY(-12px);
-    }
-
-    .plan.destacado::before {
-        background: var(--negro);
-    }
-
-    .plan.destacado:hover {
-        transform: translateY(-18px);
-    }
-
-    .plan.destacado .plan-frase {
-        color: #254F54;
-    }
-
-    .plan.premium::before {
-        background: var(--amarillo);
-    }
-
-    /* CARRITO */
-    .carrito table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 25px;
-        overflow: hidden;
-        border-radius: 10px;
-    }
-
-    .carrito th,
-    .carrito td {
-        border: 1px solid var(--gris);
-        padding: 15px;
-        text-align: center;
-    }
-
-    .carrito th {
-        background-color: var(--azul-verde);
-        color: var(--blanco);
-        font-family: "Outer", sans-serif;
-        font-size: 0.9rem;
-    }
-
-    .carrito tbody tr:hover {
-        background-color: rgba(169, 203, 217, 0.28);
-    }
-
-    .total-compra {
-        margin-top: 30px;
-        text-align: right;
-    }
-
-    .total-compra h3 {
-        color: var(--negro);
-        font-family: "Outer", sans-serif;
-    }
-
-    .cantidad-carrito {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        border: none;
-    }
-
-    .cantidad-carrito span {
-        min-width: 25px;
-        display: inline-block;
-        font-weight: bold;
-        color: var(--negro);
-    }
-
-    .btn-cantidad {
-        width: 32px;
-        height: 32px;
-        padding: 0;
-        border-radius: 50%;
-        font-size: 1rem;
-        background-color: var(--celeste);
-        color: var(--negro);
-    }
-
-    .btn-eliminar {
-        background-color: var(--negro);
-        color: var(--blanco);
-        padding: 9px 14px;
-    }
-
-    .btn-eliminar:hover {
-        background-color: var(--azul-verde);
-        color: var(--blanco);
-        transform: scale(1.06);
-    }
-
+    
     /* FORMULARIO */
     .registro {
         max-width: 1000px;
@@ -821,14 +522,6 @@
     #formRegistro h3 {
         color: var(--azul-verde);
         font-family: "Outer", sans-serif;
-    }
-
-    #formRegistro {
-        display: grid;
-        grid-template-columns: 160px 1fr 160px 1fr;
-        gap: 18px;
-        align-items: center;
-        margin-top: 30px;
     }
 
     #formRegistro h3 {
@@ -896,109 +589,7 @@
         margin: 20px 0 25px 0;
     }
 
-    /* INSTRUCTORES */
-    .instructores {
-        background-color: transparent;
-        box-shadow: none;
-        border: none;
-    }
-
-    .instructores h2 {
-        font-size: 2.4rem;
-    }
-
-    .contenedor-instructores {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        margin-top: 30px;
-    }
-
-    .instructor {
-        position: relative;
-        min-height: 620px;
-        border-radius: 10px;
-        overflow: hidden;
-        background-color: var(--negro);
-        box-shadow: 0 8px 20px var(--sombra);
-        transition: transform 0.3s ease;
-    }
-
-    .instructor:hover {
-        transform: translateY(-5px);
-    }
-
-    .instructor img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
-    }
-
-    .instructor-info {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 24px 22px;
-        background: linear-gradient(
-            to top,
-            rgba(0, 1, 13, 0.96) 0%,
-            rgba(0, 1, 13, 0.78) 48%,
-            rgba(0, 1, 13, 0.34) 82%,
-            rgba(0, 1, 13, 0.04) 100%
-        );
-    }
-
-    .instructor .instructor-info h3 {
-        margin: 0 0 10px 0;
-        text-align: left;
-        color: var(--amarillo);
-        font-size: 1.8rem;
-    }
-
-    .instructor-info .especialidad,
-    .instructor-info strong {
-        color: var(--celeste);
-    }
-
-    .instructor-info .especialidad {
-        font-size: 1.05rem;
-        font-weight: bold;
-        margin: 0 0 12px 0;
-        text-align: left;
-    }
-
-    .instructor .instructor-info p,
-    .instructor-info li {
-        color: var(--blanco);
-        font-size: 1rem;
-        line-height: 1.5;
-        text-align: left;
-    }
-
-    .instructor-info ul {
-        margin-top: 12px;
-        padding-left: 18px;
-    }
-
-    .instructor-info li {
-        margin-bottom: 8px;
-    }
-
-    .btn-reservar-instructor {
-        margin-top: 14px;
-        width: 100%;
-        background: var(--amarillo);
-        color: var(--negro);
-        box-shadow: none;
-    }
-
-    .btn-reservar-instructor:hover {
-        background: var(--celeste);
-        color: var(--negro);
-    }
-
+    
     /* RESERVA GENERAL */
     .reserva-general {
         margin-top: 50px;
@@ -1036,139 +627,7 @@
         border-color: var(--azul-verde);
     }
 
-    /* TIENDA */
-    .catalogo {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 25px;
-        margin-top: 30px;
-    }
-
-    .producto {
-        background: linear-gradient(to bottom, var(--blanco), rgba(169, 203, 217, 0.18));
-        padding: 20px;
-        text-align: center;
-    }
-
-    .producto img {
-        width: 100%;
-        height: 250px;
-        object-fit: contain;
-        background-color: var(--blanco);
-        border-radius: 10px;
-        margin-bottom: 15px;
-        padding: 10px;
-        box-shadow: 0 6px 14px var(--sombra);
-    }
-
-    .producto h3 {
-        font-size: 1.4rem;
-        margin-top: 10px;
-    }
-
-    .producto p {
-        font-size: 1.1rem;
-        font-weight: bold;
-        color: var(--negro);
-    }
-
-    .producto button {
-        width: 100%;
-        margin-top: 8px;
-    }
-
-    /* MODAL PRODUCTO */
-    .modal-producto {
-        display: none;
-        position: fixed;
-        z-index: 2000;
-        inset: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(0, 1, 13, 0.72);
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .contenido-modal {
-        background-color: var(--blanco);
-        max-width: 850px;
-        width: 100%;
-        border-radius: 14px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 25px;
-        padding: 30px;
-        position: relative;
-        box-shadow: 0 12px 30px rgba(0, 1, 13, 0.28);
-    }
-
-    .contenido-modal img {
-        width: 100%;
-        height: 360px;
-        object-fit: contain;
-        background-color: var(--gris-suave);
-        border-radius: 10px;
-        padding: 15px;
-    }
-
-    .cerrar-modal {
-        position: absolute;
-        top: 12px;
-        right: 18px;
-        font-size: 2rem;
-        color: var(--negro);
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .cerrar-modal:hover {
-        color: var(--azul-verde);
-    }
-
-    .modal-info h2 {
-        font-family: "Outer", sans-serif;
-        color: var(--negro);
-    }
-
-    .modal-info p {
-        color: var(--negro);
-        font-size: 1.05rem;
-        line-height: 1.6;
-        text-align: left;
-    }
-
-    .modal-info h3 {
-        font-family: "Outer", sans-serif;
-        color: var(--azul-verde);
-        font-size: 1.5rem;
-        margin: 18px 0;
-    }
-
-    .selector-cantidad {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        margin: 15px 0 22px;
-    }
-
-    .selector-cantidad button {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        padding: 0;
-        font-size: 1.2rem;
-    }
-
-    .selector-cantidad span {
-        font-family: "Outer", sans-serif !important;
-        color: var(--negro);
-        font-size: 1.4rem;
-        min-width: 28px;
-        text-align: center;
-    }
-
+    
     /* UBICACIONES */
     .mapa {
         max-width: 1100px;
@@ -1364,22 +823,6 @@
             grid-template-columns: 1fr;
         }
 
-        .navbar {
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .menu ul {
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .nav-derecha {
-            flex-direction: column;
-        }
-
         .plan.destacado {
             transform: none;
         }
@@ -1420,18 +863,6 @@
         .descripcion-clases h2,
         .instructores h2 {
             font-size: 2rem;
-        }
-
-        .navbar {
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .menu ul {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-            margin: 15px 0;
         }
 
         .hero {
@@ -1620,28 +1051,8 @@
             text-align: center;
         }
     }
-    /* =========================================================
-       AJUSTES VISUALES POWERFIT - DISEÑO MÁS MODERNO
-       Pegar al final de estilos.css
-    ========================================================= */
+    /* DISENO VISUAL */
 
-    /* PALETA MÁS CONTROLADA */
-    :root {
-        --amarillo: #F2E85E;
-        --negro: #00010D;
-        --negro-suave: #06181B;
-        --azul-verde: #3B848C;
-        --azul-verde-oscuro: #2F6F76;
-        --celeste: #A9CBD9;
-        --blanco: #FFFFFF;
-        --gris: #D3D3D3;
-        --gris-suave: #F4F4F4;
-        --fondo-suave: #F6F7F4;
-        --sombra: rgba(0, 1, 13, 0.12);
-        --sombra-fuerte: rgba(0, 1, 13, 0.22);
-    }
-
-    /* CUERPO GENERAL MÁS LIMPIO */
     body {
         background:
             radial-gradient(circle at top left, rgba(59, 132, 140, 0.10), transparent 28%),
@@ -1712,9 +1123,7 @@
         transform: translateY(-2px);
     }
 
-    /* =========================================================
-       SECCIÓN PLANES - MÁS PROFESIONAL
-    ========================================================= */
+    /* SECCIÓN PLANES - MÁS PROFESIONAL */
 
     .planes {
         max-width: 1180px;
@@ -1879,100 +1288,6 @@
         background: var(--azul-verde);
         color: var(--blanco);
         border-color: var(--azul-verde);
-    }
-
-    /* =========================================================
-       CLASES - MÁS MODERNO Y MENOS BRUSCO
-    ========================================================= */
-
-    .descripcion-clases {
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        margin-bottom: 8px;
-    }
-
-    .descripcion-clases h2 {
-        color: var(--negro);
-        font-size: 2.45rem;
-    }
-
-    .descripcion-clases p {
-        color: rgba(0, 1, 13, 0.68);
-    }
-
-    .lista-clases {
-        max-width: 1120px;
-        gap: 28px;
-        padding-top: 0;
-    }
-
-    .clase {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-        border-radius: 18px;
-        background: var(--blanco);
-        overflow: hidden;
-        border: 1px solid rgba(0, 1, 13, 0.08);
-        box-shadow: 0 12px 28px rgba(0, 1, 13, 0.08);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .clase::before {
-        display: none;
-    }
-
-    .clase:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 36px rgba(0, 1, 13, 0.15);
-    }
-
-    .clase h3 {
-        color: var(--negro);
-        font-size: 1.55rem;
-        margin: 22px 22px 6px 22px;
-    }
-
-    .clase p {
-        color: rgba(0, 1, 13, 0.70);
-        margin: 0 22px 22px 22px;
-        min-height: 48px;
-    }
-
-    .clase img {
-        order: -1;
-        width: 100%;
-        height: 235px;
-        margin: 0;
-        border-radius: 0;
-        object-fit: cover;
-        box-shadow: none;
-        cursor: pointer;
-        transition: transform 0.35s ease, filter 0.35s ease;
-    }
-
-    .clase:hover img {
-        transform: scale(1.03) !important;
-        filter: contrast(1.04) saturate(1.04);
-    }
-
-    /* Evita que el JavaScript agrande demasiado la imagen */
-    .clase img[style] {
-        transform: scale(1.03) !important;
-    }
-
-    /* MODAL DE CLASES MÁS PRESENTABLE */
-    .modal-contenido {
-        width: min(360px, 90%);
-        border-radius: 16px;
-        border: none;
-        box-shadow: 0 18px 42px rgba(0, 1, 13, 0.30);
-    }
-
-    .modal-contenido h2 {
-        color: var(--negro);
-        font-size: 1.6rem;
     }
 
     /* =========================================================
@@ -2256,16 +1571,6 @@
         background: var(--blanco);
     }
 
-    .resumen-compra {
-        max-width: 380px;
-        margin: 30px 0 0 auto;
-        padding: 28px;
-        background: linear-gradient(135deg, var(--negro), #06181B 60%, var(--azul-verde-oscuro));
-        border-radius: 18px;
-        color: var(--blanco);
-        box-shadow: 0 16px 34px rgba(0, 1, 13, 0.22);
-    }
-
     .resumen-compra h3 {
         color: var(--amarillo);
         font-size: 1.45rem;
@@ -2430,9 +1735,7 @@
     text-decoration: underline;
 }
 
-/* =========================================================
-   INSTRUCTORES - TARJETAS MÁS PEQUEÑAS
-========================================================= */
+/* INSTRUCTORES - TARJETAS MÁS PEQUEÑAS*/
 
 .instructores {
     max-width: 1150px;
@@ -2519,9 +1822,7 @@
     color: var(--celeste) !important;
 }
 
-/* =========================================================
-   CLASES - ESTILO SIMILAR A PLANES Y TIENDA
-========================================================= */
+/* CLASES - ESTILO SIMILAR A PLANES Y TIENDA */
 
 .lista-clases {
     max-width: 1120px;
@@ -2602,21 +1903,6 @@
     min-height: 48px;
 }
 
-/* Etiqueta visual de acción */
-.clase::after {
-    content: "Ver detalles";
-    margin: auto 22px 24px 22px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: var(--negro);
-    color: var(--amarillo);
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 0.9rem;
-    font-weight: 800;
-    text-align: center;
-    transition: background-color 0.25s ease, color 0.25s ease;
-}
-
 /* Hover más suave */
 .clase:hover {
     transform: translateY(-6px);
@@ -2629,10 +1915,6 @@
     filter: contrast(1.04) saturate(1.05);
 }
 
-.clase:hover::after {
-    background: var(--azul-verde);
-    color: var(--blanco);
-}
 
 /* Evita que el JavaScript agrande demasiado la imagen */
 .clase img[style] {
@@ -2660,17 +1942,11 @@
         font-size: 2rem !important;
     }
 }
-.clase::after {
-    content: none !important;
-    display: none !important;
-}
 .clase p {
     margin-bottom: 28px !important;
 }
 
-/* =========================================================
-   CARRITO - RESUMEN DE COMPRA MÁS LIMPIO
-========================================================= */
+/* CARRITO - RESUMEN DE COMPRA CLARO */
 
 .resumen-compra {
     background: linear-gradient(to bottom, var(--blanco), rgba(169, 203, 217, 0.16)) !important;
@@ -2915,104 +2191,8 @@
     border-color: var(--azul-verde) !important;
 }
 
-/* MODAL DE PRODUCTO */
 
-.modal-producto {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    inset: 0;
-    background-color: rgba(0, 1, 13, 0.72);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.contenido-modal {
-    background-color: var(--blanco);
-    max-width: 850px;
-    width: 100%;
-    border-radius: 18px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    padding: 30px;
-    position: relative;
-    box-shadow: 0 18px 42px rgba(0, 1, 13, 0.28);
-}
-
-.contenido-modal img {
-    width: 100%;
-    height: 360px;
-    object-fit: contain;
-    background-color: var(--gris-suave);
-    border-radius: 14px;
-    padding: 15px;
-}
-
-.cerrar-modal {
-    position: absolute;
-    top: 12px;
-    right: 18px;
-    font-size: 2rem;
-    color: var(--negro);
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.cerrar-modal:hover {
-    color: var(--azul-verde);
-}
-
-.modal-info h2 {
-    font-family: "Outer", sans-serif;
-    color: var(--negro);
-    margin-bottom: 15px;
-}
-
-.modal-info p {
-    color: rgba(0, 1, 13, 0.78);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    text-align: left;
-}
-
-.modal-info h3 {
-    font-family: "Outer", sans-serif;
-    color: var(--azul-verde);
-    font-size: 1.6rem;
-    margin: 20px 0;
-}
-
-.modal-info button {
-    width: 100%;
-}
-
-@media (max-width: 1050px) {
-    .catalogo {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 700px) {
-    .catalogo {
-        grid-template-columns: 1fr;
-    }
-
-    .contenido-modal {
-        grid-template-columns: 1fr;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .contenido-modal img {
-        height: 260px;
-    }
-}
-
-/* =========================================================
-   TIENDA - TARJETAS LIMPIAS CON MODAL
-========================================================= */
+/* TIENDA - TARJETAS LIMPIAS CON MODAL */
 
 .producto p:not(.precio-producto) {
     display: none;
