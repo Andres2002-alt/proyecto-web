@@ -3452,3 +3452,184 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
 .campo-correcto {
     border-color: var(--azul-verde) !important;
 }
+
+/* =========================================================
+   HEADER RESPONSIVE EN UNA SOLA LÍNEA SIN BARRAS
+========================================================= */
+
+.navbar {
+    overflow: hidden !important;
+}
+
+/* TABLET Y PANTALLAS MEDIANAS */
+@media (max-width: 992px) {
+
+    .navbar {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        padding: 12px 18px !important;
+        overflow: hidden !important;
+    }
+
+    .logo {
+        flex: 0 0 auto !important;
+    }
+
+    .logo h1 {
+        font-size: 1.65rem !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    .menu {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .menu ul {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 16px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .menu li {
+        flex: 0 1 auto !important;
+    }
+
+    .menu a {
+        font-size: 0.88rem !important;
+        white-space: nowrap !important;
+        padding-bottom: 2px !important;
+    }
+
+    .nav-derecha {
+        flex: 0 0 auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    .icono-usuario,
+    .botonCarrito {
+        font-size: 19px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .btn-gym {
+        padding: 8px 13px !important;
+        font-size: 0.82rem !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 10px 8px !important;
+        gap: 7px !important;
+    }
+
+    .logo h1 {
+        font-size: 1.35rem !important;
+    }
+
+    .menu ul {
+        gap: 10px !important;
+    }
+
+    .menu a {
+        font-size: 0.76rem !important;
+    }
+
+    .nav-derecha {
+        gap: 6px !important;
+    }
+
+    .icono-usuario,
+    .botonCarrito {
+        font-size: 18px !important;
+        width: 26px !important;
+        height: 26px !important;
+    }
+
+    .btn-gym {
+        display: none !important;
+    }
+
+    #contador-carrito {
+        width: 15px !important;
+        height: 15px !important;
+        font-size: 9px !important;
+        top: -6px !important;
+        right: -6px !important;
+    }
+}
+
+/* CELULAR MUY PEQUEÑO */
+@media (max-width: 520px) {
+
+    .navbar {
+        padding: 9px 6px !important;
+        gap: 5px !important;
+    }
+
+    .logo h1 {
+        font-size: 1.18rem !important;
+    }
+
+    .menu ul {
+        gap: 7px !important;
+    }
+
+    .menu a {
+        font-size: 0.68rem !important;
+    }
+
+    .icono-usuario,
+    .botonCarrito {
+        font-size: 16px !important;
+        width: 23px !important;
+        height: 23px !important;
+    }
+}
+
+/* EXTRA PEQUEÑO */
+@media (max-width: 430px) {
+
+    .logo h1 {
+        font-size: 1.05rem !important;
+    }
+
+    .menu ul {
+        gap: 5px !important;
+    }
+
+    .menu a {
+        font-size: 0.61rem !important;
+    }
+
+    .nav-derecha {
+        gap: 4px !important;
+    }
+
+    .icono-usuario,
+    .botonCarrito {
+        font-size: 15px !important;
+        width: 21px !important;
+        height: 21px !important;
+    }
+}
