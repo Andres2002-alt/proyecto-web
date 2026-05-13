@@ -1,6 +1,20 @@
 <?php
     include_once("php/funciones.php");
-    $cantidadCarritoHeader = contarProductosCarrito();
+    // Asegúrate de que session_start() esté al inicio de tus archivos
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Inicializamos el contador
+    $cantidadCarritoHeader = 0;
+
+    // Si existe la sesión del carrito, sumamos las cantidades
+    if (isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])) {
+        foreach ($_SESSION['carrito'] as $producto) {
+            // Sumamos la cantidad de cada producto
+            $cantidadCarritoHeader += $producto['cantidad'];
+        }
+    }
 ?>
 <header class="navbar">
 
@@ -65,9 +79,17 @@
             <span id="contador-carrito"><?php echo $cantidadCarritoHeader; ?></span>
         </a>
 
-        <a href="registro.php" class="btn-gym">
-            Inscríbete ya
-        </a>
+       <?php if (isset($_SESSION["id_cliente"])): ?>
+               
+               <a href="inscripcion.php" class="btn-gym">
+                   Inscríbete ya
+               </a>
+           <?php else: ?>
+               
+               <a href="login.php" class="btn-gym">
+                   Inscríbete ya
+               </a>
+           <?php endif; ?>
 
     </div>
 

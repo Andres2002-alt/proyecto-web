@@ -235,22 +235,26 @@ function obtenerCarrito() {
     return $_SESSION["carrito"];
 }
 
+//FUNCION PARA EL CONTADOR DEL CARRITO
 function agregarProductoAlCarrito($producto, $cantidad) {
-    if (!isset($_SESSION["carrito"])) {
-        $_SESSION["carrito"] = array();
+    // Si no existe el carrito en la sesión, se inicializa
+    if (!isset($_SESSION['carrito'])) {
+        $_SESSION['carrito'] = array();
     }
-
-    $id = $producto["id_producto"];
-
-    if (isset($_SESSION["carrito"][$id])) {
-        $_SESSION["carrito"][$id]["cantidad"] += $cantidad;
+    
+    $id = $producto['id_producto'];
+    
+    // Si el producto ya está, sumamos la cantidad; si no, lo creamos
+    if (isset($_SESSION['carrito'][$id])) {
+        $_SESSION['carrito'][$id]['cantidad'] += $cantidad;
     } else {
-        $_SESSION["carrito"][$id] = array(
-            "id_producto" => $producto["id_producto"],
-            "nombre" => $producto["nombre"],
-            "precio" => $producto["precio"],
-            "cantidad" => $cantidad
-        );
+        $_SESSION['carrito'][$id] = [
+            'id_producto' => $id,
+            'nombre' => $producto['nombre'],
+            'precio' => $producto['precio'],
+            'imagen' => $producto['imagen'],
+            'cantidad' => $cantidad
+        ];
     }
 }
 

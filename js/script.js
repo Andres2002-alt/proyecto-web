@@ -25,15 +25,8 @@ function clicImagen(imagen) {
     imagen.style.transition = "0.35s";
 }
 
-function reservarClase() {
-    window.location.href = "formulario.html";
-}
-
-//FUNCION PARA AGREGAR PRODUCTOS AL CARRITO DE COMPRAS
-let totalProductos = 0;
-
 // Función para actualizar el número visual del carrito al cargar la página
-function actualizarContadorVisual() {
+/*function actualizarContadorVisual() {
     const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     // Sumamos todas las cantidades de los productos en el carrito
     totalProductos = carrito.reduce((acc, prod) => acc + prod.cantidad, 0);
@@ -42,7 +35,7 @@ function actualizarContadorVisual() {
     if (spanContador) {
         spanContador.innerText = totalProductos;
     }
-}
+}*/
 
 
 function calcularTotal() {
@@ -397,8 +390,10 @@ window.onclick = function(event) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const heroSlider = document.getElementById("heroSlider");
 
+  // actualizarContadorVisual();
+
+    const heroSlider = document.getElementById("heroSlider");
     if (!heroSlider) return;
 
     const heroSlides = heroSlider.querySelectorAll(".hero-slide");
