@@ -89,7 +89,7 @@
 <script src="js/script.js"></script>
 <div id="modalHorarios" class="modal">
     <div class="modal-contenido">
-        <span class="cerrar" onclick="cerrarModalHorarios()">&times;</span>
+        <!--<span class="cerrar" onclick="cerrarModalHorarios()">&times;</span>-->
         <h2 id="modalTitulo"></h2>
         <p id="modalCuerpo"></p>
     </div>
