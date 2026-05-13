@@ -1290,9 +1290,7 @@
         border-color: var(--azul-verde);
     }
 
-    /* =========================================================
-       INSTRUCTORES - BOTÓN FINAL MÁS VISIBLE
-    ========================================================= */
+    /* INSTRUCTORES - BOTÓN FINAL MÁS VISIBLE*/
 
     .instructores {
         background: transparent;
@@ -1356,9 +1354,7 @@
         border-color: var(--blanco);
     }
 
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
+    /* RESPONSIVE */
 
     @media (max-width: 992px) {
         .contenedor-planes,
@@ -1417,9 +1413,7 @@
         }
     }
 
-    /* =========================================================
-       LOGIN, FORMULARIOS Y RESUMEN DE COMPRA
-    ========================================================= */
+    /* LOGIN, FORMULARIOS Y RESUMEN DE COMPRA*/
 
     .estado-sesion {
         display: flex;
@@ -1652,9 +1646,7 @@
     transform: translateY(-2px);
 }
 
-/* =========================================================
-   LOGIN Y REGISTRO SEPARADOS
-========================================================= */
+/* LOGIN Y REGISTRO SEPARADOS */
 
 .login-simple {
     max-width: 560px;
@@ -2008,7 +2000,6 @@
 }
 
 
-/* ============================================================= */
 /* ESTILOS PARA MI-CUENTA */
 
 .bg-cuenta {
@@ -2120,9 +2111,7 @@
 }
 
 
-/* =========================================================
-   TIENDA - TARJETAS LIMPIAS CON MODAL DE DETALLE
-========================================================= */
+/* TIENDA - TARJETAS CON DETALLE */
 
 .catalogo {
     display: grid;
@@ -2308,8 +2297,7 @@
 }
 
 
-/* ==================================================== 
-APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
+/* APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
 
 .body-mi-cuenta {
     background-color: var(--fondo-suave) !important;
@@ -2502,10 +2490,7 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     padding-top: 80px !important;
 }
 
-/* =========================================================
-  DROPDOWN logo de cuenta
-   ========================================================= */
-/* 1. Contenedor padre */
+/* DROPDOWN */
 .user-dropdown {
     position: relative;
     display: inline-flex; 
@@ -2531,8 +2516,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     overflow: visible; /* Cambiado a visible para que el puente funcione */
 }
 
-/* --- EL PUENTE INVISIBLE (CRÍTICO) --- */
-/* Este bloque rellena el vacío para que el mouse nunca deje de tocar el menú */
 .dropdown-content::before {
     content: "";
     position: absolute;
@@ -2544,7 +2527,7 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     display: block;
 }
 
-/* --- LA FLECHITA INDICADORA --- */
+/* LA FLECHITA INDICADORA */
 .dropdown-content::after {
     content: "";
     position: absolute;
@@ -2556,13 +2539,11 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     border-color: transparent transparent var(--blanco) transparent;
 }
 
-/* 3. Activador Hover */
 .user-dropdown:hover .dropdown-content {
     display: block;
     animation: scaleInCentrado 0.2s ease;
 }
 
-/* 4. Estilos internos (Nombre y Enlaces) */
 .user-info-mini {
     padding: 15px 20px;
     background-color: var(--fondo-suave);
@@ -2600,7 +2581,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
 .txt-rojo { color: #d9534f !important; border-top: 1px solid var(--gris-suave); }
 .txt-rojo i { color: #d9534f !important; }
 
-/* 5. Animación Pro */
 @keyframes scaleInCentrado {
     from { 
         opacity: 0; 
@@ -2633,9 +2613,7 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     border-color: var(--azul-verde) !important;
 }
 
-/* =========================================================
-   HEADER RESPONSIVE EN UNA SOLA LÍNEA SIN BARRAS
-========================================================= */
+/* HEADER RESPONSIVE */
 
 .navbar {
     overflow: visible !important;
@@ -2715,7 +2693,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     }
 }
 
-/* CELULAR */
 @media (max-width: 700px) {
 
     .navbar {
@@ -2759,7 +2736,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     }
 }
 
-/* CELULAR MUY PEQUEÑO */
 @media (max-width: 520px) {
 
     .navbar {
@@ -2787,7 +2763,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     }
 }
 
-/* EXTRA PEQUEÑO */
 @media (max-width: 430px) {
 
     .logo h1 {
@@ -2814,8 +2789,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     }
 }
 
-
-
 .navbar {
     overflow: visible !important;
 }
@@ -2835,7 +2808,6 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     z-index: 4000 !important;
 }
 
-/* Evita barras solo en el menú, no en todo el header */
 .menu {
     overflow: hidden !important;
 }
@@ -2844,9 +2816,7 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
     overflow: hidden !important;
 }
 
-/* =========================================================
-   TEXTO HOLA, NOMBRE DEBAJO DEL ÍCONO DE USUARIO
-========================================================= */
+/* TEXTO DEL NOMBRE DEBAJO DE ICONO */
 
 .usuario-header-mini {
     display: flex;
