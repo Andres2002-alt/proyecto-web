@@ -3663,3 +3663,60 @@ APARTADO DE MI-CUENTA PARTE DEL HEADER CON LA SESION INICIADA*/
 .menu ul {
     overflow: hidden !important;
 }
+
+/* =========================================================
+   TEXTO HOLA, NOMBRE DEBAJO DEL ÍCONO DE USUARIO
+========================================================= */
+
+.usuario-header-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.texto-usuario-header {
+    color: var(--amarillo);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1;
+    max-width: 85px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.user-dropdown .icono-usuario {
+    margin-bottom: 0;
+}
+
+/* Como el saludo ya no está dentro del dropdown, este bloque se oculta */
+.user-info-mini {
+    display: none !important;
+}
+
+/* El dropdown ahora solo muestra Mi Cuenta y Salir */
+.dropdown-content {
+    padding-top: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .texto-usuario-header {
+        font-size: 0.56rem;
+        max-width: 55px;
+    }
+
+    .usuario-header-mini {
+        gap: 0;
+    }
+}
+
+@media (max-width: 430px) {
+    .texto-usuario-header {
+        display: none;
+    }
+}
