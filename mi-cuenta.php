@@ -86,8 +86,8 @@ if ($datos && $datos['fecha_inicio']) {
             <div class="cuenta-grid-info">
                 <div class="info-item">
                     <div class="info-texto">
-                        <strong>Correo electrónico</strong>
-                        <span><?php echo $datos['email']; ?></span>
+                        <strong>Datos</strong>
+                        <span><?php echo $datos['nombre']. "  ".$datos['apellido']; ?></span>
                     </div>
                     <a href="editar_perfil.php" class="btn-editar-perfil">Cambiar</a>
                 </div>
