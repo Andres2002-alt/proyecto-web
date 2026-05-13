@@ -1,3 +1,7 @@
+<?php
+    include_once("php/funciones.php");
+    $cantidadCarritoHeader = contarProductosCarrito();
+?>
 <header class="navbar">
 
     <div class="logo">
