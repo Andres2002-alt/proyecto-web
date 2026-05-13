@@ -43,7 +43,7 @@
             <p>Actualiza tus datos personales. Por seguridad, el correo no puede ser modificado.</p>
         </div>
 
-        <form id="formEditarCuenta" class="form-card form-login" action="php/procesar_edicion.php" method="POST">
+        <form id="formEditarCuenta" class="form-card form-login" action="php/procesar_edicion_cuenta.php" method="POST">
 
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($datos['nombre']); ?>" required>
@@ -65,7 +65,7 @@
             <button type="submit">Guardar cambios</button>
 
             <p class="texto-cambio-form">
-                <a href="php/mi-cuenta.php">Cancelar y volver a Mi Cuenta</a>
+                <a href="mi-cuenta.php">Cancelar y volver a Mi Cuenta</a>
             </p>
 
         </form>
