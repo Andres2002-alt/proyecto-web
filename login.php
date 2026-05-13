@@ -1,5 +1,18 @@
 <?php
-session_start();
+    session_start();
+
+    $errorLogin = "";
+    $emailLogin = "";
+
+    if (isset($_SESSION["error_login"])) {
+        $errorLogin = $_SESSION["error_login"];
+        unset($_SESSION["error_login"]);
+    }
+
+    if (isset($_SESSION["email_login"])) {
+        $emailLogin = $_SESSION["email_login"];
+        unset($_SESSION["email_login"]);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,13 +40,34 @@ session_start();
             <p>Accede a tu cuenta para continuar con tu inscripción, compra o pago.</p>
         </div>
 
-        <form class="form-card form-login" action="php/procesar_login.php" method="POST">
+        <form class="form-card form-login" action="php/procesar_login.php" method="POST" onsubmit="return validarLogin(this)">
 
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="ejemplo@correo.com"
+                value="<?php echo $emailLogin; ?>"
+                class="<?php if ($errorLogin != '') { echo 'campo-error'; } ?>"
+            >
+            <span class="mensaje-error-campo" id="errorEmailLogin"></span>
 
             <label for="clave">Contraseña</label>
-            <input type="password" id="clave" name="clave" placeholder="Ingresa tu contraseña" required>
+            <input 
+                type="password" 
+                id="clave" 
+                name="clave" 
+                placeholder="Ingresa tu contraseña"
+                class="<?php if ($errorLogin != '') { echo 'campo-error'; } ?>"
+            >
+            <span class="mensaje-error-campo" id="errorClaveLogin">
+                <?php 
+                    if ($errorLogin != "") {
+                        echo $errorLogin;
+                    }
+                ?>
+            </span>
 
             <button type="submit">Entrar</button>
 

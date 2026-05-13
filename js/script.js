@@ -45,53 +45,6 @@ function actualizarContadorVisual() {
 }
 
 
-//document.addEventListener("DOMContentLoaded", actualizarContadorVisual);
-
-/*function agregarCarrito(nombre, precio) {
-    // Obtener el carrito actual
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    // Lógica para agregar o aumentar cantidad
-    let productoExistente = carrito.find(p => p.nombre === nombre);
-
-    if (productoExistente) {
-        productoExistente.cantidad += 1;
-    } else {
-        carrito.push({
-            nombre: nombre,
-            precio: precio,
-            cantidad: 1
-        });
-    }
-
-    // Guardar en localStorage
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    // Actualizar el contador visual 
-    //actualizarContadorVisual();
-
-    // Feedback visual
-    const spanContador = document.getElementById("contador-carrito");
-    if (spanContador) {
-        spanContador.style.transform = "scale(1.4)";
-        setTimeout(() => spanContador.style.transform = "scale(1)", 200);
-    }
-    
-  
-    Swal.fire({
-        title: '¡Añadido!',
-        text: `Has agregado ${nombre} al carrito con éxito.`,
-        icon: 'success',
-        confirmButtonColor: '#ff6600', // Usa el naranja de tu marca
-        timer: 2000, // Se cierra solo en 2 segundos
-        showConfirmButton: false, // Oculta el botón para que sea más fluido
-        toast: true, // Lo hace ver como una pequeña burbuja
-        position: 'top-end' // Aparece en la esquina superior derecha
-    });
-}
-*/
-
-
 function calcularTotal() {
     var cantidad1 = 1;
     var precio1 = 35.00;
@@ -107,136 +60,6 @@ function calcularTotal() {
     document.getElementById("subtotal2").innerHTML = "$" + subtotal2.toFixed(2);
     document.getElementById("totalCompra").innerHTML = "Total: $" + total.toFixed(2);
 }
-
-function confirmarRegistro() {
-    alert("Formulario enviado correctamente");
-}
-/*function mostrarCarrito() {
-    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    var tabla = document.getElementById("tablaCarrito");
-    var subtotalGeneral = 0;
-    var iva = 0;
-    var total = 0;
-
-    if (!tabla) {
-        return;
-    }
-
-    tabla.innerHTML = "";
-
-    if (carrito.length === 0) {
-        tabla.innerHTML =
-            "<tr>" +
-                "<td colspan='5' class='carrito-vacio'>Tu carrito está vacío</td>" +
-            "</tr>";
-
-        if (document.getElementById("subtotalCompra")) {
-            document.getElementById("subtotalCompra").innerHTML = "$0.00";
-        }
-
-        if (document.getElementById("ivaCompra")) {
-            document.getElementById("ivaCompra").innerHTML = "$0.00";
-        }
-
-        if (document.getElementById("totalCompra")) {
-            document.getElementById("totalCompra").innerHTML = "$0.00";
-        }
-
-        actualizarContadorVisual();
-        return;
-    }
-
-    for (var i = 0; i < carrito.length; i++) {
-        var producto = carrito[i];
-        var subtotal = producto.precio * producto.cantidad;
-        subtotalGeneral = subtotalGeneral + subtotal;
-
-        tabla.innerHTML +=
-            "<tr>" +
-                "<td>" + producto.nombre + "</td>" +
-
-                "<td class='cantidad-carrito'>" +
-                    "<button type='button' class='btn-cantidad' onclick='disminuirCantidad(" + i + ")'>-</button>" +
-                    "<span>" + producto.cantidad + "</span>" +
-                    "<button type='button' class='btn-cantidad' onclick='aumentarCantidad(" + i + ")'>+</button>" +
-                "</td>" +
-
-                "<td>$" + producto.precio.toFixed(2) + "</td>" +
-                "<td>$" + subtotal.toFixed(2) + "</td>" +
-
-                "<td>" +
-                    "<button type='button' class='btn-eliminar' onclick='eliminarProducto(" + i + ")'>Eliminar</button>" +
-                "</td>" +
-            "</tr>";
-    }
-
-    iva = subtotalGeneral * 0.15;
-    total = subtotalGeneral + iva;
-
-    if (document.getElementById("subtotalCompra")) {
-        document.getElementById("subtotalCompra").innerHTML = "$" + subtotalGeneral.toFixed(2);
-    }
-
-    if (document.getElementById("ivaCompra")) {
-        document.getElementById("ivaCompra").innerHTML = "$" + iva.toFixed(2);
-    }
-
-    if (document.getElementById("totalCompra")) {
-        document.getElementById("totalCompra").innerHTML = "$" + total.toFixed(2);
-    }
-
-    actualizarContadorVisual();
-}
-function aumentarCantidad(indice) {
-    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    carrito[indice].cantidad = carrito[indice].cantidad + 1;
-
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();
-    actualizarContadorVisual();
-}*/
-
-/*function disminuirCantidad(indice) {
-    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    if (carrito[indice].cantidad > 1) {
-        carrito[indice].cantidad = carrito[indice].cantidad - 1;
-    } else {
-        carrito.splice(indice, 1);
-    }
-
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    mostrarCarrito();
-    actualizarContadorVisual();
-}*/
-
-
-
-//ELIMINAR PRODUCTOS 
-/*function eliminarProducto(indice) {
-    // 1. Obtenemos el carrito actual
-    var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-    // 2. Eliminamos el elemento en esa posición del array
-    // .splice(posicion, cuantos_elementos)
-    carrito.splice(indice, 1);
-
-    // 3. Guardamos el nuevo carrito en localStorage
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-
-    // 4. Refrescamos la tabla y el contador del header
-    mostrarCarrito();
-    actualizarContadorVisual();
-    
-    console.log("Producto eliminado. Índice:", indice);
-}
-
-function vaciarCarrito() {
-    localStorage.removeItem("carrito");
-    mostrarCarrito(); // llama internamente a actualizarContadorVisual()
-    alert("Carrito vaciado correctamente.");
-}*/
 
 // registrarCliente
 function registrarCliente(event) {
@@ -710,3 +533,55 @@ window.addEventListener("click", function(evento) {
         cerrarModalProducto();
     }
 });
+
+function validarLogin(formulario) {
+    var email = formulario["email"].value.trim();
+    var clave = formulario["clave"].value.trim();
+
+    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var valido = true;
+
+    limpiarErroresLogin();
+
+    if (email == "") {
+        mostrarErrorCampo("email", "errorEmailLogin", "Debe ingresar el correo electrónico.");
+        valido = false;
+    } else if (!regexEmail.test(email)) {
+        mostrarErrorCampo("email", "errorEmailLogin", "Debe ingresar un correo electrónico válido.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("email");
+    }
+
+    if (clave == "") {
+        mostrarErrorCampo("clave", "errorClaveLogin", "Debe ingresar la contraseña.");
+        valido = false;
+    } else {
+        marcarCampoCorrecto("clave");
+    }
+
+    return valido;
+}
+
+function limpiarErroresLogin() {
+    var campos = ["email", "clave"];
+    var errores = ["errorEmailLogin", "errorClaveLogin"];
+
+    for (var i = 0; i < campos.length; i++) {
+        var campo = document.getElementById(campos[i]);
+
+        if (campo) {
+            campo.classList.remove("campo-error");
+            campo.classList.remove("campo-correcto");
+        }
+    }
+
+    for (var j = 0; j < errores.length; j++) {
+        var error = document.getElementById(errores[j]);
+
+        if (error) {
+            error.innerHTML = "";
+        }
+    }
+}
