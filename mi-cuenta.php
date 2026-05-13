@@ -89,7 +89,7 @@ if ($datos && $datos['fecha_inicio']) {
                         <strong>Correo electrónico</strong>
                         <span><?php echo $datos['email']; ?></span>
                     </div>
-                    <a href="registro.php" class="btn-editar-perfil">Cambiar</a>
+                    <a href="editar_perfil.php" class="btn-editar-perfil">Cambiar</a>
                 </div>
             </div>
 
